@@ -22,7 +22,7 @@
 #define COCAP2_STOLEN   15
 #define TEMPLATE_PATH   "E:\\weixin-hook-4.1.8\\hook-wx\\m3\\template.bin"
 #define IMG_TEMPLATE_PATH   "E:\\weixin-hook-4.1.8\\hook-wx\\m3\\image_template.bin"
-#define IMG_CAP_SIZE    0xA00
+#define IMG_CAP_SIZE    0x1400
 #define STOLEN3         18
 #define POOL_WAIT_RET   0x73225D1ULL  // 池空闲调用点 A (v62 原值, 12412 实测复现)
 #define POOL_WAIT_RET2  0x732D872ULL  // 池空闲调用点 B (12412 实测诊断日志)
@@ -123,6 +123,24 @@ static int WrFresh(unsigned char* obj, u64 off, const char* data, int len) {
     return 2;
 }
 
+// v90: 宽字符字符串写入 (WeChatString/wstring: UTF-16LE)
+static int WrWide(unsigned char* obj, u64 off, const wchar_t* data, int wlen) {
+    unsigned char* p = obj + off;
+    u64 newCap = (u64)wlen | 0xF;
+    if (newCap < 0x16) newCap = 0x16;
+    unsigned char* nb = (unsigned char*)HeapAlloc(GetProcessHeap(), 0, (SIZE_T)(newCap * 2 + 2));
+    if (!nb) return 0;
+    for (int i = 0; i < wlen; i++) {
+        nb[i*2] = (unsigned char)(data[i] & 0xFF);
+        nb[i*2+1] = (unsigned char)(data[i] >> 8);
+    }
+    nb[wlen*2] = 0; nb[wlen*2+1] = 0;
+    *(unsigned char**)p = nb;
+    *(u64*)(p + 0x10) = (u64)wlen;
+    *(u64*)(p + 0x18) = newCap;
+    return 2;
+}
+
 static int B64V(char c) {
     if (c>='A'&&c<='Z') return c-'A'; if (c>='a'&&c<='z') return c-'a'+26;
     if (c>='0'&&c<='9') return c-'0'+52; if (c=='+') return 62; if (c=='/') return 63; return -1;
@@ -219,35 +237,64 @@ static BOOL InstallLogOff(void) {
 // ==== v66b: 协程体改走克隆路线 (工厂路线实测 PC-only/无达; 克隆路线 v62 验证双达) ====
 // 定义移至 FactoryFlush 之后 (依赖克隆实现); 此处仅前向声明供 SpawnAutoFlush 取址。
 static void __fastcall FlushBodyForCo(void* arg);
+static void FactoryFlush(Cmd* a);   // v90 前置声明
+static unsigned char g_compBuf[0x1800];   // v90: 组装器 arg1 全图
+static volatile LONG g_compArmed = 0;     // v90: 捕获完成标志
+volatile u64 g_stubRsp = 0;   // v90: UP1 入口 rsp
+static char g_stagedDir[] = "D:/xwechat_files/wxid_yahr9o9txwt722_1cda/temp/RWTemp/2026-09/9e20f478899dc29eb19741386f9343c8";
 
 // ==== v70: 图片自主发送 ====
 extern unsigned char* g_imgTemplate;   // 定义在 C_helper 区 (v69)
 static void ImageFlush(Cmd* a) {
-    if (!g_imgTemplate || !g_mgr2) return;
-    unsigned char* clone = (unsigned char*)HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, IMG_CAP_SIZE);
+    if (!g_compArmed || !g_mgr2) { LogL("[IMG] not armed"); return; }
+    // 1) 暂存覆盖: 我们的图 → 捕获的暂存路径 (同名覆盖)
+    char name[48];
+    for (int i = 0; i < 44; i++) name[i] = (char)g_compBuf[0x1760 + i];
+    name[44] = 0;
+    char staged[600];
+    wsprintfA(staged, "%s/%s", g_stagedDir, name);
+    if (!CopyFileA(a->content, staged, FALSE)) { LogL("[IMG] stage overwrite fail"); return; }
+    LogL("[IMG] staged file overwritten");
+    // 2) arg1 副本 (0x40)
+    unsigned char* a1 = (unsigned char*)HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, 0x40);
+    if (!a1) return;
+    memcpy(a1, g_compBuf, 0x40);
+    // 3) clone = 图中 obj + 修 self + 新 clientMsgId + +0x120 = 我们的路径
+    unsigned char* clone = (unsigned char*)HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, 0x1400);
     if (!clone) return;
-    memcpy(clone, g_imgTemplate, IMG_CAP_SIZE);
-    *(u64*)(clone + 0x08) = (u64)(ULONG_PTR)clone;        // self
-    *(u64*)(clone + 0x10) = (u64)(ULONG_PTR)(clone - 0x10); // refcount block
-    if (a->targetLen > 0) WrFresh(clone, 0xB0, a->target, a->targetLen);
-    {   // 文件名字符串 (+0x1A8): ptr -> 模板尾部内嵌缓冲 (克隆体内)
-        memcpy(clone + 0x9A0, g_imgTemplate + 0x9A0, 0x60);
-        *(u64*)(clone + 0x1A8) = (u64)(ULONG_PTR)(clone + 0x9A0);
-        // size(+0x1B8)=0x28, cap(+0x1C0)=0x2F 随模板原值
+    memcpy(clone, g_compBuf + 0x140, 0x1400);
+    *(u64*)(clone + 0x08) = (u64)(ULONG_PTR)clone;
+    *(u64*)(clone + 0x10) = (u64)(ULONG_PTR)(clone - 0x10);
+    {   // +0x120 = 我们的图片路径 (UTF-16)
+        int wlen = MultiByteToWideChar(CP_UTF8, 0, a->content, a->contentLen, NULL, 0);
+        if (wlen > 0 && wlen < 1024) {
+            wchar_t* wp = (wchar_t*)HeapAlloc(GetProcessHeap(), 0, (SIZE_T)(wlen * 2 + 2));
+            if (wp) {
+                MultiByteToWideChar(CP_UTF8, 0, a->content, a->contentLen, wp, wlen);
+                WrWide(clone, 0x120, wp, wlen);
+                HeapFree(GetProcessHeap(), 0, wp);
+            }
+        }
     }
     {   // 新 clientMsgId (+0x6F8)
         char au[37]; GenUuid(au);
         WrFresh(clone, 0x6F8, au, 36);
     }
-    LogL("[IMG] calling UP1 flag=1");
-    void* csp[2] = {clone, NULL};
-    UP1_fn up1f = (UP1_fn)(g_base + UP1_RVA);
-    u64 fout[2] = {0, 0};
-    up1f(g_mgr2, fout, (void*)csp, 1);
-    LogL("[IMG] UP1 returned");
+    // +0x1A8 名字字段: ptr → g_compBuf+0x1760 (全局稳定缓冲)
+    *(u64*)(clone + 0x1A8) = (u64)(ULONG_PTR)(g_compBuf + 0x1760);
+    // 4) element {clone, ctrl(图中原值)} + arg1 vector 重定向
+    void* elem[2] = {clone, (void*)(ULONG_PTR)*(u64*)(g_compBuf + 0x48)};
+    *(u64*)(a1 + 8) = (u64)(ULONG_PTR)elem;
+    *(u64*)(a1 + 0x10) = (u64)(ULONG_PTR)(elem + 2);
+    *(u64*)(a1 + 0x18) = (u64)(ULONG_PTR)(elem + 2);
+    // 5) 调组装器 (内部: 取 mgr → UP2 → 0x158 任务 → 提交)
+    typedef void (*CompFn)(void* arg1);
+    CompFn comp = (CompFn)(g_base + 0x19D14C0ULL);
+    LogL("[IMG] calling composer");
+    comp(a1);
+    LogL("[IMG] composer returned");
     g_rw++;
 }
-
 // ==== v66: 空闲自主冲刷 —— 池等待钩子 + CoCreate 派生 (异步, 无内联冲刷) ====
 static volatile u64 g_savedSPPtr = 0;
 static volatile u64 g_up1Tick = 0;      // 最近一次 UP1 触发时刻 (静默闸)
@@ -257,7 +304,6 @@ unsigned char* g_templateObj = 0;
 // v69: 图片(非文本vtable)模板捕获
 unsigned char* g_imgTemplate = 0;
 volatile u64 g_imgVtRva = 0;
-
 static void SpawnAutoFlush(void) {
     CoCreateFn cocreate = (CoCreateFn)(g_base + COCREATE_RVA);
     SchedFn sched = (SchedFn)(g_base + SCHED_RVA);
@@ -589,8 +635,68 @@ void C_helper(void* p3, u64 flag) {
     if (!sp) return;
     unsigned char* obj = (unsigned char*)sp[0];
     if (!obj) return;
+    {   // v92b: vt trace
+        static LONG vtn = 0;
+        if (InterlockedIncrement((volatile LONG*)&vtn) <= 10) {
+            LogHex("[VT] obj=", (u64)(ULONG_PTR)obj);
+            LogHex("[VT] vt=", *(u64*)obj);
+        }
+    }
     if (*(void**)obj != (void*)((u64)g_base + VT_RVA)) {
         // v69: 非文本 vtable (图片等) -> 捕获模板一次
+        if (!g_compArmed) {
+                {   // v90: 栈扫描定位组装器 arg1 (vtable 0x8EF3198) 并捕获全图
+                    u64 w = g_stubRsp;
+                    if (w) {
+                        MEMORY_BASIC_INFORMATION mbi90;
+                        u64 limit = w + 0x6000;
+                        if (VirtualQuery((LPCVOID)w, &mbi90, sizeof(mbi90))) {
+                            u64 stop = (u64)(ULONG_PTR)mbi90.BaseAddress + mbi90.RegionSize;
+                            if (w + 0x6000 > stop - 0x40) limit = stop - 0x40;
+                        }
+                        u64 vtTarget = (u64)(ULONG_PTR)g_base + 0x8EF3198ULL;
+                        u64 arg1 = 0;
+                        for (u64 off = 0; w + off < limit && !arg1; off += 8) {
+                            u64 v = *(u64*)(w + off);
+                            if (v > 0x10000 && v < 0x7fffffffffff && (v & 7) == 0 &&
+                                !IsBadReadPtr((const void*)(ULONG_PTR)v, 0x40)) {
+                                if (*(u64*)(ULONG_PTR)v == vtTarget) arg1 = v;
+                            }
+                        }
+                        if (arg1) {
+                            unsigned char* B = g_compBuf;
+                            for (int i = 0; i < 0x40; i++) B[i] = ((unsigned char*)(ULONG_PTR)arg1)[i];
+                            u64 begin = *(u64*)(B + 8);
+                            u64 end = *(u64*)(B + 0x10);
+                            u64 span = (end > begin && end - begin <= 0x100) ? (end - begin) : 0x10;
+                            if (!IsBadReadPtr((const void*)(ULONG_PTR)begin, (SIZE_T)span)) {
+                                for (u64 i = 0; i < span; i++) B[0x40 + i] = ((unsigned char*)(ULONG_PTR)begin)[i];
+                            }
+                            u64 obj2 = *(u64*)(B + 0x40);
+                            u64 ctrl2 = *(u64*)(B + 0x48);
+                            if (obj2 && !IsBadReadPtr((const void*)(ULONG_PTR)obj2, 0x1400)) {
+                                for (int i = 0; i < 0x1400; i++) B[0x140 + i] = ((unsigned char*)(ULONG_PTR)obj2)[i];
+                            }
+                            if (ctrl2 && !IsBadReadPtr((const void*)(ULONG_PTR)ctrl2, 0x20)) {
+                                for (int i = 0; i < 0x20; i++) B[0x1540 + i] = ((unsigned char*)(ULONG_PTR)ctrl2)[i];
+                            }
+                            u64 nptr = *(u64*)(B + 0x140 + 0x1A8);
+                            if (nptr && !IsBadReadPtr((const void*)(ULONG_PTR)nptr, 0x30)) {
+                                for (int i = 0; i < 0x30; i++) B[0x1760 + i] = ((unsigned char*)(ULONG_PTR)nptr)[i];
+                            }
+                            InterlockedExchange((volatile LONG*)&g_compArmed, 1);
+                            LogL("[CAP] arg1 graph armed");
+                        } else {
+                            LogL("[CAP] arg1 not found on stack");
+                            if (!IsBadReadPtr((const void*)(ULONG_PTR)w, 0x400)) {
+                                for (int off = 0; off < 0x400; off += 0x40) {
+                                    LogBytes("[STACK] ", (const unsigned char*)(ULONG_PTR)(w + off), 0x40);
+                                }
+                            }
+                        }
+                    }
+                }
+        }
         if (!g_imgTemplate) {
             u64 vt = *(u64*)obj;
             g_imgVtRva = vt - (u64)(ULONG_PTR)g_base;
@@ -721,6 +827,7 @@ __asm__(
 ".text\n"
 ".globl hook_stub\n"
 "hook_stub:\n"
+"  mov %rsp, g_stubRsp(%rip)\n"
 "  mov %rcx, g_mgr2(%rip)\n"
 "  push %rcx\n"
 "  push %rdx\n"
@@ -805,14 +912,22 @@ static void HandleClient(HANDLE pipe) {
     } else if (pos >= 6 && req[0]=='A' && req[1]=='I' && req[2]=='M' && req[3]=='G' && req[4]=='|') {
         char* p2 = req + 5;
         char* sep = p2; while (*sep && *sep != '|') sep++;
-        Cmd cmd; cmd.targetLen = 0; cmd.flags = 4;
+        Cmd cmd; cmd.targetLen = 0; cmd.flags = 4; cmd.contentLen = -1;
+        char* b64p = 0;
         if (*sep == '|') {
             *sep = 0;
+            b64p = sep + 1;
             for (char* s = p2; *s && cmd.targetLen < (int)sizeof(cmd.target)-1; s++) cmd.target[cmd.targetLen++] = *s;
         }
         cmd.target[cmd.targetLen] = 0;
-        cmd.contentLen = 0; cmd.content[0] = 0;
-        if (QPushA(&cmd)) lstrcpyA(resp, "OK aimg\n"); else lstrcpyA(resp, "ERR full\n");
+        if (b64p) {
+            cmd.contentLen = B64D(b64p, lstrlenA(b64p), cmd.content, (int)sizeof(cmd.content) - 1);
+            if (cmd.contentLen < 0) { lstrcpyA(resp, "ERR b64\n"); }
+        }
+        if (cmd.contentLen >= 0) {
+            cmd.content[cmd.contentLen] = 0;
+            if (QPushA(&cmd)) lstrcpyA(resp, "OK aimg\n"); else lstrcpyA(resp, "ERR full\n");
+        }
     } else if (pos == 6 && req[0]=='S') {
         wsprintfA(resp, "OK hits=%I64u rw=%I64u q=%ld aq=%ld pump=%I64u exec=%I64u mgr=%I64u img=%I64u\r\n", g_hits, g_rw, (g_qSH-g_qST+QCAP)%QCAP, (g_qAH-g_qAT+QCAP)%QCAP, g_pumpHits, g_sessExec, g_mgr2, g_imgVtRva);
     }
