@@ -65,3 +65,4 @@ desktop.ini
 m3/*.txt
 m3/*.json
 m3/*.c
+!docs/M5计划-对标wxhelper功能规划.md
