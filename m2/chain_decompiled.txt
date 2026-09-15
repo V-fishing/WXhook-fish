@@ -1,0 +1,199 @@
+INFO  Using log config file: jar:file:/E:/weixin-hook-4.1.8/hook-wx/toolchain/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml (LoggingInitialization)  
+INFO  Using log file: C:\Users\fish\AppData\Roaming\ghidra\ghidra_11.3.2_PUBLIC\application.log (LoggingInitialization)  
+INFO  Loading user preferences: C:\Users\fish\AppData\Roaming\ghidra\ghidra_11.3.2_PUBLIC\preferences (Preferences)  
+INFO  Searching for classes... (ClassSearcher)  
+INFO  Class search complete (896 ms) (ClassSearcher)  
+INFO  Initializing SSL Context (SSLContextInitializer)  
+INFO  Initializing Random Number Generator... (SecureRandomFactory)  
+INFO  Random Number Generator initialization complete: SHA1PRNG (SecureRandomFactory)  
+INFO  Trust manager disabled, cacerts have not been set (ApplicationTrustManagerFactory)  
+INFO  Headless startup complete (2456 ms) (AnalyzeHeadless)  
+INFO  Class searcher loaded 57 extension points (18 false positives) (ClassSearcher)  
+INFO  HEADLESS Script Paths:
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Processors\PIC\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\FileFormats\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\GnuDemangler\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\SystemEmulation\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Processors\Atmel\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Debug\Debugger\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\m2
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\PDB\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\DecompilerDependent\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\PyGhidra\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\Jython\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\BytePatterns\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Processors\DATA\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Debug\Debugger-rmi-trace\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\VersionTracking\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Processors\JVM\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\Base\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\FunctionID\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Processors\8051\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\SwiftDemangler\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\WildcardAssembler\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\BSim\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\Decompiler\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\MicrosoftCodeAnalyzer\ghidra_scripts (HeadlessAnalyzer)  
+INFO  HEADLESS: execution starts (HeadlessAnalyzer)  
+INFO  Opening existing project: E:\weixin-hook-4.1.8\hook-wx\ghidra_project\Weixin4113 (HeadlessAnalyzer)  
+INFO  Opening project: E:\weixin-hook-4.1.8\hook-wx\ghidra_project\Weixin4113 (HeadlessProject)  
+INFO  REPORT: Processing project file: /Weixin.dll (HeadlessAnalyzer)  
+INFO  SCRIPT: E:\weixin-hook-4.1.8\hook-wx\m2\decompile_chain.py (HeadlessAnalyzer)  
+======================================================================
+DECOMPILING SEND CHAIN
+======================================================================
+
+===== Disp_11DB (rva 0x6EC950, FUN_1806ec950, body 1806ec950 .. 1806eca6c) =====
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined8 * FUN_1806ec950(undefined8 param_1,undefined8 *param_2)
+
+{
+  longlong *plVar1;
+  int *piVar2;
+  undefined8 uVar3;
+  longlong *plVar4;
+  undefined8 local_88;
+  longlong *plStack_80;
+  undefined8 local_78;
+  longlong *plStack_70;
+  undefined8 local_68;
+  longlong *plStack_60;
+  undefined **local_50;
+  undefined8 local_48;
+  undefined8 uStack_40;
+  undefined8 local_30;
+  
+  plVar4 = _UNK_188ad27c8;
+  uVar3 = _DAT_188ad27c0;
+  local_30 = 0xfffffffffffffffe;
+  local_50 = &PTR_FUN_188bda678;
+  local_78 = _DAT_188ad27c0;
+  plStack_70 = _UNK_188ad27c8;
+  local_88 = _DAT_188ad27c0;
+  plStack_80 = _UNK_188ad27c8;
+  FUN_1802f10c0(param_1,&local_88,&local_50);
+  local_68 = uVar3;
+  plStack_60 = plVar4;
+  FUN_180462b70(&local_68);
+  if ((char)plStack_70 == '\x01') {
+    FUN_180057860(&local_48,&local_88);
+    *(undefined4 *)param_2 = (undefined4)local_48;
+    *(undefined4 *)((longlong)param_2 + 4) = local_48._4_4_;
+    *(undefined4 *)(param_2 + 1) = (undefined4)uStack_40;
+    *(undefined4 *)((longlong)param_2 + 0xc) = uStack_40._4_4_;
+  }
+  else {
+    local_48 = uVar3;
+    uStack_40 = plVar4;
+    FUN_1802eff20(param_1,&local_48,&local_50);
+    plVar4 = uStack_40;
+    if (uStack_40 == (longlong *)0x0) {
+      *param_2 = local_48;
+      param_2[1] = 0;
+    }
+    else {
+      LOCK();
+      *(int *)(uStack_40 + 1) = (int)uStack_40[1] + 1;
+      UNLOCK();
+      *param_2 = local_48;
+      param_2[1] = uStack_40;
+      if (uStack_40 != (longlong *)0x0) {
+        LOCK();
+        plVar1 = uStack_40 + 1;
+        *(int *)plVar1 = (int)*plVar1 + -1;
+        UNLOCK();
+        if ((int)*plVar1 == 0) {
+          (**(code **)*uStack_40)(uStack_40);
+          LOCK();
+          piVar2 = (int *)((longlong)plVar4 + 0xc);
+          *piVar2 = *piVar2 + -1;
+          UNLOCK();
+          if (*piVar2 == 0) {
+            (**(code **)(*plVar4 + 8))(plVar4);
+          }
+        }
+      }
+    }
+  }
+  FUN_180462c50(&local_68);
+  plVar4 = plStack_80;
+  if (((char)plStack_70 == '\x01') && (plStack_80 != (longlong *)0x0)) {
+    LOCK();
+    plVar1 = plStack_80 + 1;
+    *(int *)plVar1 = (int)*plVar1 + -1;
+    UNLOCK();
+    if ((int)*plVar1 == 0) {
+      (**(code **)*plStack_80)(plStack_80);
+      LOCK();
+      piVar2 = (int *)((longlong)plVar4 + 0xc);
+      *piVar2 = *piVar2 + -1;
+      UNLOCK();
+      if (*piVar2 == 0) {
+        (**(code **)(*plVar4 + 8))(plVar4);
+      }
+    }
+  }
+  return param_2;
+}
+
+
+!! no function at 0x19D14C0 (Handler_1DBB)
+
+===== Thunk_D7B (rva 0x389D30, FUN_180389d30, body 180389d30 .. 180389e06) =====
+
+void FUN_180389d30(undefined8 param_1)
+
+{
+  longlong *plVar1;
+  int *piVar2;
+  longlong local_38;
+  longlong *local_30;
+  undefined8 local_28;
+  
+  local_28 = 0xfffffffffffffffe;
+  FUN_18045fe90(&local_38);
+  if (local_30 != (longlong *)0x0) {
+    LOCK();
+    plVar1 = local_30 + 1;
+    *(int *)plVar1 = (int)*plVar1 + -1;
+    UNLOCK();
+    if ((int)*plVar1 == 0) {
+      (**(code **)*local_30)(local_30);
+      LOCK();
+      piVar2 = (int *)((longlong)local_30 + 0xc);
+      *piVar2 = *piVar2 + -1;
+      UNLOCK();
+      if (*piVar2 == 0) {
+        (**(code **)(*local_30 + 8))(local_30);
+      }
+    }
+  }
+  if (local_38 == 0) {
+    *(undefined8 *)
+     (*(longlong *)((longlong)ThreadLocalStoragePointer + (ulonglong)_tls_index * 8) + 200) =
+         param_1;
+  }
+  else {
+    if (*(int *)(*(longlong *)((longlong)ThreadLocalStoragePointer + (ulonglong)_tls_index * 8) +
+                0xc4) < DAT_18b5d82c8) {
+      FUN_187165a80(&DAT_18b5d82c8);
+      if (DAT_18b5d82c8 == -1) {
+        DAT_18b5d82c0 = FUN_180461970(0);
+        _Init_thread_footer(&DAT_18b5d82c8);
+      }
+    }
+    FUN_180461c60(DAT_18b5d82c0,param_1);
+  }
+  return;
+}
+
+
+!! no function at 0xDBA100 (Callback_13BB)
+!! no function at 0x464950 (UIHandler_486B)
+!! no function at 0x27F4930 (UI_175B)
+!! no function at 0x72F241C (UI_70B)
+======================================================================
+DONE
+INFO  REPORT: Save succeeded for processed file: /Weixin.dll (HeadlessAnalyzer)  

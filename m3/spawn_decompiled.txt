@@ -1,0 +1,685 @@
+INFO  Using log config file: jar:file:/E:/weixin-hook-4.1.8/hook-wx/toolchain/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml (LoggingInitialization)  
+INFO  Using log file: C:\Users\fish\AppData\Roaming\ghidra\ghidra_11.3.2_PUBLIC\application.log (LoggingInitialization)  
+INFO  Loading user preferences: C:\Users\fish\AppData\Roaming\ghidra\ghidra_11.3.2_PUBLIC\preferences (Preferences)  
+INFO  Searching for classes... (ClassSearcher)  
+INFO  Class search complete (757 ms) (ClassSearcher)  
+INFO  Initializing SSL Context (SSLContextInitializer)  
+INFO  Initializing Random Number Generator... (SecureRandomFactory)  
+INFO  Random Number Generator initialization complete: SHA1PRNG (SecureRandomFactory)  
+INFO  Trust manager disabled, cacerts have not been set (ApplicationTrustManagerFactory)  
+INFO  Headless startup complete (2238 ms) (AnalyzeHeadless)  
+INFO  Class searcher loaded 57 extension points (18 false positives) (ClassSearcher)  
+INFO  HEADLESS Script Paths:
+    E:\weixin-hook-4.1.8\hook-wx\m3
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Processors\PIC\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\FileFormats\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\GnuDemangler\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\SystemEmulation\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Processors\Atmel\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Debug\Debugger\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\PDB\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\DecompilerDependent\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\PyGhidra\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\Jython\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\BytePatterns\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Processors\DATA\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Debug\Debugger-rmi-trace\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\VersionTracking\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Processors\JVM\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\Base\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\FunctionID\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Processors\8051\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\SwiftDemangler\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\WildcardAssembler\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\BSim\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\Decompiler\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\MicrosoftCodeAnalyzer\ghidra_scripts (HeadlessAnalyzer)  
+INFO  HEADLESS: execution starts (HeadlessAnalyzer)  
+INFO  Opening existing project: E:\weixin-hook-4.1.8\hook-wx\ghidra_project\Weixin4113 (HeadlessAnalyzer)  
+INFO  Opening project: E:\weixin-hook-4.1.8\hook-wx\ghidra_project\Weixin4113 (HeadlessProject)  
+INFO  REPORT: Processing project file: /Weixin.dll (HeadlessAnalyzer)  
+INFO  SCRIPT: E:\weixin-hook-4.1.8\hook-wx\m3\decompile_spawn.py (HeadlessAnalyzer)  
+======================================================================
+
+===== CoroutineSpawn_67EB (rva 0x465BB0, body 180465bb0 .. 18046622d) =====
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined8 *
+FUN_180465bb0(undefined8 *param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+             undefined8 *param_5)
+
+{
+  longlong lVar1;
+  bool bVar2;
+  code *pcVar3;
+  char cVar4;
+  longlong lVar5;
+  ulonglong uVar6;
+  undefined8 ****ppppuVar7;
+  undefined8 *puVar8;
+  undefined8 *puVar9;
+  ulonglong uVar10;
+  ulonglong uVar11;
+  undefined8 *****pppppuVar12;
+  undefined8 ****local_1c8;
+  undefined8 uStack_1c0;
+  ulonglong local_1b8;
+  ulonglong local_1b0;
+  undefined8 local_d8;
+  undefined4 uStack_d0;
+  undefined4 uStack_cc;
+  undefined4 uStack_c8;
+  undefined4 uStack_c4;
+  undefined4 local_c0;
+  undefined4 uStack_bc;
+  undefined8 uStack_b8;
+  undefined4 local_b0;
+  undefined4 uStack_ac;
+  undefined4 uStack_a8;
+  undefined4 uStack_a4;
+  undefined4 local_a0;
+  undefined4 uStack_9c;
+  undefined8 uStack_98;
+  undefined4 local_90;
+  undefined4 uStack_8c;
+  undefined8 uStack_88;
+  undefined4 local_80;
+  undefined4 uStack_7c;
+  undefined4 uStack_78;
+  undefined4 uStack_74;
+  undefined4 local_70;
+  undefined4 uStack_6c;
+  undefined4 uStack_68;
+  undefined4 uStack_64;
+  undefined8 local_60;
+  undefined8 *local_58;
+  undefined8 *local_50;
+  undefined8 local_48;
+  
+  local_48 = 0xfffffffffffffffe;
+  *param_1 = 0;
+  param_1[1] = 0;
+  local_58 = param_1 + 0x95;
+  param_1[0x6d] = 0;
+  param_1[0x6e] = 0;
+  param_1[0x6f] = 0;
+  param_1[0x70] = 0;
+  *(undefined4 *)(param_1 + 0x71) = 0;
+  param_1[0x92] = 0;
+  param_1[0x93] = 0;
+  param_1[0x94] = 0;
+  param_1[0x95] = 0;
+  param_1[0x96] = 0;
+  param_1[0x97] = 0;
+  param_1[0x98] = 0xf;
+  param_1[0x99] = 0;
+  *(undefined4 *)(param_1 + 0x9a) = 0x32;
+  param_1[0x9b] = 0;
+  param_1[0x9c] = 0;
+  param_1[0x9d] = 0;
+  param_1[0x9e] = 0;
+  *(undefined1 *)(param_1 + 0x9f) = 0;
+  param_1[0x6a] = param_2;
+  param_1[0x6c] = param_3;
+  param_1[0x6b] = param_4;
+  LOCK();
+  UNLOCK();
+  lVar5 = DAT_18b5d8310 + 1;
+  DAT_18b5d8310 = DAT_18b5d8310 + 1;
+  param_1[0x94] = lVar5;
+  uVar11 = param_5[2];
+  local_50 = param_1;
+  if (uVar11 == 0) {
+    if ((ulonglong)param_1[0x98] < 10) {
+      FUN_1800556e0(local_58,10,param_3,"coroutine_");
+    }
+    else {
+      puVar8 = local_58;
+      if (0xf < (ulonglong)param_1[0x98]) {
+        puVar8 = (undefined8 *)*local_58;
+      }
+      param_1[0x97] = 10;
+      *puVar8 = 0x6e6974756f726f63;
+      *(undefined2 *)(puVar8 + 1) = 0x5f65;
+      *(undefined1 *)((longlong)puVar8 + 10) = 0;
+    }
+    lVar5 = (longlong)&uStack_c4 + 1;
+    uStack_c8 = 0xaaaaaaaa;
+    uStack_c4 = CONCAT31(uStack_c4._1_3_,0xaa);
+    local_d8 = CONCAT44(_UNK_188ad27c4,_DAT_188ad27c0);
+    uStack_d0 = _UNK_188ad27c8;
+    uStack_cc = _UNK_188ad27cc;
+    uVar10 = 0;
+    uVar11 = local_50[0x94];
+    do {
+      *(byte *)(lVar5 + -1) = (char)uVar11 + (char)(uVar11 / 10) * -10 | 0x30;
+      lVar5 = lVar5 + -1;
+      uVar10 = uVar10 + 1;
+      bVar2 = 9 < uVar11;
+      uVar11 = uVar11 / 10;
+    } while (bVar2);
+    local_1c8 = (undefined8 *****)0x0;
+    uStack_1c0 = 0;
+    if ((longlong)uVar10 < 0) {
+      FUN_180008c20();
+LAB_180466228:
+      FUN_1872f7bac();
+      pcVar3 = (code *)swi(3);
+      puVar8 = (undefined8 *)(*pcVar3)();
+      return puVar8;
+    }
+    uVar11 = 0xf;
+    pppppuVar12 = &local_1c8;
+    if (0xf < uVar10) {
+      uVar6 = uVar10 | 0xf;
+      uVar11 = 0x16;
+      if (0x16 < uVar6) {
+        uVar11 = uVar6;
+      }
+      if (uVar6 < 0xfff) {
+        pppppuVar12 = (undefined8 *****)operator_new(uVar11 + 1);
+        local_1c8 = pppppuVar12;
+      }
+      else {
+        ppppuVar7 = (undefined8 ****)operator_new(uVar11 + 0x28);
+        if (ppppuVar7 == (undefined8 ****)0x0) goto LAB_180466228;
+        pppppuVar12 = (undefined8 *****)((longlong)ppppuVar7 + 0x27U & 0xffffffffffffffe0);
+        pppppuVar12[-1] = ppppuVar7;
+        local_1c8 = pppppuVar12;
+      }
+    }
+    puVar8 = local_50;
+    local_1b8 = uVar10;
+    local_1b0 = uVar11;
+    FUN_18732e860(pppppuVar12,lVar5,uVar10);
+    *(undefined1 *)((longlong)pppppuVar12 + uVar10) = 0;
+    uVar11 = local_1b0;
+    pppppuVar12 = &local_1c8;
+    if (0xf < local_1b0) {
+      pppppuVar12 = (undefined8 *****)local_1c8;
+    }
+    lVar5 = puVar8[0x97];
+    uVar10 = puVar8[0x98] - lVar5;
+    if (uVar10 < local_1b8) {
+      FUN_180009450(local_58,local_1b8,uVar10,pppppuVar12,local_1b8);
+      uVar11 = local_1b0;
+    }
+    else {
+      lVar1 = lVar5 + local_1b8;
+      puVar8[0x97] = lVar1;
+      puVar9 = local_58;
+      if (0xf < (ulonglong)puVar8[0x98]) {
+        puVar9 = (undefined8 *)*local_58;
+      }
+      FUN_18732e860(lVar5 + (longlong)puVar9,pppppuVar12,local_1b8);
+      *(undefined1 *)((longlong)puVar9 + lVar1) = 0;
+    }
+    if (0xf < uVar11) {
+      uVar10 = uVar11 + 1;
+      pppppuVar12 = (undefined8 *****)local_1c8;
+      if (0xfff < uVar10) {
+        pppppuVar12 = (undefined8 *****)((undefined8 *****)local_1c8)[-1];
+        if (0x1f < (ulonglong)((longlong)local_1c8 + (-8 - (longlong)pppppuVar12)))
+        goto LAB_180466228;
+        uVar10 = uVar11 + 0x28;
+      }
+      thunk_FUN_187306488(pppppuVar12,uVar10);
+    }
+  }
+  else if (local_58 != param_5) {
+    puVar8 = param_5;
+    if (0xf < (ulonglong)param_5[3]) {
+      puVar8 = (undefined8 *)*param_5;
+    }
+    if ((ulonglong)param_1[0x98] < uVar11) {
+      FUN_1800556e0(local_58,uVar11);
+    }
+    else {
+      puVar9 = local_58;
+      if (0xf < (ulonglong)param_1[0x98]) {
+        puVar9 = (undefined8 *)*local_58;
+      }
+      param_1[0x97] = uVar11;
+      FUN_18732e860(puVar9,puVar8,uVar11);
+      *(undefined1 *)((longlong)puVar9 + uVar11) = 0;
+    }
+  }
+  puVar8 = local_50;
+  if (-1 < *(int *)(param_5 + 7)) {
+    *(int *)(local_50 + 0x9a) = *(int *)(param_5 + 7);
+  }
+  FUN_18732ef00(local_50 + 2,0,0x340);
+  puVar9 = local_58;
+  puVar8[0x6d] = param_5[4];
+  puVar8[0x6e] = param_5[5];
+  puVar8[0x70] = param_5[6];
+  puVar8[0x90] = 0;
+  puVar8[0x91] = 0;
+  puVar8[0x8e] = 0;
+  puVar8[0x8f] = 0;
+  puVar8[0x8c] = 0;
+  puVar8[0x8d] = 0;
+  puVar8[0x8a] = 0;
+  puVar8[0x8b] = 0;
+  puVar8[0x88] = 0;
+  puVar8[0x89] = 0;
+  puVar8[0x86] = 0;
+  puVar8[0x87] = 0;
+  puVar8[0x84] = 0;
+  puVar8[0x85] = 0;
+  puVar8[0x82] = 0;
+  puVar8[0x83] = 0;
+  puVar8[0x80] = 0;
+  puVar8[0x81] = 0;
+  puVar8[0x7e] = 0;
+  puVar8[0x7f] = 0;
+  puVar8[0x7c] = 0;
+  puVar8[0x7d] = 0;
+  puVar8[0x7a] = 0;
+  puVar8[0x7b] = 0;
+  puVar8[0x78] = 0;
+  puVar8[0x79] = 0;
+  puVar8[0x76] = 0;
+  puVar8[0x77] = 0;
+  puVar8[0x74] = 0;
+  puVar8[0x75] = 0;
+  puVar8[0x72] = 0;
+  puVar8[0x73] = 0;
+  LOCK();
+  puVar8[0x9e] = 0;
+  UNLOCK();
+  LOCK();
+  *(undefined1 *)(puVar8 + 0x9f) = 1;
+  UNLOCK();
+  if ((*(int *)(*(longlong *)((longlong)ThreadLocalStoragePointer + (ulonglong)_tls_index * 8) +
+               0xc4) < DAT_18b5d8420) && (FUN_187165a80(&DAT_18b5d8420), DAT_18b5d8420 == -1)) {
+    FUN_180462a80(&DAT_18b5d8320);
+    _Init_thread_footer(&DAT_18b5d8420);
+    puVar8 = local_50;
+    puVar9 = local_58;
+  }
+  FUN_180466360(&DAT_18b5d83a0,puVar8[0x94],puVar9,0);
+  cVar4 = FUN_180d9e810(1);
+  if (cVar4 != '\0') {
+    FUN_180d9e850(&local_1c8,&DAT_188b7ed18,"coroutine","co_core.cpp",0x12900002800);
+    pppppuVar12 = (undefined8 *****)(local_1c8 + 0xf);
+    if ((undefined8 ****)0xf < local_1c8[0x12]) {
+      pppppuVar12 = (undefined8 *****)*pppppuVar12;
+    }
+    uStack_6c = _UNK_188ad27c4;
+    uStack_64 = _UNK_188ad27cc;
+    uStack_7c = _UNK_188ad27c4;
+    uStack_74 = _UNK_188ad27cc;
+    uStack_8c = _UNK_188ad27c4;
+    uStack_9c = _UNK_188ad27c4;
+    uStack_ac = _UNK_188ad27c4;
+    uStack_a4 = _UNK_188ad27cc;
+    uStack_bc = _UNK_188ad27c4;
+    uStack_cc = _UNK_188ad27c4;
+    local_d8 = local_50[0x94];
+    uStack_d0 = 0xb;
+    local_c0 = 0x10;
+    puVar8 = local_58;
+    if (0xf < (ulonglong)local_50[0x98]) {
+      puVar8 = (undefined8 *)local_50[0x95];
+    }
+    uStack_c8 = SUB84(puVar8,0);
+    uStack_c4 = (undefined4)((ulonglong)puVar8 >> 0x20);
+    uStack_b8 = local_50[0x70];
+    local_b0 = 0xb;
+    uStack_a8 = *(undefined4 *)(local_50 + 0x9a);
+    local_a0 = 6;
+    uStack_98 = local_50[0x6d];
+    local_90 = 0xf;
+    uStack_88 = local_50[0x6e];
+    local_80 = 0xf;
+    uStack_78 = *(undefined4 *)((longlong)param_5 + 0x3c);
+    local_70 = 7;
+    local_60 = 0xaaaaaaaa00000006;
+    uStack_68 = 0;
+    FUN_180d9f220(local_1c8 + 7,
+                  "coroutine create : id %_, name \"%_\", stack_size %_, priority %_, exec %_, alloc %_, flags 0x%x"
+                  ,pppppuVar12,&local_d8,7);
+    FUN_180d9e8e0();
+    FUN_180d9e8f0(&local_1c8);
+  }
+  return local_50;
+}
+
+
+
+===== Co_A_315B (rva 0x464ED0, body 180464ed0 .. 1804651e4) =====
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_180464ed0(longlong param_1)
+
+{
+  ulonglong uVar1;
+  undefined4 uVar2;
+  char cVar3;
+  ulonglong uVar4;
+  longlong *plVar5;
+  longlong lVar6;
+  ulonglong uVar7;
+  longlong lVar8;
+  longlong local_288 [7];
+  undefined1 local_250 [64];
+  undefined8 **local_210 [3];
+  ulonglong local_1f8;
+  ulonglong local_198;
+  undefined4 local_190;
+  undefined4 uStack_18c;
+  ulonglong uStack_188;
+  undefined4 local_180;
+  undefined4 uStack_17c;
+  ulonglong uStack_178;
+  undefined8 local_170;
+  undefined8 local_a8;
+  undefined4 local_a0;
+  undefined4 uStack_9c;
+  longlong lStack_98;
+  undefined4 local_90;
+  undefined4 uStack_8c;
+  ulonglong uStack_88;
+  undefined4 local_80;
+  undefined4 uStack_7c;
+  ulonglong uStack_78;
+  undefined4 local_70;
+  undefined4 uStack_6c;
+  ulonglong uStack_68;
+  undefined8 local_60;
+  char local_51;
+  undefined8 local_50;
+  
+  local_50 = 0xfffffffffffffffe;
+  uVar4 = FUN_1805458b0(param_1 + 0x1b0);
+  uVar7 = *(longlong *)(param_1 + 0x378) + *(longlong *)(param_1 + 0x380);
+  if (uVar4 < uVar7) {
+    cVar3 = '\0';
+    plVar5 = (longlong *)FUN_180d9f660();
+  }
+  else {
+    lVar6 = FUN_180d9e5f0(5);
+    if (lVar6 == 0) {
+      cVar3 = '\0';
+      plVar5 = (longlong *)FUN_180d9f850();
+    }
+    else {
+      plVar5 = local_288;
+      FUN_180d9e850(plVar5,&DAT_188b7ed18,"do_backup_stack_","co_core.cpp",0x25b0000a800);
+      if (local_1f8 < 0x10) {
+        local_210[0] = local_210;
+      }
+      local_51 = 1;
+      cVar3 = '\x01';
+      FUN_1804639e0(local_250,"Assertion failed: (%_)",local_210[0],"sp < top");
+    }
+  }
+  uVar1 = _UNK_188ad27c8;
+  lVar6 = *plVar5;
+  plVar5 = (longlong *)(lVar6 + 0x78);
+  if (0xf < *(ulonglong *)(lVar6 + 0x90)) {
+    plVar5 = (longlong *)*plVar5;
+  }
+  uStack_18c = (undefined4)((ulonglong)_DAT_188ad27c0 >> 0x20);
+  uVar2 = uStack_18c;
+  _local_190 = CONCAT44(uStack_18c,0xb);
+  _local_180 = CONCAT44(uStack_18c,0xb);
+  local_170 = 0xaaaaaaaa00000006;
+  uStack_178 = _UNK_188ad27c8 & 0xffffffff00000000;
+  local_198 = uVar4;
+  uStack_188 = uVar7;
+  local_51 = cVar3;
+  FUN_180d9f220(lVar6 + 0x38,", sp = %_, top = %_",plVar5,&local_198,2);
+  if (cVar3 != '\0') {
+    FUN_180d9e8f0(local_288);
+  }
+  uVar7 = uVar7 - uVar4;
+  cVar3 = FUN_180d9e810(0);
+  if (cVar3 != '\0') {
+    FUN_180d9e850(&local_198,&DAT_188b7ed18,"do_backup_stack_","co_core.cpp",0x25d00000800);
+    plVar5 = (longlong *)(local_198 + 0x78);
+    if (0xf < *(ulonglong *)(local_198 + 0x90)) {
+      plVar5 = (longlong *)*plVar5;
+    }
+    local_a8 = *(undefined8 *)(param_1 + 0x4a0);
+    _local_a0 = CONCAT44(uVar2,0xb);
+    _local_90 = CONCAT44(uVar2,0x10);
+    if (*(ulonglong *)(param_1 + 0x4c0) < 0x10) {
+      lStack_98 = param_1 + 0x4a8;
+    }
+    else {
+      lStack_98 = *(longlong *)(param_1 + 0x4a8);
+    }
+    _local_80 = CONCAT44(uVar2,0xb);
+    _local_70 = CONCAT44(uVar2,0xb);
+    local_60 = 0xaaaaaaaa00000006;
+    uStack_68 = uVar1 & 0xffffffff00000000;
+    uStack_88 = uVar7;
+    uStack_78 = uVar4;
+    FUN_180d9f220(local_198 + 0x38,"coroutine backup : id %_, name \"%_\", size %_, start %x",plVar5
+                  ,&local_a8,4);
+    FUN_180d9e8e0();
+    FUN_180d9e8f0(&local_198);
+  }
+  lVar8 = (uVar7 & 0xfffffffffffffc00) + 0x400;
+  lVar6 = *(longlong *)(param_1 + 0x4d8);
+  if (lVar6 != 0) {
+    if (uVar7 <= *(ulonglong *)(param_1 + 0x4e8)) goto LAB_1804651bc;
+    FUN_187306488();
+  }
+  lVar6 = _malloc_base(lVar8);
+  *(longlong *)(param_1 + 0x4d8) = lVar6;
+  *(longlong *)(param_1 + 0x4e8) = lVar8;
+LAB_1804651bc:
+  FUN_18732e860(lVar6,uVar4,uVar7);
+  *(ulonglong *)(param_1 + 0x4e0) = uVar7;
+  return;
+}
+
+
+
+===== Co_B_18BB (rva 0x465280, body 180465280 .. 18046540a) =====
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_180465280(longlong param_1)
+
+{
+  char cVar1;
+  longlong lVar2;
+  longlong *plVar3;
+  longlong local_160 [30];
+  undefined8 local_70;
+  undefined4 local_68;
+  undefined4 uStack_64;
+  longlong lStack_60;
+  undefined4 local_58;
+  undefined4 uStack_54;
+  undefined8 uStack_50;
+  undefined4 local_48;
+  undefined4 uStack_44;
+  longlong lStack_40;
+  undefined4 local_38;
+  undefined4 uStack_34;
+  undefined4 uStack_30;
+  undefined4 uStack_2c;
+  undefined8 local_28;
+  undefined8 local_20;
+  
+  local_20 = 0xfffffffffffffffe;
+  lVar2 = (*(longlong *)(param_1 + 0x378) + *(longlong *)(param_1 + 0x380)) -
+          *(longlong *)(param_1 + 0x4e0);
+  cVar1 = FUN_180d9e810(0);
+  if (cVar1 != '\0') {
+    FUN_180d9e850(local_160,&DAT_188b7ed18,"do_restore_stack_","co_core.cpp",0x26500000800);
+    plVar3 = (longlong *)(local_160[0] + 0x78);
+    if (0xf < *(ulonglong *)(local_160[0] + 0x90)) {
+      plVar3 = (longlong *)*plVar3;
+    }
+    uStack_50 = *(undefined8 *)(param_1 + 0x4e0);
+    uStack_34 = _UNK_188ad27c4;
+    uStack_2c = _UNK_188ad27cc;
+    uStack_44 = _UNK_188ad27c4;
+    uStack_54 = _UNK_188ad27c4;
+    uStack_64 = _UNK_188ad27c4;
+    local_70 = *(undefined8 *)(param_1 + 0x4a0);
+    local_68 = 0xb;
+    local_58 = 0x10;
+    if (*(ulonglong *)(param_1 + 0x4c0) < 0x10) {
+      lStack_60 = param_1 + 0x4a8;
+    }
+    else {
+      lStack_60 = *(longlong *)(param_1 + 0x4a8);
+    }
+    local_48 = 0xb;
+    local_38 = 0xb;
+    local_28 = 0xaaaaaaaa00000006;
+    uStack_30 = 0;
+    lStack_40 = lVar2;
+    FUN_180d9f220(local_160[0] + 0x38,"coroutine restore: id %_, name \"%_\", size %_, start %x",
+                  plVar3,&local_70,4);
+    FUN_180d9e8e0();
+    FUN_180d9e8f0(local_160);
+  }
+  FUN_18732e860(lVar2,*(undefined8 *)(param_1 + 0x4d8),*(undefined8 *)(param_1 + 0x4e0));
+  return;
+}
+
+
+
+===== Co_C_30CB (rva 0x465440, body 180465440 .. 18046574b) =====
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_180465440(longlong param_1)
+
+{
+  int *piVar1;
+  code *pcVar2;
+  char cVar3;
+  int iVar4;
+  longlong lVar5;
+  void *pvVar6;
+  longlong lVar7;
+  longlong *plVar8;
+  longlong local_150;
+  longlong *local_148;
+  longlong local_60;
+  undefined4 local_58;
+  undefined4 uStack_54;
+  longlong lStack_50;
+  undefined4 local_48;
+  undefined4 uStack_44;
+  undefined4 uStack_40;
+  undefined4 uStack_3c;
+  undefined8 local_38;
+  undefined8 local_30;
+  
+  local_30 = 0xfffffffffffffffe;
+  lVar7 = 0x72;
+  do {
+    iVar4 = FUN_187166a58(&DAT_18ade1130);
+    if (iVar4 != 0) {
+LAB_180465741:
+      FUN_187166094(5);
+      pcVar2 = (code *)swi(3);
+      (*pcVar2)();
+      return;
+    }
+    if (DAT_18ade117c == 0x7fffffff) {
+      DAT_18ade117c = 0x7ffffffe;
+      FUN_187166094(6);
+      goto LAB_180465741;
+    }
+    pcVar2 = *(code **)(lVar7 * 8 + 0x18ade0df8);
+    FUN_187166a80(&DAT_18ade1130);
+    if ((pcVar2 != (code *)0x0) && (*(longlong *)(param_1 + lVar7 * 8) != 0)) {
+      (*pcVar2)();
+      *(undefined8 *)(param_1 + lVar7 * 8) = 0;
+    }
+    lVar7 = lVar7 + 1;
+    if (lVar7 == 0x92) {
+      if (*(code **)(param_1 + 0x358) != (code *)0x0) {
+        (**(code **)(param_1 + 0x358))(*(undefined8 *)(param_1 + 0x360));
+        *(undefined8 *)(param_1 + 0x358) = 0;
+      }
+      plVar8 = *(longlong **)(param_1 + 0x370);
+      if (plVar8 != (longlong *)0x0) {
+        (**(code **)(*plVar8 + 0x10))
+                  (plVar8,*(undefined8 *)(param_1 + 0x378),*(undefined8 *)(param_1 + 0x380));
+      }
+      if (*(char *)(*(longlong *)((longlong)ThreadLocalStoragePointer + (ulonglong)_tls_index * 8) +
+                   0x210) == '\0') {
+        lVar7 = *(longlong *)((longlong)ThreadLocalStoragePointer + (ulonglong)_tls_index * 8);
+        *(undefined1 *)(lVar7 + 0x210) = 1;
+        *(undefined8 *)(lVar7 + 0x200) = 0;
+        *(undefined8 *)(lVar7 + 0x208) = 0;
+        pvVar6 = operator_new(0x38);
+        *(void **)pvVar6 = pvVar6;
+        *(void **)((longlong)pvVar6 + 8) = pvVar6;
+        *(void **)((longlong)pvVar6 + 0x10) = pvVar6;
+        *(undefined2 *)((longlong)pvVar6 + 0x18) = 0x101;
+        *(void **)(*(longlong *)((longlong)ThreadLocalStoragePointer + (ulonglong)_tls_index * 8) +
+                  0x200) = pvVar6;
+        FUN_18716ac94(&LAB_180464080);
+      }
+      FUN_1804626c0(*(longlong *)((longlong)ThreadLocalStoragePointer + (ulonglong)_tls_index * 8) +
+                    0x200,&local_150,*(undefined8 *)(param_1 + 0x370));
+      lVar7 = local_150;
+      local_60 = param_1;
+      lVar5 = FUN_18019ce70(local_150 + 8,&local_60);
+      if (lVar5 == 1) {
+        FUN_1804621c0(lVar7,1);
+      }
+      if (local_148 != (longlong *)0x0) {
+        LOCK();
+        plVar8 = local_148 + 1;
+        *(int *)plVar8 = (int)*plVar8 + -1;
+        UNLOCK();
+        if ((int)*plVar8 == 0) {
+          (**(code **)*local_148)(local_148);
+          LOCK();
+          piVar1 = (int *)((longlong)local_148 + 0xc);
+          *piVar1 = *piVar1 + -1;
+          UNLOCK();
+          if (*piVar1 == 0) {
+            (**(code **)(*local_148 + 8))(local_148);
+          }
+        }
+      }
+      cVar3 = FUN_180d9e810(1);
+      if (cVar3 != '\0') {
+        FUN_180d9e850(&local_150,&DAT_188b7ed18,"cleanup","co_core.cpp",0x13900002800);
+        plVar8 = (longlong *)(local_150 + 0x78);
+        if (0xf < *(ulonglong *)(local_150 + 0x90)) {
+          plVar8 = (longlong *)*plVar8;
+        }
+        uStack_44 = _UNK_188ad27c4;
+        uStack_3c = _UNK_188ad27cc;
+        uStack_54 = _UNK_188ad27c4;
+        local_60 = *(longlong *)(param_1 + 0x4a0);
+        local_58 = 0xb;
+        local_48 = 0x10;
+        if (*(ulonglong *)(param_1 + 0x4c0) < 0x10) {
+          lStack_50 = param_1 + 0x4a8;
+        }
+        else {
+          lStack_50 = *(longlong *)(param_1 + 0x4a8);
+        }
+        local_38 = 0xaaaaaaaa00000006;
+        uStack_40 = 0;
+        FUN_180d9f220(local_150 + 0x38,"coroutine cleanup: id %_, name \"%_\"",plVar8,&local_60,2);
+        FUN_180d9e8e0();
+        FUN_180d9e8f0(&local_150);
+      }
+      return;
+    }
+  } while( true );
+}
+
+
+DONE
+INFO  REPORT: Save succeeded for processed file: /Weixin.dll (HeadlessAnalyzer)  

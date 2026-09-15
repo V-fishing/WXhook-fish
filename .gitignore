@@ -1,0 +1,47 @@
+# 巨型工具/工程目录 (不入库)
+toolchain/
+ghidra_project/
+
+# 含个人数据的实测产物
+artifacts/
+
+# 构建产物
+m1/bin/
+m2/bin/
+m3/bin/
+*.o
+*.obj
+*.a
+*.dll
+*.exe
+*.gpr
+*.rep/
+
+# 运行时状态 (含会话数据, 运行时自动重新捕获)
+m3/template.bin
+m3/image_template.bin
+m3/pid.txt
+m3/main_pid.txt
+m3/armvals.json
+m3/refscan.json
+m3/roots.json
+m3/mgrinfo.json
+m3/callers.json
+m3/callsites.json
+m3/ctors.json
+
+# 日志与转储
+*.log
+*.dmp
+*.xlog
+
+# IDE / 系统杂物
+.vs/
+.vscode/
+*.user
+Thumbs.db
+desktop.ini
+
+# 旧逆向会话内存快照
+m3/coro_dump/
+m3/factory_obj_dump.bin

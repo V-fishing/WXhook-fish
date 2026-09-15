@@ -1,0 +1,2307 @@
+INFO  Using log config file: jar:file:/E:/weixin-hook-4.1.8/hook-wx/toolchain/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml (LoggingInitialization)  
+INFO  Using log file: C:\Users\fish\AppData\Roaming\ghidra\ghidra_11.3.2_PUBLIC\application.log (LoggingInitialization)  
+INFO  Loading user preferences: C:\Users\fish\AppData\Roaming\ghidra\ghidra_11.3.2_PUBLIC\preferences (Preferences)  
+INFO  Searching for classes... (ClassSearcher)  
+INFO  Class search complete (813 ms) (ClassSearcher)  
+INFO  Initializing SSL Context (SSLContextInitializer)  
+INFO  Initializing Random Number Generator... (SecureRandomFactory)  
+INFO  Random Number Generator initialization complete: SHA1PRNG (SecureRandomFactory)  
+INFO  Trust manager disabled, cacerts have not been set (ApplicationTrustManagerFactory)  
+INFO  Headless startup complete (2109 ms) (AnalyzeHeadless)  
+INFO  Class searcher loaded 57 extension points (18 false positives) (ClassSearcher)  
+INFO  HEADLESS Script Paths:
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Processors\PIC\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\FileFormats\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\GnuDemangler\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\SystemEmulation\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Processors\Atmel\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Debug\Debugger\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\m2
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\PDB\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\DecompilerDependent\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\PyGhidra\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\Jython\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\BytePatterns\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Processors\DATA\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Debug\Debugger-rmi-trace\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\VersionTracking\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Processors\JVM\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\Base\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\FunctionID\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Processors\8051\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\SwiftDemangler\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\WildcardAssembler\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\BSim\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\Decompiler\ghidra_scripts
+    E:\weixin-hook-4.1.8\hook-wx\toolchain\ghidra\Ghidra\Features\MicrosoftCodeAnalyzer\ghidra_scripts (HeadlessAnalyzer)  
+INFO  HEADLESS: execution starts (HeadlessAnalyzer)  
+INFO  Opening existing project: E:\weixin-hook-4.1.8\hook-wx\ghidra_project\Weixin4113 (HeadlessAnalyzer)  
+INFO  Opening project: E:\weixin-hook-4.1.8\hook-wx\ghidra_project\Weixin4113 (HeadlessProject)  
+INFO  REPORT: Processing project file: /Weixin.dll (HeadlessAnalyzer)  
+INFO  SCRIPT: E:\weixin-hook-4.1.8\hook-wx\m2\ghidra_find_send.py (HeadlessAnalyzer)  
+============================================================
+PHASE 1: Searching for Send-related strings
+============================================================
+  STR @ rva=0x7348030: 000 duisend
+  STR @ rva=0x78D0BA8: 000 Tausend
+  STR @ rva=0x8B1AEE0: kernel::foundation::CoCgiSendRequest
+  STR @ rva=0x8B1C316: isended
+  STR @ rva=0x8B219A0: QCoreApplication::sendPostedEvents: Cannot send posted events for objects in ano
+  STR @ rva=0x8B76E40: QObject::connect: Incompatible sender/receiver arguments
+        %s::%s --> %s::
+  STR @ rva=0x8B775C0: QObject::%s:  (sender name:   '%s')
+  STR @ rva=0x8B776F0: Qt: Dead lock detected while activating a BlockingQueuedConnection: Sender is %s
+  STR @ rva=0x8BEAF20: bservice_send_expt_info
+  STR @ rva=0x8BF72A8: QShortcutMap::dispatchEvent(): Sending QShortcutEvent("
+  STR @ rva=0x8C32CA0: xworker_call_send_event_to_host
+  STR @ rva=0x8C33078: wechat_call_send_web_extension_config
+  STR @ rva=0x8C330A8: wechat_call_send_web_pop_btn_visible
+  STR @ rva=0x8C5CAD0: ,sender:
+  STR @ rva=0x8C5D470: clicfg_image_send_size_limit_xwechat
+  STR @ rva=0x8C5D4F0: InputLimitSendFileSize
+  STR @ rva=0x8C5D508: InputLimitSendBigFileSize
+  STR @ rva=0x8C5D528: InputLimitSendAppMsgEmotionBufSize
+  STR @ rva=0x8C5D550: InputLimitSendEmotionBufSize
+  STR @ rva=0x8C5D570: InputLimitSendEmotionWidth
+  STR @ rva=0x8C5DDE0: clicfg_xwechat_open_large_than_1g_file_send
+  STR @ rva=0x8C5EB20: SendTemp
+  STR @ rva=0x8C60A38: real_sender_id
+  STR @ rva=0x8C6AB60: directsend
+  STR @ rva=0x8D19880: wxTranscode: SendPullReqProtobufMessageInternal fail
+  STR @ rva=0x8D634F0: send_noexcept_
+  STR @ rva=0x8D72300: Sending update request to
+  STR @ rva=0x8D74098: ItemSendsGeometryChanges
+  STR @ rva=0x8D74118: ItemSendsScenePositionChanges
+  STR @ rva=0x8D8DDF8: QGestureManager::deliverEvents: sending GestureOverride to
+  STR @ rva=0x8D8DEA8: QGestureManager::deliverEvents: sending to
+  STR @ rva=0x8D932F8: QGraphicsScene::sendEvent: cannot send event to a null item
+  STR @ rva=0x8D93340: QGraphicsScene::sendEvent: item %p's scene (%p) is different from this scene (%p
+  STR @ rva=0x8DE5BF8: id-smime-cti-ets-proofOfSender
+  STR @ rva=0x8DE62A8: id-cmc-senderNonce
+  STR @ rva=0x8DEACF8: sendRouter
+  STR @ rva=0x8DEAD08: Send Router
+  STR @ rva=0x8DEAD18: sendProxiedRouter
+  STR @ rva=0x8DEAD30: Send Proxied Router
+  STR @ rva=0x8DEAD48: sendOwner
+  STR @ rva=0x8DEAD58: Send Owner
+  STR @ rva=0x8DEAD68: sendProxiedOwner
+  STR @ rva=0x8DEAD80: Send Proxied Owner
+  STR @ rva=0x8E661D8: SaveSendMessagesAtOnce
+  STR @ rva=0x8E66408: SendMsgFailed
+  STR @ rva=0x8E66600: Begin StartSendMessageSyncStage
+  STR @ rva=0x8E66620: GetAddSendMessageToDb
+  STR @ rva=0x8E81100: /cgi-bin/micromsg-bin/sendopenimverifyrequest
+  STR @ rva=0x8E8ADB8: micromsg.SendOpenIMVerifyRequestReq
+  STR @ rva=0x8E8AE48: micromsg.SendOpenIMVerifyRequestResp
+  STR @ rva=0x8E8AED8: micromsg.SendOpenIMVerifyReplyReq
+  STR @ rva=0x8E8AF68: micromsg.SendOpenIMVerifyReplyResp
+  STR @ rva=0x8EB52B8: MessageSendSource
+  STR @ rva=0x8EB5A68: TextMessageSendSource
+  STR @ rva=0x8EB62E0: ImageMessageSendSource
+  STR @ rva=0x8EB6AA8: serialize_pb_send_raw
+  STR @ rva=0x8EB6AC0: deserialize_pb_send_raw
+  STR @ rva=0x8EB6B98: VideoMessageSendSource
+  STR @ rva=0x8EB7330: EmoticonMessageSendSource
+  STR @ rva=0x8EB7350: AppMessageSendSource
+  STR @ rva=0x8EB73A0: AppRecordMessageSendSource
+  STR @ rva=0x8EB7D80: ChatInputTempAppRecordSendSource
+  STR @ rva=0x8EBA720: pb_send_raw
+  STR @ rva=0x8ED24F0: jsapi.checkAdCli.liteAppPageHidelLiteAppResponsesendCallLiteAppRp.getLiteAppInfo
+  STR @ rva=0x8ED2568: sendCallWechatClientResponse
+  STR @ rva=0x8EEB859: satsumasendai.kagoshima.jp
+  STR @ rva=0x8EF6DF3: *.sendai.jp
+  STR @ rva=0x8EFACF5: !city.sendai.jp
+  STR @ rva=0x8F1C390: file_sender_list
+  STR @ rva=0x8F3FC78: sns_cmt_send
+  STR @ rva=0x8F79550: sendsid
+  STR @ rva=0x8FB31C0: third_app_send_confirm_window_size
+  STR @ rva=0x8FB3208: send_confirm_window_style
+  STR @ rva=0x8FB3280: send_confirm_avatar_size
+  STR @ rva=0x8FB5CA8: SessionSendConfirmWindow-TeenagerApplyAccess
+  STR @ rva=0x8FC6BD0: sendEmotionMessage
+  STR @ rva=0x8FE6AF0: card_with_buttontext_card_with_bsend_msg_confirmtimed_send_msg_cadge
+  STR @ rva=0x8FE6EB8: send_msg_confirm_new
+  STR @ rva=0x900E5C0: sendertitle
+  STR @ rva=0x900E5E0: senderdes
+  STR @ rva=0x900E708: senderc2cshowsourceurl
+  STR @ rva=0x900E720: senderc2cshowsourcemd5
+  STR @ rva=0x9010930: file_msg_send
+  STR @ rva=0x9010960: file_send_type
+  STR @ rva=0x901E188: sendType
+  STR @ rva=0x904C860: snap-n-send
+  STR @ rva=0x9082D20: Cowardly refusing to send clipboard message to hung application...
+  STR @ rva=0x9085170: sending markup=
+  STR @ rva=0x90E6A40: {sender:
+  STR @ rva=0x90F27EA: host:%_, send_only:%_, cmdid:%_, server_process_cost:%_, retrycount:%_,  channel
+  STR @ rva=0x90FA5F4: mars::stn::NewDNSResolver::__SendHttpsRequest
+  STR @ rva=0x90FA9E3: Send Request Error, ret:%0, errno:%1, nread:%_, nwrite:%_
+  STR @ rva=0x90FAA1D: Send Request break, sent:%_ nread:%_, nwrite:%_
+  STR @ rva=0x90FCC20: newdns on_request_finish, transfer_id:%_, finish_reason:%_, error:%_, http_statu
+  STR @ rva=0x90FFA12: IPXX send time:
+  STR @ rva=0x90FFA22: IPXX send localtime:
+  STR @ rva=0x90FFF2D: sendtime
+  STR @ rva=0x91032DC: %_ send fullimg without midimg, fobid wxsignal.
+  STR @ rva=0x910CAAC: midimgpath %_ sendfromcdn %_ checkexist %_ smallvideo %_,
+  STR @ rva=0x910DB30: mmpack taskid:%_, cgi:%_, host:%_ reqbuf is empty for send_only.
+  STR @ rva=0x910DB71: mmpack taskid:%_, cgi:%_, host:%_ send_only skip mmpkg, reqbuf len:%_
+  STR @ rva=0x9118990: essageSendSourceEmoticonMessageSRecordSendSourceChatInputTempAppImageMessageSend
+  STR @ rva=0x9121708: send_video_data_thread
+  STR @ rva=0x9134270: , sender:
+  STR @ rva=0x913B240: image send failed: 
+  STR @ rva=0x913B2A8: File message send failed: 
+  STR @ rva=0x916C304: sendid
+  STR @ rva=0x916C390: envelope msg not found by sendid in db
+  STR @ rva=0x91723F8: sender_id
+  STR @ rva=0x9172408: sender_name
+  STR @ rva=0x9172470: message::send_message
+  STR @ rva=0x9172498: message::send_text_message
+  STR @ rva=0x91767A8: micromsg.BypSendRequest
+  STR @ rva=0x9176828: micromsg.BypSendResponse
+  STR @ rva=0x9177518: micromsg.SendTyping
+  STR @ rva=0x9184218: micromsg.SendMsgRequestNew
+  STR @ rva=0x9184338: micromsg.SendMsgResponseNew
+  STR @ rva=0x91A6AE3: lan_cs::Server::Send
+  STR @ rva=0x91A6B10: send buf _length:%_, break.now len:%_
+  STR @ rva=0x91A6C7B: lan_cs::ServerFSM::ServerFSMSendBufLen
+  STR @ rva=0x91A6F82: _send_len:%_, _send_buff.size=%_
+  STR @ rva=0x91A6FA3: virtual lan_cs::ServerFSM::_OnSend
+  STR @ rva=0x91AB320: send cgi
+  STR @ rva=0x91E8540: send_msg_noexcept
+  STR @ rva=0x91E8570: send_msg_noexcept_has_capacity_
+  STR @ rva=0x9230988: IsSender
+  STR @ rva=0x92926B0: SendClientVersion state error
+  STR @ rva=0x9294DB8: send video datato engine
+  STR @ rva=0x92B03B0: sending_
+  STR @ rva=0x92B1C40: /cgi-bin/micromsg-bin/sendpat
+  STR @ rva=0x92B52C0: /cgi-bin/micromsg-bin/sendappmsg
+  STR @ rva=0x92BAB60: /cgi-bin/micromsg-bin/newsendmsg
+  STR @ rva=0x92CE400: /cgi-bin/micromsg-bin/migratemsgsendnotify
+  STR @ rva=0x931C590: chat_send_button_min_padding
+  STR @ rva=0x931C5C0: chat_send_button_min_height
+  STR @ rva=0x931C6A0: chat_send_button_max_width
+  STR @ rva=0x931C6E8: chat_send_button_text_padding
+  STR @ rva=0x931C8C0: chat_send_button_min_width
+  STR @ rva=0x931C958: chat_send_button_vertical_padding
+  STR @ rva=0x931F808: input_voice_to_txt_send
+  STR @ rva=0x931F880: input_voice_to_txt_send_non_sample
+  STR @ rva=0x931F8A8: transsendspacingms
+  STR @ rva=0x931F960: inputsendspacingms
+  STR @ rva=0x9322625: &2	merge_send_entry
+  STR @ rva=0x9322C30: send_icon_root_view_
+  STR @ rva=0x9333898: rec_send_result
+  STR @ rva=0x93338B8: send_record
+  STR @ rva=0x933E938: sendmsg_drag_forward
+  STR @ rva=0x934EE90: :/wedesign/common/sending_regular.svg
+  STR @ rva=0x93ECAD8: send_app_msg:fail
+  STR @ rva=0x93ECAF0: send_app_msg:fail,title is empty
+  STR @ rva=0x93ECB18: send_app_msg:fail,url and lite_app_id is empty
+  STR @ rva=0x93F0E38: send_app_msg:fail,param invaild
+  STR @ rva=0x93FD470: wechat_call_send_event_to_xworker
+  STR @ rva=0x942E920: sendmsg_fav_direct
+  STR @ rva=0x943BC00: GenerateSendSource failed
+  STR @ rva=0x944C700: mmui::ContentInserter::InsertFromFileList(const QStringList &, kernel::MessageRe
+  STR @ rva=0x9463F10: sys_share_sender
+  STR @ rva=0x94730C0: virtual mmui::SPSendSourceImageViewModel::OnClicked
+  STR @ rva=0x94735E0: virtual mmui::SPSendSourceVideoViewModel::OnClicked
+  STR @ rva=0x948C090: file_send_ms
+  STR @ rva=0x94A7DE0: sender
+  STR @ rva=0x94F6540: nIsSend
+  STR @ rva=0x94F8C10: last_msg_sender
+  STR @ rva=0x94F8C20: last_sender_display_name
+  STR @ rva=0x94FEA9E: virtual mars::stn::ShortLink::SendRequest
+  STR @ rva=0x94FEB5C: OnSend NULL.
+  STR @ rva=0x94FEF5E: task socket send sock:%_, %_ http len:%_, 
+  STR @ rva=0x9500059: mars::stn::LongLink::Send
+  STR @ rva=0x9500082: longlink Send time: %_
+  STR @ rva=0x9500099: mars::stn::LongLink::SendWhenNoData
+  STR @ rva=0x950022B: send noop fail
+  STR @ rva=0x9500826: task socket send sock:%0, 
+  STR @ rva=0x9500841: sock:%0, send:%1(%2)
+  STR @ rva=0x9500856: send failed, 
+  STR @ rva=0x9500864: all send:%_, count:%_, 
+  STR @ rva=0x950087C: sub send taskid:%_, cmdid:%_, %_, len(S:%_, %_/%_), 
+  STR @ rva=0x9503064: task read-write timeout, taskid:%_, wworker:%_, curTime:%_ nStartSendTime:%_, nR
+  STR @ rva=0x95030C7: task long-polling timeout, taskid:%_, wworker:%_, nStartSendTime:%_, nLongPollin
+  STR @ rva=0x9503123: task first-pkg timeout taskid:%_, wworker:%_, nStartSendTime:%_, nfirstpkgtimeou
+  STR @ rva=0x950357F: mars::stn::ShortLinkTaskManager::__OnSend
+  STR @ rva=0x95035A9: taskid:%_, worker:%_, nStartSendTime:%_
+  STR @ rva=0x95052B1: task first-pkg timeout taskid:%_,  nStartSendTime=%_, nfirstpkgtimeout=%_
+  STR @ rva=0x9505341: task read-write timeout, taskid:%_, , nStartSendTime=%_, nReadWriteTimeOut=%_
+  STR @ rva=0x950538F: task timeout, taskid:%_, nStartSendTime=%_, cur_time=%_, timeout:%_
+  STR @ rva=0x9505521: task add into longlink readwrite suc cgi:%_, cmdid:%_, taskid:%_, size:%_, chann
+  STR @ rva=0x95059D7: mars::stn::LongLinkTaskManager::__OnSend
+  STR @ rva=0x95072C6: mars::comm::UdpClient::SendBlock
+  STR @ rva=0x9507355: mars::comm::UdpClient::SendAsync
+  STR @ rva=0x950756D: sendto error: %0
+  STR @ rva=0x9507DB8: virtual mars::comm::(anonymous namespace)::ConnectHttpTunelCheckFSM::_OnRequestS
+  STR @ rva=0x9507F4B: virtual mars::comm::(anonymous namespace)::ConnectSocks5CheckFSM::_OnRequestSend
+  STR @ rva=0x9508881: send %_ fail. loop_count:%_
+  STR @ rva=0x9508B1A: virtual mars::stn::NetChecker::OnSend
+  STR @ rva=0x9508B40: OnSend type:%_ bytes:%_ loop_total:%_
+  STR @ rva=0x9508B66: NetChecker::OnSend
+  STR @ rva=0x950B690: writen send <= 0, errno:%0
+  STR @ rva=0x950B6AB: send length:%0
+  STR @ rva=0x950B8DB: send:%0, speedTestReportBuf.Length():%1, speedTestReportBuf.Pos():%2
+  STR @ rva=0x950BDEF: speed test send buffer size %_ req size %_ 
+  STR @ rva=0x950BE1B: speed test buffer send failed , ret %_, error code:%_ , write %_, read %_ 
+  STR @ rva=0x95120AF: virtual mars::stn::ShortLinkWithMMTLS::SendRequest
+  STR @ rva=0x9512507: send length: %_, %_, %_
+  STR @ rva=0x9512D58: virtual mars::stn::ShortLinkEventCallback::OnSendTo
+  STR @ rva=0x9512DA6: send_ciphertxt_.Length() == 0
+  STR @ rva=0x9512DC4: %_: OnSendTo called. length:%_
+  STR @ rva=0x95135E0: kEctMMTLSSendError
+  STR @ rva=0x9514FEB: virtual mars::stn::QuicSocketOperator::Send
+  STR @ rva=0x95155D1: virtual mars::stn::ShortLinkImpl::SendRequest
+  STR @ rva=0x9515AB6: virtual mars::stn::ShortLinkWithMMTLS2::SendRequest
+  STR @ rva=0x9515BD3: mmtls2 task socket send sock:%_, %_ http original len:%_, 
+  STR @ rva=0x9515C71:  socket send len: %_ 
+  STR @ rva=0x9515C87:  Send Request Error, ret:%0, errno:%1, nread:%_, nwrite:%_
+  STR @ rva=0x95162D5: bQ	virtual mars::stn::TLSShortLinkEventCallback::OnSendTo
+  STR @ rva=0x951630F: mmtls2 OnSendTo called. length:%_
+  STR @ rva=0x9516A4F: (send_packet_count == data_count) || (send_packet_count == data_count + 1)
+  STR @ rva=0x9516A9A: mmtls send error, ret_code=%_
+  STR @ rva=0x9516ACF: sub send taskid:%_, cmdid:%_, %_, len(S:%_, %_/%_), channel:%_, 
+  STR @ rva=0x9516B10: longlink send %_, read %_, %_
+  STR @ rva=0x951705E: virtual mars::stn::LongLinkConnectObserverWithMMTLS::OnVerifySend
+  STR @ rva=0x95170FE: mmtls_observers_[_index]->IsSendCiphertxtValid()
+  STR @ rva=0x9517146: _buf_send = %_
+  STR @ rva=0x9517632: mars::stn::LongLinkMMTLSProfile::send_mmtls_error_code
+  STR @ rva=0x951767F: 0 == send_mmtls_error_code_
+  STR @ rva=0x951769B: send_mmtls_error_code_=%_
+  STR @ rva=0x9517DDF: client channel send success.
+  STR @ rva=0x9517DFC: sub send taskid:%_, cmdid:%_, %_, len(S:%_, %_/%_), channal:%_ 
+  STR @ rva=0x9518160: virtual mars::stn::(anonymous namespace)::LongLinkConnectObserverWithMMTLS2::OnV
+  STR @ rva=0x95182CA: Q	virtual mars::stn::TLSLongLinkEventCallback::OnSendTo
+  STR @ rva=0x951A744: KVDATAFLOW(file) task send fail, reset reporting status:%_
+  STR @ rva=0x9524CFD: cdntask %_ dataid changed. resend from 0
+  STR @ rva=0x9525F1D: virtual HDVideoStreamingDownload::GetDataToSend
+  STR @ rva=0x9525F4D: cdntask %_ conn %_ try GetDataToSend.
+  STR @ rva=0x9525FF5: cdntask %_ conn %_ sendr %_,%_ recvr %_,%_ queue %_
+  STR @ rva=0x95261CB: cdntask %_ request seq %_ %_ sendr %_:%_ recvr %_:%_ left %_ conn %_ connrpt %_
+  STR @ rva=0x952765B: HDVideoStreamingDownload::__BuildSendRequest
+  STR @ rva=0x9528BF4: virtual HttpVideoStreamingDownload::GetDataToSend
+  STR @ rva=0x9528C26: cdntask %_ connection:%_(%_) try GetDataToSend.
+  STR @ rva=0x9528D0B: connection_.sendr == connection_.recvr
+  STR @ rva=0x952A346: virtual TaskBase::GetDataToSend
+  STR @ rva=0x952B141: sendfromcdn %_ 
+  STR @ rva=0x952BA26: virtual HttpsDownloadTask::GetDataToSend
+  STR @ rva=0x952CD4B: virtual HttpPipelineDownloadTask::GetDataToSend
+  STR @ rva=0x952D6BD: virtual MultiPhaseUploadTask::GetDataToSend
+  STR @ rva=0x952D74E: cdntask %_ conn:%_ send finish, too many inflight blocks
+  STR @ rva=0x952E693: virtual HLSVideoStreamingDownload::GetDataToSend
+  STR @ rva=0x952E839: cdntask %_ request seq %_ %_ sendr %_:%_ recvr %_:%_ left %_ conn %_
+  STR @ rva=0x952F161: HLSVideoStreamingDownload::__BuildSendRequest
+  STR @ rva=0x952FAA8: virtual SnsImageMultiDownload::GetDataToSend
+  STR @ rva=0x9530238: virtual SnsImageDownload::GetDataToSend
+  STR @ rva=0x95309E9: virtual EnterpriseWechatDownload::GetDataToSend
+  STR @ rva=0x9532AC0: tcp send nooping data error.
+  STR @ rva=0x9532ADD: tcp check send nooping data success.
+  STR @ rva=0x9535410: /cgi-bin/micromsg-bin/bypsend
+  STR @ rva=0x9568BB8: wavelink.WaveLinkSendMsgRetEvent
+  STR @ rva=0x9568CD8: wavelink.WaveLinkSendRequest
+  STR @ rva=0x956A228: micromsg.VoIPMtSendBannerMsgRequest
+  STR @ rva=0x956A2B8: micromsg.VoIPMtSendBannerMsgResponse
+  STR @ rva=0x957E50C: sendId
+  STR @ rva=0x957F3A0: sendid not exist: 
+  STR @ rva=0x957F520: sendid not exist
+  STR @ rva=0x9583638: micromsg.SendWxAICommandReq
+  STR @ rva=0x95836C8: micromsg.SendWxAICommandResp
+  STR @ rva=0x959B438: SendId
+  STR @ rva=0x95ABCD8: send_message_failed: MessageManager is unavailable
+  STR @ rva=0x95ABDA8: Failed to send finder feed: 
+  STR @ rva=0x95ABFB0: send_message_failed (logout)
+  STR @ rva=0x95AC070: Failed to send message: 
+  STR @ rva=0x95ACDF0: Failed to send app message: 
+  STR @ rva=0x95ACFE0: Failed to send share card: 
+  STR @ rva=0x95AD1D0: Failed to send emoticon: 
+  STR @ rva=0x95AECF0: send_text_message_failed: MessageManager is unavailable
+  STR @ rva=0x95AEE80: send_text_message_failed (logout)
+  STR @ rva=0x95AEF50: Failed to send text message: 
+  STR @ rva=0x95D6A5B: all buffer send:%_, m_send_buf:%_
+  STR @ rva=0x95D6A7D: buffer full wait for next select, send err:(%_, %_, %_)
+  STR @ rva=0x95D6AB5: onclose send err:(%_, %_, %_)
+  STR @ rva=0x95D6F2F: lan_cs::Server_OnSend
+  STR @ rva=0x95EC078: is_sender_
+  STR @ rva=0x95EE030: sender_user_name
+  STR @ rva=0x95EE048: send_id
+  STR @ rva=0x9628C70: unexpected parser state - please send a bug report
+  STR @ rva=0x964D908: QState::addTransition: sender cannot be null
+  STR @ rva=0x964F650: shareSender.exe
+  STR @ rva=0x9651EC8: wxvoipsdk.SendMsgInfo
+  STR @ rva=0x9651F48: wxvoipsdk.SendMsgRet
+  STR @ rva=0x965C2A0: /cgi-bin/micromsg-bin/sendemoji
+  STR @ rva=0x96606A0: E:\x\x_rel_t6_1\out\build\kernel\gen\protobufs\micromsg\message_send.pb.cc
+  STR @ rva=0x9661098: micromsg.SendAppMsgRequest
+  STR @ rva=0x9661128: micromsg.SendAppMsgResponse
+  STR @ rva=0x96612D8: micromsg.SendFileUploadMsgFileInfo
+  STR @ rva=0x9661368: micromsg.SendFileUploadMsgReq
+  STR @ rva=0x96613F8: micromsg.SendFileUploadMsgResp
+  STR @ rva=0x9662A48: micromsg.SendPatRequest
+  STR @ rva=0x9662AC8: micromsg.SendPatResponse
+  STR @ rva=0x9667360: /cgi-bin/micromsg-bin/sendfileuploadmsg
+  STR @ rva=0x966A760: send download response failed
+  STR @ rva=0x966A780: send download request failed
+  STR @ rva=0x966A7A0: kernel::manager::VoiceDownloadTask::SendCDNDownloadRequest
+  STR @ rva=0x966BD28: send CheckVoiceTransRequest failed
+  STR @ rva=0x966BD50: send UploadVoiceForTransRequest failed
+  STR @ rva=0x966BD78: send GetVoiceTransResRequest failed
+  STR @ rva=0x967C500: E:\x\x_rel_t6_1\out\build\kernel\gen\protobufs\micromsg\migrate_send_notify.pb.c
+  STR @ rva=0x967C5C8: micromsg.MigrateMsgSendNotifyReq
+  STR @ rva=0x967C658: micromsg.MigrateMsgSendNotifyResp
+  STR @ rva=0x9698D30: weixin://chatbot/SendYuanbaoRemindMsg
+  STR @ rva=0x969E8A8: send_err_code
+  STR @ rva=0x969E8E8: msg_send_err_win
+  STR @ rva=0x969E918: send_status
+  STR @ rva=0x969E938: input_box_msg_send
+  STR @ rva=0x969EA80: input_press_mouse_voice_send
+  STR @ rva=0x96B1340: issendmsg
+  STR @ rva=0x96FEFE0: record_sender
+  STR @ rva=0x96FF000: {"sender_sid":%s;"query_sid":%s;"query_word":%s;"name":%s;"index":%d;"mag_num":%
+  STR @ rva=0x96FF068: sender_search_result
+  STR @ rva=0x96FF080: {"sender_sid":%s;"stay_ms":%llu;"entry_path":1}
+  STR @ rva=0x96FF0B0: sender_win
+  STR @ rva=0x96FF1D0: sender_list
+  STR @ rva=0x973F348: micromsg.BizOneMassSend
+  STR @ rva=0x973F3C8: micromsg.BizRecent48hOrOneMassSend
+  STR @ rva=0x974C6D8: unread_preview_cell_sender_msg_gap
+  STR @ rva=0x974C700: unread_preview_sender_name_style
+  STR @ rva=0x975F928: stt_req_send_ts
+  STR @ rva=0x977EB18: sender_launched
+  STR @ rva=0x977EB28: sender_path
+  STR @ rva=0x977EB48: sender_path_exists
+  STR @ rva=0x9790C68: virtual xeditor::XEditorSDKXWebEnvironmentImpl::SendPBMsg
+  STR @ rva=0x9790CC8: SendPBMsg webview_id_:%llu, msgtype:%d, data:%p, size:%llu
+  STR @ rva=0x9790E20: wechat_call_sendto_xeditor
+  STR @ rva=0x97920C0: xeditor::XEditorSDKXWebEnvironmentImpl::SendPBMsg(XEditorPB::MsgType, const void
+  STR @ rva=0x9792250: xeditor::XEditorSDKXWebEnvironmentImpl::SendPBMsg(XEditorPB::MsgType, const void
+  STR @ rva=0x97922E8: content_id:%s, NotifyBridge callback. continue SendPBMsg
+  STR @ rva=0x97942F0: SendPBMsgToXEditor
+  STR @ rva=0x9794308: xeditor::XEditorPBMsgUtils::SendPBMsgToXEditor
+  STR @ rva=0x9794378: xeditor::XEditorPBMsgUtils::SendPBMsg
+  STR @ rva=0x97D9B94: net %_, _dynamictimeout_status %_, ret: %_, sent_count: %_, task_delay: %_, serv
+  STR @ rva=0x97DB37B: send dns query error.
+  STR @ rva=0x97DB86F: close send err:(%_, %_, %_), localip:%_
+  STR @ rva=0x97DBF5D: mars::mmdns::MMDnsResolver::__SendRequest
+  STR @ rva=0x97DBF87: mmdns upd send task:%_ simplednsid:%_
+  STR @ rva=0x97DBFAD: mmdns udp client send fail. ret:%_
+  STR @ rva=0x97DC137: __SendRequest fail
+  STR @ rva=0x97DD14F: <?xml version="1.0" encoding="utf-8"?>		<functionlist>		<change>true</change>		<
+  STR @ rva=0x97DF361: _funcid:%_, sendsize:%_, _recvsize:%_
+  STR @ rva=0x97DF77E: first_start_send_time:
+  STR @ rva=0x97DF795: start_send_time:
+  STR @ rva=0x97DF7D9: send_data_size:
+  STR @ rva=0x97DFD7B: WARNING:send_recv_continous_succ_count:%_
+  STR @ rva=0x97DFDDC: mmtls:send recv error not set.
+  STR @ rva=0x97DFDFB: send_recv_error_code:%_
+  STR @ rva=0x97E0FF4: http_send_req_time_:%_, http_recv_resp_time_:%_, http_status_code_:%_, http_req_
+  STR @ rva=0x97E1C4A: debug: write app data to send buffer, max_plaintext_size_per_record %zu, bytes s
+  STR @ rva=0x97E1CA2: %s "write serialized record to send buffer fail, offset %zu, size %zu"
+  STR @ rva=0x97E1CE9: %s "write serialized record to send buffer fail"
+  STR @ rva=0x97E1D6A: send alert type %u errorcode %d to peer
+  STR @ rva=0x97E3931: %s "audit for 1st send to peer fail"
+  STR @ rva=0x97E39C0: client tls channel is closed. can't send data any more!
+  STR @ rva=0x97E3AAA: write application data to send buffer fail. stage [%d] ret [%d]
+  STR @ rva=0x97E3AEA: client tls channel is closed. can't send heartbeat any more!
+  STR @ rva=0x97E3BB7: write heartbeat data to send buffer fail. stage [%d] ret [%d]
+  STR @ rva=0x97E4127: %s "write serialized handshake message to send buffer fail"
+  STR @ rva=0x97E422E: %s "send client hello fail"
+  STR @ rva=0x97E424A: %s "send encrypted extensions fail"
+  STR @ rva=0x97E426E: %s "send early app data fail"
+  STR @ rva=0x97E4392: %s "send client finished fail"
+  STR @ rva=0x97E4543: %s "write client hello to send buffer fail"
+  STR @ rva=0x97E45A2: %s "send encrypted extensions in wrong handshake mode"
+  STR @ rva=0x97E4643: %s "write encrypted extensions to send buffer fail"
+  STR @ rva=0x97E4677: send_early_app_data_
+  STR @ rva=0x97E468C: CHECK_TRUE [%s] "no early application data to send"
+  STR @ rva=0x97E4701: %s "send early application data in wrong handshake mode"
+  STR @ rva=0x97E473A: %s "write early application data to send buffer fail"
+  STR @ rva=0x97E4770: %s "write end of early data alert to send buffer fail"
+  STR @ rva=0x97E4949: %s "write client finished to send buffer fail"
+  STR @ rva=0x97E4CAC: OnSendTo buffer.size:%zu
+  STR @ rva=0x97E4F29: Send begin, app_data.size:%zu, state_:%d
+  STR @ rva=0x97E4F76: Send but state 
+  STR @ rva=0x97E9AE2: virtual TCPObserver::OnVerifySend
+  STR @ rva=0x97E9B04: sock %_ verify packsend fail.
+  STR @ rva=0x97E9DAE: virtual TlsObserver::OnVerifySend
+  STR @ rva=0x97EABEC: GroupingNetChannel::__SendData
+  STR @ rva=0x97EAC82: [%_] conn %_ send %_ bytes.
+
+  STR @ rva=0x97EAC9F: cdntask %_, send error:%_,%_
+  STR @ rva=0x97EBB0D: SendDataOnInvalidConn
+  STR @ rva=0x97EE584: cdntask %_ tls slow on windows(sent %_ recv %_ speed_slow %_ send_no_recv %_ las
+  STR @ rva=0x97EEA64: DefaultNetChannel::__SendData
+  STR @ rva=0x97EEAB3: time %_ conn %_ send %_ bytes.
+
+  STR @ rva=0x97F1AE3: virtual CDNUpTaskBase::GetDataToSend
+  STR @ rva=0x97F1B17: invalid task %d send action:%d
+  STR @ rva=0x97F2300: cdntask %_ current size: %_ > 0, noneed send midimgdata.
+  STR @ rva=0x97F2639: invalid offset or checksum error. me:%_. resend from offset 0.
+  STR @ rva=0x97F3992: seq2send_.find(seq2recv.first) != seq2send_.end()
+  STR @ rva=0x97F39F6: seq2send_.find(first_seq) != seq2send_.end()
+  STR @ rva=0x97F3A23: seq not found in seq2send_:%_
+  STR @ rva=0x97F3B39: conn %_ sendbuffer
+%_
+  STR @ rva=0x97F3BBF: total_recvbytes_:%_, total_sentbytes_:%_, lastrecv_tickcount_:%_, lastsend_tickc
+  STR @ rva=0x97F68FC: send length:%_, ret: %_, error code: %_ 
+  STR @ rva=0x97F6925: buffer send failed , ret %_, error code:%_ , write %_, read %_ 
+  STR @ rva=0x97FA3E8: CgiUploadDelegate::_SendBigBlock(const BlockUploadRequest &, WeakCgiUploadNetlay
+  STR @ rva=0x97FB89C: mars::sdt::SendHttpQuery
+  STR @ rva=0x97FB9BC: tcp send data error, ret: %0
+  STR @ rva=0x97FB9D9: send http data error.
+  STR @ rva=0x97FBF14: sendWithNonBlock ::send return:%0
+  STR @ rva=0x97FBF36: sendWithNonBlock send <= 0, errno:%0
+  STR @ rva=0x980A0A0: isSender
+  STR @ rva=0x980A0B0: sendUserName
+  STR @ rva=0x980A108: sendNick
+  STR @ rva=0x980A118: sendHeadImg
+  STR @ rva=0x9818DB8: mmocadappsvr.SendSubscriptionMsgReq
+  STR @ rva=0x9818E48: mmocadappsvr.SendSubscriptionMsgResp
+  STR @ rva=0x981B540: HandleSendPBMsg. type: %d data: %p size: %llu
+  STR @ rva=0x981B570: virtual xeditor::XEditorSDKImpl::SendPBMsg
+  STR @ rva=0x981B5A0: SendPBMsg success. type: %d data: %p size: %llu
+  STR @ rva=0x981B5D0: SendPBMsg error. type: %d data: %p size: %llu
+  STR @ rva=0x981B600: OnMockXEditorSendPBMsgToClient error, invalid params
+  STR @ rva=0x981B638: xeditor::XEditorSDKImpl::OnMockXEditorSendPBMsgToClient
+  STR @ rva=0x981B670: OnMockXEditorSendPBMsgToClient, xeditorid = %llu, msgtype = %llu
+  STR @ rva=0x981B6F0: xeditor::XEditorSDKImpl::HandleSendPBMsg
+  STR @ rva=0x981BAC0: MockXEditorSendPBMsgToClient
+  STR @ rva=0x981BAE0: xeditor::XEditorPBMsgUtils::MockXEditorSendPBMsgToClient
+  STR @ rva=0x981BE20: xeditor::XEditorSDKImpl::HandleSendPBMsg(XEditorPB::MsgType, const void *const, 
+  STR @ rva=0x98809A0: gSendFavoriteSplitterPositionKey
+  STR @ rva=0x9882010: send_fav_header_height
+  STR @ rva=0x9882028: send_fav_header_style
+  STR @ rva=0x9882040: send_fav_header_label_style
+  STR @ rva=0x9882060: send_fav_footer_style
+  STR @ rva=0x98B5EC0: ShareEntry invalid, is not Send:
+  STR @ rva=0x98B5F18: send sources invalid when start send
+  STR @ rva=0x98B60F0: generate send info failed
+  STR @ rva=0x98DB850: send error. msg_type:%d
+  STR @ rva=0x98DB868: xeditor::XEditorApp::OnSendXEditorTaskResponse
+  STR @ rva=0x98DCF40: SendTaskResponsePBMsgToXEditor
+  STR @ rva=0x98DCF60: xeditor::XEditorPBMsgUtils::SendTaskResponsePBMsgToXEditor
+  STR @ rva=0x98F56D6: writen send <= 0, errno:%0, nwrite:%1
+  STR @ rva=0x98F57EC: NetCheckTrafficMonitor::sendLimitCheck
+  STR @ rva=0x98F5813: sendLimitCheck!!!wifi_data_threshold_=%0,mobile_data_threshold_=%1,wifi_send_=%2
+  STR @ rva=0x98F58C9: recvLimitCheck!!!wifi_data_threshold_=%0,mobile_data_threshold_=%1,wifi_send_=%2
+  STR @ rva=0x98F6A20: Send Request Error, ret:%_, errno:%_, nread:%_, nwrite:%_
+  STR @ rva=0x98F6A5A: user interrupt detect when tcp send;
+
+  STR @ rva=0x98F6A80: send_ret == (int)req_buffer.Length()
+  STR @ rva=0x98F6AA5: @%_ HTTPDetect timeout, http_send_req_cost_:%_, total_timeout:%_
+  STR @ rva=0x98F6AE6: HTTPDetect total timeout after send req.
+  STR @ rva=0x98FC715: virtual QuicNetLayer::Send
+  STR @ rva=0x98FC730: quic fd %_ send failed %_:%_
+  STR @ rva=0x98FCEBD: cost detail us: poll:%_, write:%_, read:%_, send:%_, recv:%_, get data:%_, handl
+  STR @ rva=0x98FD0C0: virtual AvgSpeedMonitor::OnSend
+  STR @ rva=0x98FFB30: netlayer %_ send msg fail!!!, ret:%_
+  STR @ rva=0x996FD7E: taskid:%_ total send:%_
+  STR @ rva=0x99701DC: TLSSocket::Send
+  STR @ rva=0x9970544: fd %_ blocksend %_ failed ret %_ error %_
+  STR @ rva=0x9971C20: task:%s total send:%lld
+  STR @ rva=0x9993DBD: send http request to url=
+  STR @ rva=0x9996B30: Failed to add the send filter to the graph.
+  STR @ rva=0x9996B60: Failed to get input send pin
+  STR @ rva=0x9996E60: Failed to connect capture device to the send graph: 
+  STR @ rva=0xAD42B85: Unable to send
+  STR @ rva=0xAD42B94: Send Image
+  STR @ rva=0xAD42B9F: Send voice message
+  STR @ rva=0xAD42C79: Create Group Chat and Send
+  STR @ rva=0xAD42C94: Create and Send
+  STR @ rva=0xAD44D33: You cannot send more messages to this user until they reply.
+  STR @ rva=0xAD44D70: The creator only allows followers to send messages
+  STR @ rva=0xAD44DA3: The creator only allows followers for at least 7 days to send messages
+  STR @ rva=0xAD44DEA: The creator does not allow anyone to send messages
+  STR @ rva=0xAD44E54: You can only send 1 message before the user replies.
+  STR @ rva=0xAD456FC: Unable to send message in an exited group chat
+  STR @ rva=0xAD45B11: Attachments pending send
+  STR @ rva=0xAD46020: Send To
+  STR @ rva=0xAD460D3: Scheduled send to
+  STR @ rva=0xAD461B1: Hi, I'm Xiaowei, the AI assistant in Weixin.
+Before we start, you can review the
+  STR @ rva=0xAD462D2: File sending interrupted. Send it again.
+  STR @ rva=0xAD462FB: Resend
+  STR @ rva=0xAD466B7: You need to first send a friend request to %s. After they accept it, you can inv
+  STR @ rva=0xAD4671E: You need to first send a friend request to %s. After they accept it, you can inv
+  STR @ rva=0xAD46A40: Send Sticker
+  STR @ rva=0xAD46EC2: Show as merged photos after sending
+  STR @ rva=0xAD46EF0: Hide the input box. Press %1 to send
+  STR @ rva=0xAD4718E: Send File
+  STR @ rva=0xAD47734: Send To (%d)
+  STR @ rva=0xAD47741: Send To
+  STR @ rva=0xAD47CC2: Continue sending
+  STR @ rva=0xAD47F3C: Send to:
+  STR @ rva=0xAD48ED0: Unable to send the following files; the rest can still be sent.
+  STR @ rva=0xAD48F25: Cannot send files larger than %s.
+  STR @ rva=0xAD48FD3: Cannot send videos longer than %d minute(s).
+  STR @ rva=0xAD4904E: Currently does not support sending folders
+  STR @ rva=0xAD49079: Sending files is not currently supported
+  STR @ rva=0xAD490A2: Release to send to %s
+  STR @ rva=0xAD49146: Press Enter to send the sticker
+  STR @ rva=0xAD49DE3: Sender
+  STR @ rva=0xAD4A28D: Resend
+  STR @ rva=0xAD4A294: Sending file...
+  STR @ rva=0xAD4A2A4: The other user is sending the file...
+  STR @ rva=0xAD4AD9A: Send to Another App
+  STR @ rva=0xAD4DA37: This message is too long. Unable to send.
+  STR @ rva=0xAD4DA61: Image not downloaded. Unable to send.
+  STR @ rva=0xAD501F0: Resend this message?
+  STR @ rva=0xAD50205: Sending interrupted
+  STR @ rva=0xAD50219: Sending paused
+  STR @ rva=0xAD50232: Sending interrupted by the other user
+  STR @ rva=0xAD51872: Send to Weixin Pay on your phone
+  STR @ rva=0xAD51893: Send to WeChat on your phone for payment
+  STR @ rva=0xAD521B6: You Send a transfer
+  STR @ rva=0xAD535EC: After removal, you will not be reminded when "%s" sends a message in the group.
+  STR @ rva=0xAD537BB: Error while resending message. Try again later.
+  STR @ rva=0xAD53AA2: Recall All Messages from This Send
+  STR @ rva=0xAD53AC5: All messages from this send has passed the time limit for recalling. Unable to r
+  STR @ rva=0xAD53B1C: %d message(s) not sent. Sending canceled.
+  STR @ rva=0xAD53B46: %d messages from this send has passed the time limit for recalling. Unable to re
+  STR @ rva=0xAD53CBD: Messages can be recalled within two minutes after sending
+  STR @ rva=0xAD53DD6: Unable to send
+  STR @ rva=0xAD53E38: Send favorites to "%s"
+  STR @ rva=0xAD54F56: Search sender
+  STR @ rva=0xAD55059: Send To
+  STR @ rva=0xAD550E1: Select send date
+  STR @ rva=0xAD550FB: Cannot send a file with a size of 0 KB.
+  STR @ rva=0xAD55123: Error while sending some messages. Try again later.
+  STR @ rva=0xAD55157: Send Full Video
+  STR @ rva=0xAD55167: Send text
+  STR @ rva=0xAD55171: Send Friend Request
+  STR @ rva=0xAD551BF: Send Voice
+  STR @ rva=0xAD551CA: Send Voice Message
+  STR @ rva=0xAD551DD: Send Voice
+  STR @ rva=0xAD551F5: Send voice (hold right Alt)
+  STR @ rva=0xAD55211: Send (%d)
+  STR @ rva=0xAD5521B: Sender
+  STR @ rva=0xAD55963: Set successfully. You can use it when sending friend request.
+  STR @ rva=0xAD55A33: Send Feedback
+  STR @ rva=0xAD55FC3: Send Message
+  STR @ rva=0xAD56422: Send to Friend
+  STR @ rva=0xAD5689D: Send to Chat
+  STR @ rva=0xAD56FCD: - It may result in issues such as the inability to send messages or view chat hi
+  STR @ rva=0xAD57739: Database repair in progress. Canceling may result in message sending failures or
+  STR @ rva=0xAD57F26: Send Request to Guardian
+  STR @ rva=0xAD59D3D: Error occurred. Send friend request using another method.
+  STR @ rva=0xAD59D7D: Send Friend Request
+  STR @ rva=0xAD59D96: Unable to send the message. Please check and try again.
+  STR @ rva=0xAD59DFA: Unable to send
+  STR @ rva=0xAD59FC9: Voice message sending canceled
+  STR @ rva=0xAD59FFB: Sending voice message, release to send, or press Esc/Backspace to cancel
+  STR @ rva=0xAD5A044: Hold to talk (Space), release to send, or press Esc/Backspace to cancel
+  STR @ rva=0xAD5A37D: Sending a voice message... Try again later.
+  STR @ rva=0xAD5A596: Move here   Release to send
+  STR @ rva=0xAD5A906: Move here to send
+  STR @ rva=0xAD5AA05: Release to send
+  STR @ rva=0xAD5AA2D: Unable to send voice message
+  STR @ rva=0xAD5AA80: Sending in %d"
+  STR @ rva=0xAD5AB66: Not in each other's Contacts. Send friend request first.
+  STR @ rva=0xAD5B12E: After following a group member, you will be notified when this member sends mess
+  STR @ rva=0xAD5B3E4: Weixin ClawBot disabled. Unable to send or receive messages.
+  STR @ rva=0xAD5B421: Disconnected from OpenClaw. Unable to send or receive messages.
+  STR @ rva=0xAD5C7CC: - Send voice messages
+- Fix some known issues
+  STR @ rva=0xAD5C7FA: - Send voice messages
+- Fix some known issues
+  STR @ rva=0xAD5CA44: - Invite others to a 1-on-1 voice or video call
+- Send photos and videos as a co
+  STR @ rva=0xAD5CACB: - Invite others to a 1-on-1 voice or video call
+- Send photos and videos as a co
+  STR @ rva=0xAD5CB52: - Send photos and videos as a combined message
+- Preview animated stickers
+- Bug
+  STR @ rva=0xAD5CBA9: - Send photos and videos as a combined message
+- Preview animated stickers
+- Bug
+  STR @ rva=0xAD5CCCB: Compressing to send
+  STR @ rva=0xAD5CE2E: Send to WeCom
+  STR @ rva=0xAD5CE4D: Preparing to send %d%%
+  STR @ rva=0xAD5CE64: Preparing to send
+  STR @ rva=0xADC5676: Key_Send
+  STR @ rva=0xADC685A: EnterKeySend
+  STR @ rva=0xAE2F99C: SendKeyEvent
+  STR @ rva=0xAE3170C: OnSendFile
+  STR @ rva=0xAE317D2: OnSendFile
+  STR @ rva=0xAE31B13: SendActionType
+  STR @ rva=0xAE31B2E: SendEmoticon
+  STR @ rva=0xAE31E6C: OnSend
+  STR @ rva=0xAE31E74: OnSendResult
+  STR @ rva=0xAE31F18: SendActionType
+  STR @ rva=0xAE31FCB: kernel::ReferSendData
+  STR @ rva=0xAE31FE1: refer_send_data
+  STR @ rva=0xAE325A3: kernel::ReferSendData
+  STR @ rva=0xAE325B9: refer_send_data
+  STR @ rva=0xAE3268C: OnSend
+  STR @ rva=0xAE32693: OnSendResult
+  STR @ rva=0xAE34877: OnSendMessage
+  STR @ rva=0xAE3489A: SendActionType
+  STR @ rva=0xAE348A9: send_action
+  STR @ rva=0xAE35060: mmui::ChatBotSendMsgCardPanel
+  STR @ rva=0xAE3696B: sendPressed
+  STR @ rva=0xAE372E1: OnConfirmToSendVerifyFriend
+  STR @ rva=0xAE426C8: mmui::SenderFilterPanel
+  STR @ rva=0xAE43140: mmui::SendFavoriteWindow
+  STR @ rva=0xAE43178: mmui::SessionSendConfirmWindow
+  STR @ rva=0xAE4491A: onSendToFriendClicked
+  STR @ rva=0xAE457AA: sendPressed
+  STR @ rva=0xAE457D4: send_info
+  STR @ rva=0xAE463C6: send_info
+  STR @ rva=0xAE46F8E: send_info
+  STR @ rva=0xAE472E0: SendFloatMenuAction
+  STR @ rva=0xAE49728: mmui::VoiceInputReleaseToSendIndicator
+  STR @ rva=0xB018C88: :/wedesign/common/sending_filled.svg
+  STR @ rva=0xB049C08: third_app_send_confirm_window_size
+  STR @ rva=0xB049CC8: send_confirm_window_style
+  STR @ rva=0xB049E18: send_confirm_avatar_size
+  STR @ rva=0xB09C3D6: resendPrepareEvent
+  STR @ rva=0xB272648: chat_send_button_min_padding
+  STR @ rva=0xB2726D8: chat_send_button_min_height
+  STR @ rva=0xB272928: chat_send_button_max_width
+  STR @ rva=0xB2729D8: chat_send_button_text_padding
+  STR @ rva=0xB272F18: chat_send_button_min_width
+  STR @ rva=0xB2730B8: chat_send_button_vertical_padding
+  STR @ rva=0xB453942: senderObjectChanged
+  STR @ rva=0xB453965: senderObject
+  STR @ rva=0xB4EF828: unread_preview_cell_sender_msg_gap
+  STR @ rva=0xB4EF888: unread_preview_sender_name_style
+  STR @ rva=0xB55FDA8: send_fav_header_height
+  STR @ rva=0xB55FDF8: send_fav_header_style
+  STR @ rva=0xB55FE48: send_fav_header_label_style
+  STR @ rva=0xB55FE98: send_fav_footer_style
+
+Found 612 send-related strings
+
+============================================================
+PHASE 2: Finding functions that reference these strings
+============================================================
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x2E13AE0 'FUN_182e13ae0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x1883800 'FUN_181883800'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x16C3BD0 'FUN_1816c3bd0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x1513080 'FUN_181513080'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x2813060 'FUN_182813060'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x53C6E80 'FUN_1853c6e80'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x1A36C90 'FUN_181a36c90'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x1876560 'FUN_181876560'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x30D5840 'FUN_1830d5840'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x2B85320 'FUN_182b85320'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x56156D0 'FUN_1856156d0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x1874A10 'FUN_181874a10'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x1054D90 'FUN_181054d90'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x18BB800 'FUN_1818bb800'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x19997B0 'FUN_1819997b0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x1078130 'FUN_181078130'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x1878100 'FUN_181878100'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x186D110 'FUN_18186d110'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x1A2CAF0 'FUN_181a2caf0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x556C240 'FUN_18556c240'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x30F1EC0 'FUN_1830f1ec0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x1EF0CA0 'FUN_181ef0ca0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x1AF7110 'FUN_181af7110'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x46F76E0 'FUN_1846f76e0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x30F5A90 'FUN_1830f5a90'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x3F41B0 'FUN_1803f41b0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x37FAF30 'FUN_1837faf30'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x46F8FE0 'FUN_1846f8fe0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x3AFE540 'FUN_183afe540'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x36FD9D0 'FUN_1836fd9d0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x54FD7F0 'FUN_1854fd7f0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x39FD140 'FUN_1839fd140'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x16FCC90 'FUN_1816fcc90'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x1AFC2A0 'FUN_181afc2a0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x30E33B0 'FUN_1830e33b0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x68E62D0 'FUN_1868e62d0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x16E59E0 'FUN_1816e59e0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x30E59A0 'FUN_1830e59a0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x2CEB510 'FUN_182ceb510'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x3E9970 'FUN_1803e9970'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x54E9E60 'FUN_1854e9e60'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x2BE8640 'FUN_182be8640'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x2CEF340 'FUN_182cef340'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x2CED100 'FUN_182ced100'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x2DD38E0 'FUN_182dd38e0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x3ED3EE0 'FUN_183ed3ee0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x50D33F0 'FUN_1850d33f0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x50D1490 'FUN_1850d1490'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x52D09B0 'FUN_1852d09b0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x35D0450 'FUN_1835d0450'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x50D7190 'FUN_1850d7190'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x50D4EB0 'FUN_1850d4eb0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x6BD8F10 'FUN_186bd8f10'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x50D8CC0 'FUN_1850d8cc0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x16DEB00 'FUN_1816deb00'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x3EDDE60 'FUN_183edde60'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x18C3B60 'FUN_1818c3b60'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x2CC1B60 'FUN_182cc1b60'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x5DC14A0 'FUN_185dc14a0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x59C0E80 'FUN_1859c0e80'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x2CC0050 'FUN_182cc0050'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x18C7F00 'FUN_1818c7f00'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x6EC7600 'FUN_186ec7600'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x16C70E0 'FUN_1816c70e0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x1AC6E60 'FUN_181ac6e60'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x1AC5940 'FUN_181ac5940'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x18C5130 'FUN_1818c5130'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x16C5790 'FUN_1816c5790'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x39C4370 'FUN_1839c4370'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x50CBDF0 'FUN_1850cbdf0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x30CBAA0 'FUN_1830cbaa0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x1ACB170 'FUN_181acb170'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x13CB650 'FUN_1813cb650'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x30CABA0 'FUN_1830caba0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x1ACA1E0 'FUN_181aca1e0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x35CA260 'FUN_1835ca260'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x13CA760 'FUN_1813ca760'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x16C9EF0 'FUN_1816c9ef0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x54C8DC0 'FUN_1854c8dc0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x16C8990 'FUN_1816c8990'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x50CF910 'FUN_1850cf910'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x3ECF5C0 'FUN_183ecf5c0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x18CEC00 'FUN_1818cec00'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x30CE170 'FUN_1830ce170'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x50CDBD0 'FUN_1850cdbd0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x18CC4B0 'FUN_1818cc4b0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x39B35D0 'FUN_1839b35d0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x18B3600 'FUN_1818b3600'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x16B1880 'FUN_1816b1880'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x16B0990 'FUN_1816b0990'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x18B6460 'FUN_1818b6460'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x16B51E0 'FUN_1816b51e0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x5DBB580 'FUN_185dbb580'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x3B9A70 'FUN_1803b9a70'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x2BB8330 'FUN_182bb8330'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x59BFF90 'FUN_1859bff90'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x3BBDBD0 'FUN_183bbdbd0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x25BDC60 'FUN_1825bdc60'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x18BDF10 'FUN_1818bdf10'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x30BDD90 'FUN_1830bdd90'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x24BCE70 'FUN_1824bce70'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x6EBC960 'FUN_186ebc960'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x1AAAEB0 'FUN_181aaaeb0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x3AA650 'FUN_1803aa650'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x5BA9BC0 'FUN_185ba9bc0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x51A9A40 'FUN_1851a9a40'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x51A8B50 'FUN_1851a8b50'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x1AADD30 'FUN_181aadd30'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x38933F0 'FUN_1838933f0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x393170 'FUN_180393170'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x2296820 'FUN_182296820'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x1A96DC0 'FUN_181a96dc0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x1A95D70 'FUN_181a95d70'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x3895020 'FUN_183895020'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x5995260 'FUN_185995260'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x1A98D40 'FUN_181a98d40'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x39EEB0 'FUN_18039eeb0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x109D120 'FUN_18109d120'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x1A9C7A0 'FUN_181a9c7a0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0xB836A0 'FUN_180b836a0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x1881CD0 'FUN_181881cd0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x18800E0 'FUN_1818800e0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0xB863A0 'FUN_180b863a0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x5585A50 'FUN_185585a50'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0xB854A0 'FUN_180b854a0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0xB845A0 'FUN_180b845a0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x2E8B1C0 'FUN_182e8b1c0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x5588E80 'FUN_185588e80'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x248CF00 'FUN_18248cf00'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x6E8C130 'FUN_186e8c130'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x1073100 'FUN_181073100'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x2F72CB0 'FUN_182f72cb0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x6071AF0 'FUN_186071af0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x1071360 'FUN_181071360'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x5570EA0 'FUN_185570ea0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x7773A0 'FUN_1807773a0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x5975160 'FUN_185975160'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x107BBF0 'FUN_18107bbf0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x187A9A0 'FUN_18187a9a0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x607AA70 'FUN_18607aa70'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0xB7FCF0 'FUN_180b7fcf0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0xB7EDF0 'FUN_180b7edf0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x187E650 'FUN_18187e650'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x6A7DF40 'FUN_186a7df40'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x707DDE0 'FUN_18707dde0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x187D070 'FUN_18187d070'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x597D0B0 'FUN_18597d0b0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x677CDC0 'FUN_18677cdc0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x2B630D0 'FUN_182b630d0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x2F63120 'FUN_182f63120'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x2E636B0 'FUN_182e636b0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x5362950 'FUN_185362950'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x2F66FE0 'FUN_182f66fe0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x6064640 'FUN_186064640'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x2664430 'FUN_182664430'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x5A6BDB0 'FUN_185a6bdb0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x2E6B8F0 'FUN_182e6b8f0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x606A420 'FUN_18606a420'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x2F6A780 'FUN_182f6a780'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x2D68900 'FUN_182d68900'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x5568530 'FUN_185568530'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x2F6E630 'FUN_182f6e630'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x556DFA0 'FUN_18556dfa0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x2653DE0 'FUN_182653de0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x33531F0 'FUN_1833531f0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x26527C0 'FUN_1826527c0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x5652240 'FUN_185652240'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x5A51CD0 'FUN_185a51cd0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x33518E0 'FUN_1833518e0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x1A51620 'FUN_181a51620'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x33501D0 'FUN_1833501d0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x5A50070 'FUN_185a50070'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x5A57150 'FUN_185a57150'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x1A55F70 'FUN_181a55f70'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x3354F90 'FUN_183354f90'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x5A54620 'FUN_185a54620'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x165BAA0 'FUN_18165baa0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x2F59D70 'FUN_182f59d70'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x2F5DD30 'FUN_182f5dd30'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x165D120 'FUN_18165d120'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x3A433D0 'FUN_183a433d0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x5142620 'FUN_185142620'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x9418A0 'FUN_1809418a0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x67415D0 'FUN_1867415d0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x5140F20 'FUN_185140f20'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x51472D0 'FUN_1851472d0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x6C46300 'FUN_186c46300'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x2E45600 'FUN_182e45600'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x5A445A0 'FUN_185a445a0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x51445C0 'FUN_1851445c0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x514BF10 'FUN_18514bf10'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x334A620 'FUN_18334a620'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x5149BE0 'FUN_185149be0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x2F49290 'FUN_182f49290'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x3348950 'FUN_183348950'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x1048590 'FUN_181048590'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x2F4FDA0 'FUN_182f4fda0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x334F2D0 'FUN_18334f2d0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x334CB00 'FUN_18334cb00'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x264C620 'FUN_18264c620'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x1A32BE0 'FUN_181a32be0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x4832860 'FUN_184832860'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x1932FB0 'FUN_181932fb0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x1831120 'FUN_181831120'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x5131460 'FUN_185131460'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x6731360 'FUN_186731360'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x430380 'FUN_180430380'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x4837900 'FUN_184837900'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x5D37490 'FUN_185d37490'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x5134D80 'FUN_185134d80'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x434A90 'FUN_180434a90'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x2D3BBD0 'FUN_182d3bbd0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x13AA80 'FUN_18013aa80'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x43A710 'FUN_18043a710'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x51381C0 'FUN_1851381c0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x1A38600 'FUN_181a38600'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x483F260 'FUN_18483f260'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x513EF70 'FUN_18513ef70'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x513CAB0 'FUN_18513cab0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x4823C90 'FUN_184823c90'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x1B214B0 'FUN_181b214b0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x2E20C30 'FUN_182e20c30'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x1120E00 'FUN_181120e00'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x5A26CE0 'FUN_185a26ce0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x5B26E50 'FUN_185b26e50'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x3726C40 'FUN_183726c40'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x3A25E80 'FUN_183a25e80'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x1B25190 'FUN_181b25190'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x67250A0 'FUN_1867250a0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x4824B80 'FUN_184824b80'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x192B980 'FUN_18192b980'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x512B290 'FUN_18512b290'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x672AA80 'FUN_18672aa80'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x3728F40 'FUN_183728f40'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x5128820 'FUN_185128820'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x1B28E70 'FUN_181b28e70'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x3B2F770 'FUN_183b2f770'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x512EC10 'FUN_18512ec10'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x2F2ECA0 'FUN_182f2eca0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x192D1E0 'FUN_18192d1e0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x482CAD0 'FUN_18482cad0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x382C7A0 'FUN_18382c7a0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x452C310 'FUN_18452c310'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x2D13120 'FUN_182d13120'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0xF10400 'FUN_180f10400'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x4B16600 'FUN_184b16600'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x1A16640 'FUN_181a16640'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x2D15090 'FUN_182d15090'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x6C15550 'FUN_186c15550'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x1715550 'FUN_181715550'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x2D1A820 'FUN_182d1a820'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x501A240 'FUN_18501a240'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x6919320 'FUN_186919320'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x1B18850 'FUN_181b18850'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x2D18540 'FUN_182d18540'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x371EA30 'FUN_18371ea30'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x2D1D2F0 'FUN_182d1d2f0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x1B1D7E0 'FUN_181b1d7e0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x171C890 'FUN_18171c890'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x6A1C130 'FUN_186a1c130'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0xA03890 'FUN_180a03890'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x200960 'FUN_180200960'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x3B04160 'FUN_183b04160'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x2E09D70 'FUN_182e09d70'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0xA09230 'FUN_180a09230'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x17095A0 'FUN_1817095a0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x1081B0 'FUN_1801081b0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x6C0FA70 'FUN_186c0fa70'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x2D0E480 'FUN_182d0e480'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x4B0D5A0 'FUN_184b0d5a0'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x170C890 'FUN_18170c890'
+  STR rva=0x8B1AEE0 'kernel::foundation::CoCgiSendRequest' -> func rva=0x2D0C130 'FUN_182d0c130'
+  STR rva=0x8B1C316 'isended' -> func rva=0x11AC20 'FUN_18011ac20'
+  STR rva=0x8B219A0 'QCoreApplication::sendPostedEvents: Cann' -> func rva=0x14F3B0 'FUN_18014f3b0'
+  STR rva=0x8B76E40 'QObject::connect: Incompatible sender/re' -> func rva=0x272820 'FUN_180272820'
+  STR rva=0x8B775C0 'QObject::%s:  (sender name:   '%s')' -> func rva=0x2736A0 'FUN_1802736a0'
+  STR rva=0x8B776F0 'Qt: Dead lock detected while activating ' -> func rva=0x27D040 'FUN_18027d040'
+  STR rva=0x8B776F0 'Qt: Dead lock detected while activating ' -> func rva=0x27C4C0 'FUN_18027c4c0'
+  STR rva=0x8BF72A8 'QShortcutMap::dispatchEvent(): Sending Q' -> func rva=0x7FAC40 'FUN_1807fac40'
+  STR rva=0x8C33078 'wechat_call_send_web_extension_config' -> func rva=0x918870 'FUN_180918870'
+  STR rva=0x8C330A8 'wechat_call_send_web_pop_btn_visible' -> func rva=0x918870 'FUN_180918870'
+  STR rva=0x8C5CAD0 ',sender:' -> func rva=0xA98C50 'FUN_180a98c50'
+  STR rva=0x8C5CAD0 ',sender:' -> func rva=0x19685B0 'FUN_1819685b0'
+  STR rva=0x8C5CAD0 ',sender:' -> func rva=0x17DEB80 'FUN_1817deb80'
+  STR rva=0x8C5CAD0 ',sender:' -> func rva=0xA5BC70 'FUN_180a5bc70'
+  STR rva=0x8C5D470 'clicfg_image_send_size_limit_xwechat' -> func rva=0xA61550 'FUN_180a61550'
+  STR rva=0x8C5D4F0 'InputLimitSendFileSize' -> func rva=0xA61B10 'FUN_180a61b10'
+  STR rva=0x8C5D508 'InputLimitSendBigFileSize' -> func rva=0xA61BF0 'FUN_180a61bf0'
+  STR rva=0x8C5D528 'InputLimitSendAppMsgEmotionBufSize' -> func rva=0xA61D00 'FUN_180a61d00'
+  STR rva=0x8C5D550 'InputLimitSendEmotionBufSize' -> func rva=0xA61DE0 'FUN_180a61de0'
+  STR rva=0x8C5D570 'InputLimitSendEmotionWidth' -> func rva=0xA61EC0 'FUN_180a61ec0'
+  STR rva=0x8C5DDE0 'clicfg_xwechat_open_large_than_1g_file_s' -> func rva=0xA61A20 'FUN_180a61a20'
+  STR rva=0x8C5EB20 'SendTemp' -> func rva=0xA80B60 'FUN_180a80b60'
+  STR rva=0x8C5EB20 'SendTemp' -> func rva=0xA80B60 'FUN_180a80b60'
+  STR rva=0x8C60A38 'real_sender_id' -> func rva=0xA927C0 'FUN_180a927c0'
+  STR rva=0x8C6AB60 'directsend' -> func rva=0xAF11C0 'FUN_180af11c0'
+  STR rva=0x8D19880 'wxTranscode: SendPullReqProtobufMessageI' -> func rva=0xE81D00 'FUN_180e81d00'
+  STR rva=0x8D634F0 'send_noexcept_' -> func rva=0x114D710 'FUN_18114d710'
+  STR rva=0x8D72300 'Sending update request to' -> func rva=0x120B950 'FUN_18120b950'
+  STR rva=0x8D8DDF8 'QGestureManager::deliverEvents: sending ' -> func rva=0x1342070 'FUN_181342070'
+  STR rva=0x8D8DEA8 'QGestureManager::deliverEvents: sending ' -> func rva=0x1342070 'FUN_181342070'
+  STR rva=0x8D932F8 'QGraphicsScene::sendEvent: cannot send e' -> func rva=0x136A150 'FUN_18136a150'
+  STR rva=0x8D932F8 'QGraphicsScene::sendEvent: cannot send e' -> func rva=0x136ABE0 'FUN_18136abe0'
+  STR rva=0x8D93340 'QGraphicsScene::sendEvent: item %p's sce' -> func rva=0x136A150 'FUN_18136a150'
+  STR rva=0x8D93340 'QGraphicsScene::sendEvent: item %p's sce' -> func rva=0x136A150 'FUN_18136a150'
+  STR rva=0x8D93340 'QGraphicsScene::sendEvent: item %p's sce' -> func rva=0x136A150 'FUN_18136a150'
+  STR rva=0x8D93340 'QGraphicsScene::sendEvent: item %p's sce' -> func rva=0x136A150 'FUN_18136a150'
+  STR rva=0x8D93340 'QGraphicsScene::sendEvent: item %p's sce' -> func rva=0x136ABE0 'FUN_18136abe0'
+  STR rva=0x8E661D8 'SaveSendMessagesAtOnce' -> func rva=0x179E6C0 'FUN_18179e6c0'
+  STR rva=0x8E66408 'SendMsgFailed' -> func rva=0x17CA0E0 'FUN_1817ca0e0'
+  STR rva=0x8E66600 'Begin StartSendMessageSyncStage' -> func rva=0x17F4FC0 'FUN_1817f4fc0'
+  STR rva=0x8E66600 'Begin StartSendMessageSyncStage' -> func rva=0x17F4FC0 'FUN_1817f4fc0'
+  STR rva=0x8E66600 'Begin StartSendMessageSyncStage' -> func rva=0x17F9270 'FUN_1817f9270'
+  STR rva=0x8E66600 'Begin StartSendMessageSyncStage' -> func rva=0x17F9270 'FUN_1817f9270'
+  STR rva=0x8E66620 'GetAddSendMessageToDb' -> func rva=0x17F4FC0 'FUN_1817f4fc0'
+  STR rva=0x8E81100 '/cgi-bin/micromsg-bin/sendopenimverifyre' -> func rva=0x1881CD0 'FUN_181881cd0'
+  STR rva=0x8E81100 '/cgi-bin/micromsg-bin/sendopenimverifyre' -> func rva=0x18A04F0 'FUN_1818a04f0'
+  STR rva=0x8E8AE48 'micromsg.SendOpenIMVerifyRequestResp' -> func rva=0x18FE320 'FUN_1818fe320'
+  STR rva=0x8EB6AA8 'serialize_pb_send_raw' -> func rva=0x1A83770 'FUN_181a83770'
+  STR rva=0x8EB6AC0 'deserialize_pb_send_raw' -> func rva=0x1A83770 'FUN_181a83770'
+  STR rva=0x8ED24F0 'jsapi.checkAdCli.liteAppPageHidelLiteApp' -> func rva=0x1B3EAC0 'FUN_181b3eac0'
+  STR rva=0x8ED2568 'sendCallWechatClientResponse' -> func rva=0x1B3BE60 'FUN_181b3be60'
+  STR rva=0x8ED2568 'sendCallWechatClientResponse' -> func rva=0x1B3EAC0 'FUN_181b3eac0'
+  STR rva=0x8ED2568 'sendCallWechatClientResponse' -> func rva=0x1B3EAC0 'FUN_181b3eac0'
+  STR rva=0x8F1C390 'file_sender_list' -> func rva=0x1C67F90 'FUN_181c67f90'
+  STR rva=0x8F79550 'sendsid' -> func rva=0x1F356F0 'FUN_181f356f0'
+  STR rva=0x8F79550 'sendsid' -> func rva=0x5C13710 'FUN_185c13710'
+  STR rva=0x8F79550 'sendsid' -> func rva=0x5C11510 'FUN_185c11510'
+  STR rva=0x8FE6AF0 'card_with_buttontext_card_with_bsend_msg' -> func rva=0x22C2E40 'FUN_1822c2e40'
+  STR rva=0x8FE6AF0 'card_with_buttontext_card_with_bsend_msg' -> func rva=0x22C3B00 'FUN_1822c3b00'
+  STR rva=0x8FE6AF0 'card_with_buttontext_card_with_bsend_msg' -> func rva=0x22C2E40 'FUN_1822c2e40'
+  STR rva=0x8FE6EB8 'send_msg_confirm_new' -> func rva=0x22C3B00 'FUN_1822c3b00'
+  STR rva=0x8FE6EB8 'send_msg_confirm_new' -> func rva=0x22C2E40 'FUN_1822c2e40'
+  STR rva=0x900E5C0 'sendertitle' -> func rva=0x240ADC0 'FUN_18240adc0'
+  STR rva=0x900E5C0 'sendertitle' -> func rva=0x240A120 'FUN_18240a120'
+  STR rva=0x900E5E0 'senderdes' -> func rva=0x240ADC0 'FUN_18240adc0'
+  STR rva=0x900E5E0 'senderdes' -> func rva=0x240A120 'FUN_18240a120'
+  STR rva=0x900E708 'senderc2cshowsourceurl' -> func rva=0x240ADC0 'FUN_18240adc0'
+  STR rva=0x900E708 'senderc2cshowsourceurl' -> func rva=0x240A120 'FUN_18240a120'
+  STR rva=0x900E720 'senderc2cshowsourcemd5' -> func rva=0x240ADC0 'FUN_18240adc0'
+  STR rva=0x900E720 'senderc2cshowsourcemd5' -> func rva=0x240A120 'FUN_18240a120'
+  STR rva=0x9010930 'file_msg_send' -> func rva=0x2436760 'FUN_182436760'
+  STR rva=0x9010960 'file_send_type' -> func rva=0x2436760 'FUN_182436760'
+  STR rva=0x901E188 'sendType' -> func rva=0x2517C50 'FUN_182517c50'
+  STR rva=0x901E188 'sendType' -> func rva=0x2517820 'FUN_182517820'
+  STR rva=0x9082D20 'Cowardly refusing to send clipboard mess' -> func rva=0x2725400 'FUN_182725400'
+  STR rva=0x9085170 'sending markup=' -> func rva=0x273D780 'FUN_18273d780'
+  STR rva=0x90E6A40 '{sender:' -> func rva=0x28EF9D0 'FUN_1828ef9d0'
+  STR rva=0x90FA5F4 'mars::stn::NewDNSResolver::__SendHttpsRe' -> func rva=0x29FF070 'FUN_1829ff070'
+  STR rva=0x90FA5F4 'mars::stn::NewDNSResolver::__SendHttpsRe' -> func rva=0x29FF070 'FUN_1829ff070'
+  STR rva=0x90FA5F4 'mars::stn::NewDNSResolver::__SendHttpsRe' -> func rva=0x29FF070 'FUN_1829ff070'
+  STR rva=0x90FA5F4 'mars::stn::NewDNSResolver::__SendHttpsRe' -> func rva=0x29FF070 'FUN_1829ff070'
+  STR rva=0x90FA9E3 'Send Request Error, ret:%0, errno:%1, nr' -> func rva=0x29FBA80 'FUN_1829fba80'
+  STR rva=0x90FA9E3 'Send Request Error, ret:%0, errno:%1, nr' -> func rva=0x2A35C80 'FUN_182a35c80'
+  STR rva=0x90FA9E3 'Send Request Error, ret:%0, errno:%1, nr' -> func rva=0x6619420 'FUN_186619420'
+  STR rva=0x90FAA1D 'Send Request break, sent:%_ nread:%_, nw' -> func rva=0x29FBA80 'FUN_1829fba80'
+  STR rva=0x90FAA1D 'Send Request break, sent:%_ nread:%_, nw' -> func rva=0x6DA9850 'FUN_186da9850'
+  STR rva=0x90FAA1D 'Send Request break, sent:%_ nread:%_, nw' -> func rva=0x2A35C80 'FUN_182a35c80'
+  STR rva=0x90FAA1D 'Send Request break, sent:%_ nread:%_, nw' -> func rva=0x66132C0 'FUN_1866132c0'
+  STR rva=0x90FAA1D 'Send Request break, sent:%_ nread:%_, nw' -> func rva=0x6619420 'FUN_186619420'
+  STR rva=0x90FFA12 'IPXX send time:' -> func rva=0x2A56EE0 'FUN_182a56ee0'
+  STR rva=0x90FFA12 'IPXX send time:' -> func rva=0x2A56EE0 'FUN_182a56ee0'
+  STR rva=0x90FFA12 'IPXX send time:' -> func rva=0x2A56EE0 'FUN_182a56ee0'
+  STR rva=0x90FFA12 'IPXX send time:' -> func rva=0x2A56EE0 'FUN_182a56ee0'
+  STR rva=0x90FFA12 'IPXX send time:' -> func rva=0x2A56EE0 'FUN_182a56ee0'
+  STR rva=0x90FFA22 'IPXX send localtime:' -> func rva=0x2A56EE0 'FUN_182a56ee0'
+  STR rva=0x90FFA22 'IPXX send localtime:' -> func rva=0x2A56EE0 'FUN_182a56ee0'
+  STR rva=0x90FFA22 'IPXX send localtime:' -> func rva=0x2A56EE0 'FUN_182a56ee0'
+  STR rva=0x90FFA22 'IPXX send localtime:' -> func rva=0x2A56EE0 'FUN_182a56ee0'
+  STR rva=0x90FFF2D 'sendtime' -> func rva=0x2A62100 'FUN_182a62100'
+  STR rva=0x90FFF2D 'sendtime' -> func rva=0x2A5F090 'FUN_182a5f090'
+  STR rva=0x91032DC '%_ send fullimg without midimg, fobid wx' -> func rva=0x2AADBF0 'FUN_182aadbf0'
+  STR rva=0x910CAAC 'midimgpath %_ sendfromcdn %_ checkexist ' -> func rva=0x2B2BCC0 'FUN_182b2bcc0'
+  STR rva=0x910DB30 'mmpack taskid:%_, cgi:%_, host:%_ reqbuf' -> func rva=0x2B44430 'FUN_182b44430'
+  STR rva=0x910DB71 'mmpack taskid:%_, cgi:%_, host:%_ send_o' -> func rva=0x2B44430 'FUN_182b44430'
+  STR rva=0x9118990 'essageSendSourceEmoticonMessageSRecordSe' -> func rva=0x2BAE360 'FUN_182bae360'
+  STR rva=0x9121708 'send_video_data_thread' -> func rva=0x2BFF9E0 'FUN_182bff9e0'
+  STR rva=0x9134270 ', sender:' -> func rva=0x2CA2250 'FUN_182ca2250'
+  STR rva=0x9134270 ', sender:' -> func rva=0x2CAFD10 'FUN_182cafd10'
+  STR rva=0x913B240 'image send failed: ' -> func rva=0x2D02BE0 'FUN_182d02be0'
+  STR rva=0x913B240 'image send failed: ' -> func rva=0x2D02BE0 'FUN_182d02be0'
+  STR rva=0x913B240 'image send failed: ' -> func rva=0x2D02BE0 'FUN_182d02be0'
+  STR rva=0x913B240 'image send failed: ' -> func rva=0x2D02BE0 'FUN_182d02be0'
+  STR rva=0x913B240 'image send failed: ' -> func rva=0x2D02BE0 'FUN_182d02be0'
+  STR rva=0x913B2A8 'File message send failed: ' -> func rva=0x2D04250 'FUN_182d04250'
+  STR rva=0x913B2A8 'File message send failed: ' -> func rva=0x2D04250 'FUN_182d04250'
+  STR rva=0x913B2A8 'File message send failed: ' -> func rva=0x2D04250 'FUN_182d04250'
+  STR rva=0x913B2A8 'File message send failed: ' -> func rva=0x2D04250 'FUN_182d04250'
+  STR rva=0x916C390 'envelope msg not found by sendid in db' -> func rva=0x2E84780 'FUN_182e84780'
+  STR rva=0x916C390 'envelope msg not found by sendid in db' -> func rva=0x2E84780 'FUN_182e84780'
+  STR rva=0x91723F8 'sender_id' -> func rva=0x56A2D10 'FUN_1856a2d10'
+  STR rva=0x91723F8 'sender_id' -> func rva=0x56A2230 'FUN_1856a2230'
+  STR rva=0x91723F8 'sender_id' -> func rva=0x56A1070 'FUN_1856a1070'
+  STR rva=0x91723F8 'sender_id' -> func rva=0x5207280 'FUN_185207280'
+  STR rva=0x91723F8 'sender_id' -> func rva=0x2EDFD60 'FUN_182edfd60'
+  STR rva=0x9172408 'sender_name' -> func rva=0x2EDFD60 'FUN_182edfd60'
+  STR rva=0x9172470 'message::send_message' -> func rva=0x2EC76A0 'FUN_182ec76a0'
+  STR rva=0x9172498 'message::send_text_message' -> func rva=0x2EC7890 'FUN_182ec7890'
+  STR rva=0x9184218 'micromsg.SendMsgRequestNew' -> func rva=0x2F82810 'FUN_182f82810'
+  STR rva=0x9184338 'micromsg.SendMsgResponseNew' -> func rva=0x2F83C00 'FUN_182f83c00'
+  STR rva=0x91A6AE3 'lan_cs::Server::Send' -> func rva=0x3075D50 'FUN_183075d50'
+  STR rva=0x91A6AE3 'lan_cs::Server::Send' -> func rva=0x3075D50 'FUN_183075d50'
+  STR rva=0x91A6AE3 'lan_cs::Server::Send' -> func rva=0x3075D50 'FUN_183075d50'
+  STR rva=0x91A6AE3 'lan_cs::Server::Send' -> func rva=0x3075D50 'FUN_183075d50'
+  STR rva=0x91A6AE3 'lan_cs::Server::Send' -> func rva=0x3075D50 'FUN_183075d50'
+  STR rva=0x91A6AE3 'lan_cs::Server::Send' -> func rva=0x3075D50 'FUN_183075d50'
+  STR rva=0x91A6B10 'send buf _length:%_, break.now len:%_' -> func rva=0x3075D50 'FUN_183075d50'
+  STR rva=0x91A6C7B 'lan_cs::ServerFSM::ServerFSMSendBufLen' -> func rva=0x30769A0 'FUN_1830769a0'
+  STR rva=0x91A6C7B 'lan_cs::ServerFSM::ServerFSMSendBufLen' -> func rva=0x30769A0 'FUN_1830769a0'
+  STR rva=0x91A6F82 '_send_len:%_, _send_buff.size=%_' -> func rva=0x30783D0 'FUN_1830783d0'
+  STR rva=0x91A6FA3 'virtual lan_cs::ServerFSM::_OnSend' -> func rva=0x30783D0 'FUN_1830783d0'
+  STR rva=0x91A6FA3 'virtual lan_cs::ServerFSM::_OnSend' -> func rva=0x30783D0 'FUN_1830783d0'
+  STR rva=0x91AB320 'send cgi' -> func rva=0x30C03B0 'FUN_1830c03b0'
+  STR rva=0x91AB320 'send cgi' -> func rva=0x30C47A0 'FUN_1830c47a0'
+  STR rva=0x91AB320 'send cgi' -> func rva=0x30B9AD0 'FUN_1830b9ad0'
+  STR rva=0x91E8540 'send_msg_noexcept' -> func rva=0x339CAE0 'FUN_18339cae0'
+  STR rva=0x91E8570 'send_msg_noexcept_has_capacity_' -> func rva=0x339CDE0 'FUN_18339cde0'
+  STR rva=0x91E8570 'send_msg_noexcept_has_capacity_' -> func rva=0x339CDE0 'FUN_18339cde0'
+  STR rva=0x9230988 'IsSender' -> func rva=0x3557470 'FUN_183557470'
+  STR rva=0x9230988 'IsSender' -> func rva=0x35568B0 'FUN_1835568b0'
+  STR rva=0x9230988 'IsSender' -> func rva=0x3555E90 'FUN_183555e90'
+  STR rva=0x92926B0 'SendClientVersion state error' -> func rva=0x3857EE0 'FUN_183857ee0'
+  STR rva=0x92926B0 'SendClientVersion state error' -> func rva=0x3857EE0 'FUN_183857ee0'
+  STR rva=0x92926B0 'SendClientVersion state error' -> func rva=0x3857EE0 'FUN_183857ee0'
+  STR rva=0x9294DB8 'send video datato engine' -> func rva=0x3862930 'FUN_183862930'
+  STR rva=0x92B03B0 'sending_' -> func rva=0x39BD150 'FUN_1839bd150'
+  STR rva=0x92B1C40 '/cgi-bin/micromsg-bin/sendpat' -> func rva=0x39C4370 'FUN_1839c4370'
+  STR rva=0x92B1C40 '/cgi-bin/micromsg-bin/sendpat' -> func rva=0x39CA9A0 'FUN_1839ca9a0'
+  STR rva=0x92B52C0 '/cgi-bin/micromsg-bin/sendappmsg' -> func rva=0x39FD140 'FUN_1839fd140'
+  STR rva=0x92B52C0 '/cgi-bin/micromsg-bin/sendappmsg' -> func rva=0x3A06EF0 'FUN_183a06ef0'
+  STR rva=0x92BAB60 '/cgi-bin/micromsg-bin/newsendmsg' -> func rva=0x3A25E80 'FUN_183a25e80'
+  STR rva=0x92BAB60 '/cgi-bin/micromsg-bin/newsendmsg' -> func rva=0x3A2A770 'FUN_183a2a770'
+  STR rva=0x92CE400 '/cgi-bin/micromsg-bin/migratemsgsendnoti' -> func rva=0x3AFE540 'FUN_183afe540'
+  STR rva=0x92CE400 '/cgi-bin/micromsg-bin/migratemsgsendnoti' -> func rva=0x3B02AC0 'FUN_183b02ac0'
+  STR rva=0x931F808 'input_voice_to_txt_send' -> func rva=0x3D97860 'FUN_183d97860'
+  STR rva=0x931F880 'input_voice_to_txt_send_non_sample' -> func rva=0x3D97860 'FUN_183d97860'
+  STR rva=0x931F8A8 'transsendspacingms' -> func rva=0x3D9AD20 'FUN_183d9ad20'
+  STR rva=0x931F960 'inputsendspacingms' -> func rva=0x3D9AEF0 'FUN_183d9aef0'
+  STR rva=0x9322C30 'send_icon_root_view_' -> func rva=0x3DBE330 'FUN_183dbe330'
+  STR rva=0x9333898 'rec_send_result' -> func rva=0x3E475D0 'FUN_183e475d0'
+  STR rva=0x93338B8 'send_record' -> func rva=0x3E475D0 'FUN_183e475d0'
+  STR rva=0x934EE90 ':/wedesign/common/sending_regular.svg' -> func rva=0x3F47AD0 'FUN_183f47ad0'
+  STR rva=0x93ECAF0 'send_app_msg:fail,title is empty' -> func rva=0x4456DA0 'FUN_184456da0'
+  STR rva=0x93ECB18 'send_app_msg:fail,url and lite_app_id is' -> func rva=0x4456DA0 'FUN_184456da0'
+  STR rva=0x93ECB18 'send_app_msg:fail,url and lite_app_id is' -> func rva=0x4456DA0 'FUN_184456da0'
+  STR rva=0x9463F10 'sys_share_sender' -> func rva=0x6250760 'FUN_186250760'
+  STR rva=0x9463F10 'sys_share_sender' -> func rva=0x4888010 'FUN_184888010'
+  STR rva=0x948C090 'file_send_ms' -> func rva=0x497CF50 'FUN_18497cf50'
+  STR rva=0x948C090 'file_send_ms' -> func rva=0x497E7F0 'FUN_18497e7f0'
+  STR rva=0x94A7DE0 'sender' -> func rva=0x4A3CE20 'FUN_184a3ce20'
+  STR rva=0x94F6540 'nIsSend' -> func rva=0x4C4BE80 'FUN_184c4be80'
+  STR rva=0x94F8C10 'last_msg_sender' -> func rva=0x4C54940 'FUN_184c54940'
+  STR rva=0x94F8C20 'last_sender_display_name' -> func rva=0x4C54940 'FUN_184c54940'
+  STR rva=0x9500059 'mars::stn::LongLink::Send' -> func rva=0x4CB59F0 'FUN_184cb59f0'
+  STR rva=0x9500059 'mars::stn::LongLink::Send' -> func rva=0x4CB59F0 'FUN_184cb59f0'
+  STR rva=0x9500059 'mars::stn::LongLink::Send' -> func rva=0x4CB59F0 'FUN_184cb59f0'
+  STR rva=0x9500059 'mars::stn::LongLink::Send' -> func rva=0x4CB59F0 'FUN_184cb59f0'
+  STR rva=0x9500082 'longlink Send time: %_' -> func rva=0x4CB59F0 'FUN_184cb59f0'
+  STR rva=0x9500099 'mars::stn::LongLink::SendWhenNoData' -> func rva=0x4CB6040 'FUN_184cb6040'
+  STR rva=0x9500099 'mars::stn::LongLink::SendWhenNoData' -> func rva=0x4CB6040 'FUN_184cb6040'
+  STR rva=0x950022B 'send noop fail' -> func rva=0x4CB6D30 'FUN_184cb6d30'
+  STR rva=0x9500826 'task socket send sock:%0, ' -> func rva=0x4CBC920 'FUN_184cbc920'
+  STR rva=0x9500841 'sock:%0, send:%1(%2)' -> func rva=0x4CBC920 'FUN_184cbc920'
+  STR rva=0x9500856 'send failed, ' -> func rva=0x4CBC920 'FUN_184cbc920'
+  STR rva=0x9500856 'send failed, ' -> func rva=0x4CBC920 'FUN_184cbc920'
+  STR rva=0x9500856 'send failed, ' -> func rva=0x4CBC920 'FUN_184cbc920'
+  STR rva=0x9500856 'send failed, ' -> func rva=0x4CBC920 'FUN_184cbc920'
+  STR rva=0x9500856 'send failed, ' -> func rva=0x4CBC920 'FUN_184cbc920'
+  STR rva=0x9500864 'all send:%_, count:%_, ' -> func rva=0x4CBC920 'FUN_184cbc920'
+  STR rva=0x950087C 'sub send taskid:%_, cmdid:%_, %_, len(S:' -> func rva=0x4CBC920 'FUN_184cbc920'
+  STR rva=0x950087C 'sub send taskid:%_, cmdid:%_, %_, len(S:' -> func rva=0x4CBC920 'FUN_184cbc920'
+  STR rva=0x9503064 'task read-write timeout, taskid:%_, wwor' -> func rva=0x4CD6E40 'FUN_184cd6e40'
+  STR rva=0x95030C7 'task long-polling timeout, taskid:%_, ww' -> func rva=0x4CD6E40 'FUN_184cd6e40'
+  STR rva=0x9503123 'task first-pkg timeout taskid:%_, wworke' -> func rva=0x4CD6E40 'FUN_184cd6e40'
+  STR rva=0x95052B1 'task first-pkg timeout taskid:%_,  nStar' -> func rva=0x4CFA2C0 'FUN_184cfa2c0'
+  STR rva=0x9505341 'task read-write timeout, taskid:%_, , nS' -> func rva=0x4CFA2C0 'FUN_184cfa2c0'
+  STR rva=0x950538F 'task timeout, taskid:%_, nStartSendTime=' -> func rva=0x4CFA2C0 'FUN_184cfa2c0'
+  STR rva=0x9505521 'task add into longlink readwrite suc cgi' -> func rva=0x4CFBDA0 'FUN_184cfbda0'
+  STR rva=0x95072C6 'mars::comm::UdpClient::SendBlock' -> func rva=0x4D21B40 'FUN_184d21b40'
+  STR rva=0x95072C6 'mars::comm::UdpClient::SendBlock' -> func rva=0x4D21B40 'FUN_184d21b40'
+  STR rva=0x9507355 'mars::comm::UdpClient::SendAsync' -> func rva=0x4D22A50 'FUN_184d22a50'
+  STR rva=0x9507355 'mars::comm::UdpClient::SendAsync' -> func rva=0x4D22A50 'FUN_184d22a50'
+  STR rva=0x950756D 'sendto error: %0' -> func rva=0x4D21CE0 'FUN_184d21ce0'
+  STR rva=0x950B690 'writen send <= 0, errno:%0' -> func rva=0x4D63E20 'FUN_184d63e20'
+  STR rva=0x950B690 'writen send <= 0, errno:%0' -> func rva=0x4D62470 'FUN_184d62470'
+  STR rva=0x950B6AB 'send length:%0' -> func rva=0x6D9D990 'FUN_186d9d990'
+  STR rva=0x950B6AB 'send length:%0' -> func rva=0x4D62470 'FUN_184d62470'
+  STR rva=0x950B8DB 'send:%0, speedTestReportBuf.Length():%1,' -> func rva=0x4D63E20 'FUN_184d63e20'
+  STR rva=0x950BDEF 'speed test send buffer size %_ req size ' -> func rva=0x4D684C0 'FUN_184d684c0'
+  STR rva=0x950BE1B 'speed test buffer send failed , ret %_, ' -> func rva=0x4D684C0 'FUN_184d684c0'
+  STR rva=0x9512507 'send length: %_, %_, %_' -> func rva=0x4DEEA20 'FUN_184deea20'
+  STR rva=0x9517632 'mars::stn::LongLinkMMTLSProfile::send_mm' -> func rva=0x4E2AD90 'FUN_184e2ad90'
+  STR rva=0x9517632 'mars::stn::LongLinkMMTLSProfile::send_mm' -> func rva=0x4E2AD90 'FUN_184e2ad90'
+  STR rva=0x951767F '0 == send_mmtls_error_code_' -> func rva=0x4E2AD90 'FUN_184e2ad90'
+  STR rva=0x951769B 'send_mmtls_error_code_=%_' -> func rva=0x4E2AD90 'FUN_184e2ad90'
+  STR rva=0x951A744 'KVDATAFLOW(file) task send fail, reset r' -> func rva=0x4E595C0 'FUN_184e595c0'
+  STR rva=0x952765B 'HDVideoStreamingDownload::__BuildSendReq' -> func rva=0x4F20720 'FUN_184f20720'
+  STR rva=0x952765B 'HDVideoStreamingDownload::__BuildSendReq' -> func rva=0x4F20720 'FUN_184f20720'
+  STR rva=0x952765B 'HDVideoStreamingDownload::__BuildSendReq' -> func rva=0x4F20720 'FUN_184f20720'
+  STR rva=0x952765B 'HDVideoStreamingDownload::__BuildSendReq' -> func rva=0x4F20720 'FUN_184f20720'
+  STR rva=0x952765B 'HDVideoStreamingDownload::__BuildSendReq' -> func rva=0x4F20720 'FUN_184f20720'
+  STR rva=0x952765B 'HDVideoStreamingDownload::__BuildSendReq' -> func rva=0x4F20720 'FUN_184f20720'
+  STR rva=0x952765B 'HDVideoStreamingDownload::__BuildSendReq' -> func rva=0x4F20720 'FUN_184f20720'
+  STR rva=0x952765B 'HDVideoStreamingDownload::__BuildSendReq' -> func rva=0x4F20720 'FUN_184f20720'
+  STR rva=0x952A346 'virtual TaskBase::GetDataToSend' -> func rva=0x4F76C50 'FUN_184f76c50'
+  STR rva=0x952A346 'virtual TaskBase::GetDataToSend' -> func rva=0x4F76C50 'FUN_184f76c50'
+  STR rva=0x952A346 'virtual TaskBase::GetDataToSend' -> func rva=0x4F76C50 'FUN_184f76c50'
+  STR rva=0x952A346 'virtual TaskBase::GetDataToSend' -> func rva=0x4F76C50 'FUN_184f76c50'
+  STR rva=0x952B141 'sendfromcdn %_ ' -> func rva=0x4F85560 'FUN_184f85560'
+  STR rva=0x952F161 'HLSVideoStreamingDownload::__BuildSendRe' -> func rva=0x4FB0560 'FUN_184fb0560'
+  STR rva=0x952F161 'HLSVideoStreamingDownload::__BuildSendRe' -> func rva=0x4FB0560 'FUN_184fb0560'
+  STR rva=0x9535410 '/cgi-bin/micromsg-bin/bypsend' -> func rva=0x501A240 'FUN_18501a240'
+  STR rva=0x9535410 '/cgi-bin/micromsg-bin/bypsend' -> func rva=0x5022E40 'FUN_185022e40'
+  STR rva=0x9568BB8 'wavelink.WaveLinkSendMsgRetEvent' -> func rva=0x5212160 'FUN_185212160'
+  STR rva=0x957E50C 'sendId' -> func rva=0x6703640 'FUN_186703640'
+  STR rva=0x959B438 'SendId' -> func rva=0x53F3D50 'FUN_1853f3d50'
+  STR rva=0x95ABCD8 'send_message_failed: MessageManager is u' -> func rva=0x54C1240 'FUN_1854c1240'
+  STR rva=0x95ABCD8 'send_message_failed: MessageManager is u' -> func rva=0x54B7A00 'FUN_1854b7a00'
+  STR rva=0x95ABDA8 'Failed to send finder feed: ' -> func rva=0x54C1240 'FUN_1854c1240'
+  STR rva=0x95AECF0 'send_text_message_failed: MessageManager' -> func rva=0x54D4960 'FUN_1854d4960'
+  STR rva=0x95D6A5B 'all buffer send:%_, m_send_buf:%_' -> func rva=0x55FD990 'FUN_1855fd990'
+  STR rva=0x95D6A7D 'buffer full wait for next select, send e' -> func rva=0x55FD990 'FUN_1855fd990'
+  STR rva=0x95D6AB5 'onclose send err:(%_, %_, %_)' -> func rva=0x55FD990 'FUN_1855fd990'
+  STR rva=0x95D6F2F 'lan_cs::Server_OnSend' -> func rva=0x56026C0 'FUN_1856026c0'
+  STR rva=0x95D6F2F 'lan_cs::Server_OnSend' -> func rva=0x56026C0 'FUN_1856026c0'
+  STR rva=0x95EC078 'is_sender_' -> func rva=0x56B9F90 'FUN_1856b9f90'
+  STR rva=0x95EE030 'sender_user_name' -> func rva=0x56C0C40 'FUN_1856c0c40'
+  STR rva=0x95EE048 'send_id' -> func rva=0x56C0C40 'FUN_1856c0c40'
+  STR rva=0x964F650 'shareSender.exe' -> func rva=0x5929950 'FUN_185929950'
+  STR rva=0x964F650 'shareSender.exe' -> func rva=0x5929950 'FUN_185929950'
+  STR rva=0x9651F48 'wxvoipsdk.SendMsgRet' -> func rva=0x59430D0 'FUN_1859430d0'
+  STR rva=0x965C2A0 '/cgi-bin/micromsg-bin/sendemoji' -> func rva=0x59BFF90 'FUN_1859bff90'
+  STR rva=0x965C2A0 '/cgi-bin/micromsg-bin/sendemoji' -> func rva=0x59C4680 'FUN_1859c4680'
+  STR rva=0x96606A0 'E:\x\x_rel_t6_1\out\build\kernel\gen\pro' -> func rva=0x59F36B0 'FUN_1859f36b0'
+  STR rva=0x96606A0 'E:\x\x_rel_t6_1\out\build\kernel\gen\pro' -> func rva=0x59E1D00 'FUN_1859e1d00'
+  STR rva=0x96606A0 'E:\x\x_rel_t6_1\out\build\kernel\gen\pro' -> func rva=0x59F1A40 'FUN_1859f1a40'
+  STR rva=0x96606A0 'E:\x\x_rel_t6_1\out\build\kernel\gen\pro' -> func rva=0x59E0360 'FUN_1859e0360'
+  STR rva=0x96606A0 'E:\x\x_rel_t6_1\out\build\kernel\gen\pro' -> func rva=0x59D7830 'FUN_1859d7830'
+  STR rva=0x96606A0 'E:\x\x_rel_t6_1\out\build\kernel\gen\pro' -> func rva=0x59D7A40 'FUN_1859d7a40'
+  STR rva=0x96606A0 'E:\x\x_rel_t6_1\out\build\kernel\gen\pro' -> func rva=0x59F7410 'FUN_1859f7410'
+  STR rva=0x96606A0 'E:\x\x_rel_t6_1\out\build\kernel\gen\pro' -> func rva=0x59FBFF0 'FUN_1859fbff0'
+  STR rva=0x96606A0 'E:\x\x_rel_t6_1\out\build\kernel\gen\pro' -> func rva=0x59FB660 'FUN_1859fb660'
+  STR rva=0x96606A0 'E:\x\x_rel_t6_1\out\build\kernel\gen\pro' -> func rva=0x59FAD40 'FUN_1859fad40'
+  STR rva=0x96606A0 'E:\x\x_rel_t6_1\out\build\kernel\gen\pro' -> func rva=0x59D90D0 'FUN_1859d90d0'
+  STR rva=0x96606A0 'E:\x\x_rel_t6_1\out\build\kernel\gen\pro' -> func rva=0x59E9240 'FUN_1859e9240'
+  STR rva=0x96606A0 'E:\x\x_rel_t6_1\out\build\kernel\gen\pro' -> func rva=0x59D8690 'FUN_1859d8690'
+  STR rva=0x96606A0 'E:\x\x_rel_t6_1\out\build\kernel\gen\pro' -> func rva=0x59F3D00 'FUN_1859f3d00'
+  STR rva=0x96606A0 'E:\x\x_rel_t6_1\out\build\kernel\gen\pro' -> func rva=0x59F3940 'FUN_1859f3940'
+  STR rva=0x96606A0 'E:\x\x_rel_t6_1\out\build\kernel\gen\pro' -> func rva=0x59F0190 'FUN_1859f0190'
+  STR rva=0x96606A0 'E:\x\x_rel_t6_1\out\build\kernel\gen\pro' -> func rva=0x59F5EB0 'FUN_1859f5eb0'
+  STR rva=0x96606A0 'E:\x\x_rel_t6_1\out\build\kernel\gen\pro' -> func rva=0x59F55D0 'FUN_1859f55d0'
+  STR rva=0x96606A0 'E:\x\x_rel_t6_1\out\build\kernel\gen\pro' -> func rva=0x59FA360 'FUN_1859fa360'
+  STR rva=0x96606A0 'E:\x\x_rel_t6_1\out\build\kernel\gen\pro' -> func rva=0x59F8510 'FUN_1859f8510'
+  STR rva=0x96606A0 'E:\x\x_rel_t6_1\out\build\kernel\gen\pro' -> func rva=0x59E3440 'FUN_1859e3440'
+  STR rva=0x96606A0 'E:\x\x_rel_t6_1\out\build\kernel\gen\pro' -> func rva=0x59E2E00 'FUN_1859e2e00'
+  STR rva=0x96606A0 'E:\x\x_rel_t6_1\out\build\kernel\gen\pro' -> func rva=0x59E2980 'FUN_1859e2980'
+  STR rva=0x96606A0 'E:\x\x_rel_t6_1\out\build\kernel\gen\pro' -> func rva=0x59EB460 'FUN_1859eb460'
+  STR rva=0x96606A0 'E:\x\x_rel_t6_1\out\build\kernel\gen\pro' -> func rva=0x59EA140 'FUN_1859ea140'
+  STR rva=0x96606A0 'E:\x\x_rel_t6_1\out\build\kernel\gen\pro' -> func rva=0x59EE470 'FUN_1859ee470'
+  STR rva=0x96606A0 'E:\x\x_rel_t6_1\out\build\kernel\gen\pro' -> func rva=0x59D63E0 'FUN_1859d63e0'
+  STR rva=0x9661128 'micromsg.SendAppMsgResponse' -> func rva=0x59F3200 'FUN_1859f3200'
+  STR rva=0x9667360 '/cgi-bin/micromsg-bin/sendfileuploadmsg' -> func rva=0x5A26CE0 'FUN_185a26ce0'
+  STR rva=0x9667360 '/cgi-bin/micromsg-bin/sendfileuploadmsg' -> func rva=0x5A2B610 'FUN_185a2b610'
+  STR rva=0x966A760 'send download response failed' -> func rva=0x5A42680 'FUN_185a42680'
+  STR rva=0x966A780 'send download request failed' -> func rva=0x5A42680 'FUN_185a42680'
+  STR rva=0x966A7A0 'kernel::manager::VoiceDownloadTask::Send' -> func rva=0x5A404E0 'FUN_185a404e0'
+  STR rva=0x966BD28 'send CheckVoiceTransRequest failed' -> func rva=0x5A4E380 'FUN_185a4e380'
+  STR rva=0x966BD50 'send UploadVoiceForTransRequest failed' -> func rva=0x5A52BD0 'FUN_185a52bd0'
+  STR rva=0x966BD78 'send GetVoiceTransResRequest failed' -> func rva=0x5A55510 'FUN_185a55510'
+  STR rva=0x967C500 'E:\x\x_rel_t6_1\out\build\kernel\gen\pro' -> func rva=0x5AE6500 'FUN_185ae6500'
+  STR rva=0x967C500 'E:\x\x_rel_t6_1\out\build\kernel\gen\pro' -> func rva=0x5AE6800 'FUN_185ae6800'
+  STR rva=0x967C5C8 'micromsg.MigrateMsgSendNotifyReq' -> func rva=0x5AE67B0 'FUN_185ae67b0'
+  STR rva=0x9698D30 'weixin://chatbot/SendYuanbaoRemindMsg' -> func rva=0x5BE5BD0 'FUN_185be5bd0'
+  STR rva=0x9698D30 'weixin://chatbot/SendYuanbaoRemindMsg' -> func rva=0x5BE5BD0 'FUN_185be5bd0'
+  STR rva=0x969E8A8 'send_err_code' -> func rva=0x5C13710 'FUN_185c13710'
+  STR rva=0x969E8A8 'send_err_code' -> func rva=0x5C11510 'FUN_185c11510'
+  STR rva=0x969E8E8 'msg_send_err_win' -> func rva=0x5C11510 'FUN_185c11510'
+  STR rva=0x969E918 'send_status' -> func rva=0x5C13710 'FUN_185c13710'
+  STR rva=0x969E938 'input_box_msg_send' -> func rva=0x5C13710 'FUN_185c13710'
+  STR rva=0x969EA80 'input_press_mouse_voice_send' -> func rva=0x5C15F20 'FUN_185c15f20'
+  STR rva=0x96B1340 'issendmsg' -> func rva=0x5C9ECC0 'FUN_185c9ecc0'
+  STR rva=0x96FEFE0 'record_sender' -> func rva=0x5EC9430 'FUN_185ec9430'
+  STR rva=0x96FF000 '{"sender_sid":%s;"query_sid":%s;"query_w' -> func rva=0x5EC9AD0 'FUN_185ec9ad0'
+  STR rva=0x96FF068 'sender_search_result' -> func rva=0x5EC9AD0 'FUN_185ec9ad0'
+  STR rva=0x96FF068 'sender_search_result' -> func rva=0x5EC9AD0 'FUN_185ec9ad0'
+  STR rva=0x96FF080 '{"sender_sid":%s;"stay_ms":%llu;"entry_p' -> func rva=0x5ECA2B0 'FUN_185eca2b0'
+  STR rva=0x96FF0B0 'sender_win' -> func rva=0x5ECA2B0 'FUN_185eca2b0'
+  STR rva=0x96FF1D0 'sender_list' -> func rva=0x5ECE3A0 'FUN_185ece3a0'
+  STR rva=0x973F3C8 'micromsg.BizRecent48hOrOneMassSend' -> func rva=0x60A8E50 'FUN_1860a8e50'
+  STR rva=0x975F928 'stt_req_send_ts' -> func rva=0x6162D20 'FUN_186162d20'
+  STR rva=0x975F928 'stt_req_send_ts' -> func rva=0x6161740 'FUN_186161740'
+  STR rva=0x977EB48 'sender_path_exists' -> func rva=0x6247080 'FUN_186247080'
+  STR rva=0x9790E20 'wechat_call_sendto_xeditor' -> func rva=0x62D57E0 'FUN_1862d57e0'
+  STR rva=0x9790E20 'wechat_call_sendto_xeditor' -> func rva=0x62CDBA0 'FUN_1862cdba0'
+  STR rva=0x9790E20 'wechat_call_sendto_xeditor' -> func rva=0x62CDBA0 'FUN_1862cdba0'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x6CD3DC0 'FUN_186cd3dc0'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x6CD3DC0 'FUN_186cd3dc0'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x6CD39D0 'FUN_186cd39d0'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x6CD39D0 'FUN_186cd39d0'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x6CD2650 'FUN_186cd2650'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x6CD2650 'FUN_186cd2650'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x6CD74E0 'FUN_186cd74e0'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x6CD74E0 'FUN_186cd74e0'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x6CD7020 'FUN_186cd7020'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x6CD7020 'FUN_186cd7020'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x6CD6A40 'FUN_186cd6a40'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x6CD6A40 'FUN_186cd6a40'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x6CD66C0 'FUN_186cd66c0'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x6CD66C0 'FUN_186cd66c0'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x6CD6270 'FUN_186cd6270'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x6CD6270 'FUN_186cd6270'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x6CD5DE0 'FUN_186cd5de0'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x6CD5DE0 'FUN_186cd5de0'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x6CD5810 'FUN_186cd5810'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x6CD5810 'FUN_186cd5810'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x6CD5450 'FUN_186cd5450'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x6CD5450 'FUN_186cd5450'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x6CD4FC0 'FUN_186cd4fc0'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x6CD4FC0 'FUN_186cd4fc0'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x6CD4BE0 'FUN_186cd4be0'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x6CD4BE0 'FUN_186cd4be0'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x6CD4790 'FUN_186cd4790'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x6CD4790 'FUN_186cd4790'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x6CD4270 'FUN_186cd4270'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x6CD4270 'FUN_186cd4270'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x62DACE0 'FUN_1862dace0'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x62DACE0 'FUN_1862dace0'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x6CDBCD0 'FUN_186cdbcd0'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x6CDBCD0 'FUN_186cdbcd0'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x67A6980 'FUN_1867a6980'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x67A6980 'FUN_1867a6980'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x67A6980 'FUN_1867a6980'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x67A6980 'FUN_1867a6980'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x67A6980 'FUN_1867a6980'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x67A6980 'FUN_1867a6980'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x67A6980 'FUN_1867a6980'
+  STR rva=0x97942F0 'SendPBMsgToXEditor' -> func rva=0x67A6980 'FUN_1867a6980'
+  STR rva=0x9794308 'xeditor::XEditorPBMsgUtils::SendPBMsgToX' -> func rva=0x6CD3DC0 'FUN_186cd3dc0'
+  STR rva=0x9794308 'xeditor::XEditorPBMsgUtils::SendPBMsgToX' -> func rva=0x6CD39D0 'FUN_186cd39d0'
+  STR rva=0x9794308 'xeditor::XEditorPBMsgUtils::SendPBMsgToX' -> func rva=0x6CD2650 'FUN_186cd2650'
+  STR rva=0x9794308 'xeditor::XEditorPBMsgUtils::SendPBMsgToX' -> func rva=0x6CD74E0 'FUN_186cd74e0'
+  STR rva=0x9794308 'xeditor::XEditorPBMsgUtils::SendPBMsgToX' -> func rva=0x6CD7020 'FUN_186cd7020'
+  STR rva=0x9794308 'xeditor::XEditorPBMsgUtils::SendPBMsgToX' -> func rva=0x6CD6A40 'FUN_186cd6a40'
+  STR rva=0x9794308 'xeditor::XEditorPBMsgUtils::SendPBMsgToX' -> func rva=0x6CD66C0 'FUN_186cd66c0'
+  STR rva=0x9794308 'xeditor::XEditorPBMsgUtils::SendPBMsgToX' -> func rva=0x6CD6270 'FUN_186cd6270'
+  STR rva=0x9794308 'xeditor::XEditorPBMsgUtils::SendPBMsgToX' -> func rva=0x6CD5DE0 'FUN_186cd5de0'
+  STR rva=0x9794308 'xeditor::XEditorPBMsgUtils::SendPBMsgToX' -> func rva=0x6CD5810 'FUN_186cd5810'
+  STR rva=0x9794308 'xeditor::XEditorPBMsgUtils::SendPBMsgToX' -> func rva=0x6CD5450 'FUN_186cd5450'
+  STR rva=0x9794308 'xeditor::XEditorPBMsgUtils::SendPBMsgToX' -> func rva=0x6CD4FC0 'FUN_186cd4fc0'
+  STR rva=0x9794308 'xeditor::XEditorPBMsgUtils::SendPBMsgToX' -> func rva=0x6CD4BE0 'FUN_186cd4be0'
+  STR rva=0x9794308 'xeditor::XEditorPBMsgUtils::SendPBMsgToX' -> func rva=0x6CD4790 'FUN_186cd4790'
+  STR rva=0x9794308 'xeditor::XEditorPBMsgUtils::SendPBMsgToX' -> func rva=0x6CD4270 'FUN_186cd4270'
+  STR rva=0x9794308 'xeditor::XEditorPBMsgUtils::SendPBMsgToX' -> func rva=0x62DACE0 'FUN_1862dace0'
+  STR rva=0x9794308 'xeditor::XEditorPBMsgUtils::SendPBMsgToX' -> func rva=0x6CDBCD0 'FUN_186cdbcd0'
+  STR rva=0x9794308 'xeditor::XEditorPBMsgUtils::SendPBMsgToX' -> func rva=0x67A6980 'FUN_1867a6980'
+  STR rva=0x9794308 'xeditor::XEditorPBMsgUtils::SendPBMsgToX' -> func rva=0x67A6980 'FUN_1867a6980'
+  STR rva=0x9794308 'xeditor::XEditorPBMsgUtils::SendPBMsgToX' -> func rva=0x67A6980 'FUN_1867a6980'
+  STR rva=0x9794308 'xeditor::XEditorPBMsgUtils::SendPBMsgToX' -> func rva=0x67A6980 'FUN_1867a6980'
+  STR rva=0x9794378 'xeditor::XEditorPBMsgUtils::SendPBMsg' -> func rva=0x6CE7E00 'FUN_186ce7e00'
+  STR rva=0x9794378 'xeditor::XEditorPBMsgUtils::SendPBMsg' -> func rva=0x6CE78D0 'FUN_186ce78d0'
+  STR rva=0x9794378 'xeditor::XEditorPBMsgUtils::SendPBMsg' -> func rva=0x6CE73A0 'FUN_186ce73a0'
+  STR rva=0x9794378 'xeditor::XEditorPBMsgUtils::SendPBMsg' -> func rva=0x6CE6E70 'FUN_186ce6e70'
+  STR rva=0x9794378 'xeditor::XEditorPBMsgUtils::SendPBMsg' -> func rva=0x6CE69A0 'FUN_186ce69a0'
+  STR rva=0x9794378 'xeditor::XEditorPBMsgUtils::SendPBMsg' -> func rva=0x6CE64D0 'FUN_186ce64d0'
+  STR rva=0x9794378 'xeditor::XEditorPBMsgUtils::SendPBMsg' -> func rva=0x6CE5FA0 'FUN_186ce5fa0'
+  STR rva=0x9794378 'xeditor::XEditorPBMsgUtils::SendPBMsg' -> func rva=0x6CE5A70 'FUN_186ce5a70'
+  STR rva=0x9794378 'xeditor::XEditorPBMsgUtils::SendPBMsg' -> func rva=0x6CE5540 'FUN_186ce5540'
+  STR rva=0x9794378 'xeditor::XEditorPBMsgUtils::SendPBMsg' -> func rva=0x6CE5010 'FUN_186ce5010'
+  STR rva=0x9794378 'xeditor::XEditorPBMsgUtils::SendPBMsg' -> func rva=0x6CE4AE0 'FUN_186ce4ae0'
+  STR rva=0x9794378 'xeditor::XEditorPBMsgUtils::SendPBMsg' -> func rva=0x6CE4760 'FUN_186ce4760'
+  STR rva=0x9794378 'xeditor::XEditorPBMsgUtils::SendPBMsg' -> func rva=0x6CE4230 'FUN_186ce4230'
+  STR rva=0x9794378 'xeditor::XEditorPBMsgUtils::SendPBMsg' -> func rva=0x62DB8A0 'FUN_1862db8a0'
+  STR rva=0x9794378 'xeditor::XEditorPBMsgUtils::SendPBMsg' -> func rva=0x67B91F0 'FUN_1867b91f0'
+  STR rva=0x9794378 'xeditor::XEditorPBMsgUtils::SendPBMsg' -> func rva=0x67B8D20 'FUN_1867b8d20'
+  STR rva=0x9794378 'xeditor::XEditorPBMsgUtils::SendPBMsg' -> func rva=0x6CF2260 'FUN_186cf2260'
+  STR rva=0x9794378 'xeditor::XEditorPBMsgUtils::SendPBMsg' -> func rva=0x6CF0710 'FUN_186cf0710'
+  STR rva=0x9794378 'xeditor::XEditorPBMsgUtils::SendPBMsg' -> func rva=0x67B3A90 'FUN_1867b3a90'
+  STR rva=0x9794378 'xeditor::XEditorPBMsgUtils::SendPBMsg' -> func rva=0x67B3410 'FUN_1867b3410'
+  STR rva=0x9794378 'xeditor::XEditorPBMsgUtils::SendPBMsg' -> func rva=0x67B2D30 'FUN_1867b2d30'
+  STR rva=0x9794378 'xeditor::XEditorPBMsgUtils::SendPBMsg' -> func rva=0x67B2650 'FUN_1867b2650'
+  STR rva=0x9794378 'xeditor::XEditorPBMsgUtils::SendPBMsg' -> func rva=0x67B18B0 'FUN_1867b18b0'
+  STR rva=0x9794378 'xeditor::XEditorPBMsgUtils::SendPBMsg' -> func rva=0x67B0E70 'FUN_1867b0e70'
+  STR rva=0x9794378 'xeditor::XEditorPBMsgUtils::SendPBMsg' -> func rva=0x67B7CA0 'FUN_1867b7ca0'
+  STR rva=0x9794378 'xeditor::XEditorPBMsgUtils::SendPBMsg' -> func rva=0x67B7410 'FUN_1867b7410'
+  STR rva=0x9794378 'xeditor::XEditorPBMsgUtils::SendPBMsg' -> func rva=0x67B5550 'FUN_1867b5550'
+  STR rva=0x9794378 'xeditor::XEditorPBMsgUtils::SendPBMsg' -> func rva=0x67B4E70 'FUN_1867b4e70'
+  STR rva=0x9794378 'xeditor::XEditorPBMsgUtils::SendPBMsg' -> func rva=0x67B4790 'FUN_1867b4790'
+  STR rva=0x9794378 'xeditor::XEditorPBMsgUtils::SendPBMsg' -> func rva=0x67B4110 'FUN_1867b4110'
+  STR rva=0x9794378 'xeditor::XEditorPBMsgUtils::SendPBMsg' -> func rva=0x67B87F0 'FUN_1867b87f0'
+  STR rva=0x97D9B94 'net %_, _dynamictimeout_status %_, ret: ' -> func rva=0x6483910 'FUN_186483910'
+  STR rva=0x97DB37B 'send dns query error.' -> func rva=0x6494620 'FUN_186494620'
+  STR rva=0x97DBF5D 'mars::mmdns::MMDnsResolver::__SendReques' -> func rva=0x64A19F0 'FUN_1864a19f0'
+  STR rva=0x97DBF5D 'mars::mmdns::MMDnsResolver::__SendReques' -> func rva=0x64A19F0 'FUN_1864a19f0'
+  STR rva=0x97DBF5D 'mars::mmdns::MMDnsResolver::__SendReques' -> func rva=0x64A19F0 'FUN_1864a19f0'
+  STR rva=0x97DBF5D 'mars::mmdns::MMDnsResolver::__SendReques' -> func rva=0x64A19F0 'FUN_1864a19f0'
+  STR rva=0x97DBF87 'mmdns upd send task:%_ simplednsid:%_' -> func rva=0x64A19F0 'FUN_1864a19f0'
+  STR rva=0x97DBFAD 'mmdns udp client send fail. ret:%_' -> func rva=0x64A19F0 'FUN_1864a19f0'
+  STR rva=0x97DC137 '__SendRequest fail' -> func rva=0x64A2D20 'FUN_1864a2d20'
+  STR rva=0x97DD14F '<?xml version="1.0" encoding="utf-8"?>		' -> func rva=0x4D3C2B0 'FUN_184d3c2b0'
+  STR rva=0x97DD14F '<?xml version="1.0" encoding="utf-8"?>		' -> func rva=0x4D3C2B0 'FUN_184d3c2b0'
+  STR rva=0x97DF361 '_funcid:%_, sendsize:%_, _recvsize:%_' -> func rva=0x64B5E70 'FUN_1864b5e70'
+  STR rva=0x97DF77E 'first_start_send_time:' -> func rva=0x64BBBD0 'FUN_1864bbbd0'
+  STR rva=0x97DF795 'start_send_time:' -> func rva=0x64BBBD0 'FUN_1864bbbd0'
+  STR rva=0x97DF7D9 'send_data_size:' -> func rva=0x64BBBD0 'FUN_1864bbbd0'
+  STR rva=0x97DFD7B 'WARNING:send_recv_continous_succ_count:%' -> func rva=0x64C3BA0 'FUN_1864c3ba0'
+  STR rva=0x97DFDDC 'mmtls:send recv error not set.' -> func rva=0x64C3BA0 'FUN_1864c3ba0'
+  STR rva=0x97DFDFB 'send_recv_error_code:%_' -> func rva=0x64C3BA0 'FUN_1864c3ba0'
+  STR rva=0x97E0FF4 'http_send_req_time_:%_, http_recv_resp_t' -> func rva=0x64D1670 'FUN_1864d1670'
+  STR rva=0x97E1C4A 'debug: write app data to send buffer, ma' -> func rva=0x64DA870 'FUN_1864da870'
+  STR rva=0x97E1C4A 'debug: write app data to send buffer, ma' -> func rva=0x64DA870 'FUN_1864da870'
+  STR rva=0x97E1CA2 '%s "write serialized record to send buff' -> func rva=0x64DA870 'FUN_1864da870'
+  STR rva=0x97E1CA2 '%s "write serialized record to send buff' -> func rva=0x64DA870 'FUN_1864da870'
+  STR rva=0x97E1CE9 '%s "write serialized record to send buff' -> func rva=0x64DA870 'FUN_1864da870'
+  STR rva=0x97E1CE9 '%s "write serialized record to send buff' -> func rva=0x64DA870 'FUN_1864da870'
+  STR rva=0x97E1D6A 'send alert type %u errorcode %d to peer' -> func rva=0x64DB4E0 'FUN_1864db4e0'
+  STR rva=0x97E1D6A 'send alert type %u errorcode %d to peer' -> func rva=0x64DB4E0 'FUN_1864db4e0'
+  STR rva=0x97E3931 '%s "audit for 1st send to peer fail"' -> func rva=0x64E79C0 'FUN_1864e79c0'
+  STR rva=0x97E3931 '%s "audit for 1st send to peer fail"' -> func rva=0x64E79C0 'FUN_1864e79c0'
+  STR rva=0x97E39C0 'client tls channel is closed. can't send' -> func rva=0x64E7F40 'FUN_1864e7f40'
+  STR rva=0x97E39C0 'client tls channel is closed. can't send' -> func rva=0x64E7F40 'FUN_1864e7f40'
+  STR rva=0x97E3AAA 'write application data to send buffer fa' -> func rva=0x64E7F40 'FUN_1864e7f40'
+  STR rva=0x97E3AAA 'write application data to send buffer fa' -> func rva=0x64E7F40 'FUN_1864e7f40'
+  STR rva=0x97E3AEA 'client tls channel is closed. can't send' -> func rva=0x64E8160 'FUN_1864e8160'
+  STR rva=0x97E3AEA 'client tls channel is closed. can't send' -> func rva=0x64E8160 'FUN_1864e8160'
+  STR rva=0x97E3BB7 'write heartbeat data to send buffer fail' -> func rva=0x64E8160 'FUN_1864e8160'
+  STR rva=0x97E3BB7 'write heartbeat data to send buffer fail' -> func rva=0x64E8160 'FUN_1864e8160'
+  STR rva=0x97E4127 '%s "write serialized handshake message t' -> func rva=0x64E9F10 'FUN_1864e9f10'
+  STR rva=0x97E4127 '%s "write serialized handshake message t' -> func rva=0x64E9F10 'FUN_1864e9f10'
+  STR rva=0x97E422E '%s "send client hello fail"' -> func rva=0x64EA240 'FUN_1864ea240'
+  STR rva=0x97E422E '%s "send client hello fail"' -> func rva=0x64EA240 'FUN_1864ea240'
+  STR rva=0x97E424A '%s "send encrypted extensions fail"' -> func rva=0x64EA240 'FUN_1864ea240'
+  STR rva=0x97E424A '%s "send encrypted extensions fail"' -> func rva=0x64EA240 'FUN_1864ea240'
+  STR rva=0x97E426E '%s "send early app data fail"' -> func rva=0x64EA240 'FUN_1864ea240'
+  STR rva=0x97E426E '%s "send early app data fail"' -> func rva=0x64EA240 'FUN_1864ea240'
+  STR rva=0x97E4392 '%s "send client finished fail"' -> func rva=0x64EA240 'FUN_1864ea240'
+  STR rva=0x97E4392 '%s "send client finished fail"' -> func rva=0x64EA240 'FUN_1864ea240'
+  STR rva=0x97E4543 '%s "write client hello to send buffer fa' -> func rva=0x64EB0D0 'FUN_1864eb0d0'
+  STR rva=0x97E4543 '%s "write client hello to send buffer fa' -> func rva=0x64EB0D0 'FUN_1864eb0d0'
+  STR rva=0x97E45A2 '%s "send encrypted extensions in wrong h' -> func rva=0x64EB410 'FUN_1864eb410'
+  STR rva=0x97E45A2 '%s "send encrypted extensions in wrong h' -> func rva=0x64EB410 'FUN_1864eb410'
+  STR rva=0x97E4643 '%s "write encrypted extensions to send b' -> func rva=0x64EB410 'FUN_1864eb410'
+  STR rva=0x97E4643 '%s "write encrypted extensions to send b' -> func rva=0x64EB410 'FUN_1864eb410'
+  STR rva=0x97E4677 'send_early_app_data_' -> func rva=0x64EB6A0 'FUN_1864eb6a0'
+  STR rva=0x97E4677 'send_early_app_data_' -> func rva=0x64EB6A0 'FUN_1864eb6a0'
+  STR rva=0x97E468C 'CHECK_TRUE [%s] "no early application da' -> func rva=0x64EB6A0 'FUN_1864eb6a0'
+  STR rva=0x97E468C 'CHECK_TRUE [%s] "no early application da' -> func rva=0x64EB6A0 'FUN_1864eb6a0'
+  STR rva=0x97E4701 '%s "send early application data in wrong' -> func rva=0x64EB6A0 'FUN_1864eb6a0'
+  STR rva=0x97E4701 '%s "send early application data in wrong' -> func rva=0x64EB6A0 'FUN_1864eb6a0'
+  STR rva=0x97E473A '%s "write early application data to send' -> func rva=0x64EB6A0 'FUN_1864eb6a0'
+  STR rva=0x97E473A '%s "write early application data to send' -> func rva=0x64EB6A0 'FUN_1864eb6a0'
+  STR rva=0x97E4770 '%s "write end of early data alert to sen' -> func rva=0x64EB6A0 'FUN_1864eb6a0'
+  STR rva=0x97E4770 '%s "write end of early data alert to sen' -> func rva=0x64EB6A0 'FUN_1864eb6a0'
+  STR rva=0x97E4949 '%s "write client finished to send buffer' -> func rva=0x64EC5F0 'FUN_1864ec5f0'
+  STR rva=0x97E4949 '%s "write client finished to send buffer' -> func rva=0x64EC5F0 'FUN_1864ec5f0'
+  STR rva=0x97E4CAC 'OnSendTo buffer.size:%zu' -> func rva=0x64EFFF0 'FUN_1864efff0'
+  STR rva=0x97E4CAC 'OnSendTo buffer.size:%zu' -> func rva=0x64EFFF0 'FUN_1864efff0'
+  STR rva=0x97E4F29 'Send begin, app_data.size:%zu, state_:%d' -> func rva=0x64F5BC0 'FUN_1864f5bc0'
+  STR rva=0x97E4F29 'Send begin, app_data.size:%zu, state_:%d' -> func rva=0x64F5BC0 'FUN_1864f5bc0'
+  STR rva=0x97E4F76 'Send but state ' -> func rva=0x64F5BC0 'FUN_1864f5bc0'
+  STR rva=0x97E4F76 'Send but state ' -> func rva=0x64F5BC0 'FUN_1864f5bc0'
+  STR rva=0x97E4F76 'Send but state ' -> func rva=0x64F5BC0 'FUN_1864f5bc0'
+  STR rva=0x97E4F76 'Send but state ' -> func rva=0x64F5BC0 'FUN_1864f5bc0'
+  STR rva=0x97EABEC 'GroupingNetChannel::__SendData' -> func rva=0x6560250 'FUN_186560250'
+  STR rva=0x97EABEC 'GroupingNetChannel::__SendData' -> func rva=0x6560250 'FUN_186560250'
+  STR rva=0x97EABEC 'GroupingNetChannel::__SendData' -> func rva=0x6560250 'FUN_186560250'
+  STR rva=0x97EABEC 'GroupingNetChannel::__SendData' -> func rva=0x6560250 'FUN_186560250'
+  STR rva=0x97EABEC 'GroupingNetChannel::__SendData' -> func rva=0x6560250 'FUN_186560250'
+  STR rva=0x97EABEC 'GroupingNetChannel::__SendData' -> func rva=0x6560250 'FUN_186560250'
+  STR rva=0x97EABEC 'GroupingNetChannel::__SendData' -> func rva=0x6560250 'FUN_186560250'
+  STR rva=0x97EABEC 'GroupingNetChannel::__SendData' -> func rva=0x6560250 'FUN_186560250'
+  STR rva=0x97EAC82 '[%_] conn %_ send %_ bytes.
+' -> func rva=0x6560250 'FUN_186560250'
+  STR rva=0x97EAC9F 'cdntask %_, send error:%_,%_' -> func rva=0x6580630 'FUN_186580630'
+  STR rva=0x97EAC9F 'cdntask %_, send error:%_,%_' -> func rva=0x6560250 'FUN_186560250'
+  STR rva=0x97EBB0D 'SendDataOnInvalidConn' -> func rva=0x6568150 'FUN_186568150'
+  STR rva=0x97EBB0D 'SendDataOnInvalidConn' -> func rva=0x6568150 'FUN_186568150'
+  STR rva=0x97EEA64 'DefaultNetChannel::__SendData' -> func rva=0x6580630 'FUN_186580630'
+  STR rva=0x97EEA64 'DefaultNetChannel::__SendData' -> func rva=0x6580630 'FUN_186580630'
+  STR rva=0x97EEA64 'DefaultNetChannel::__SendData' -> func rva=0x6580630 'FUN_186580630'
+  STR rva=0x97EEA64 'DefaultNetChannel::__SendData' -> func rva=0x6580630 'FUN_186580630'
+  STR rva=0x97EEA64 'DefaultNetChannel::__SendData' -> func rva=0x6580630 'FUN_186580630'
+  STR rva=0x97EEA64 'DefaultNetChannel::__SendData' -> func rva=0x6580630 'FUN_186580630'
+  STR rva=0x97EEA64 'DefaultNetChannel::__SendData' -> func rva=0x6580630 'FUN_186580630'
+  STR rva=0x97EEA64 'DefaultNetChannel::__SendData' -> func rva=0x6580630 'FUN_186580630'
+  STR rva=0x97EEAB3 'time %_ conn %_ send %_ bytes.
+' -> func rva=0x6580630 'FUN_186580630'
+  STR rva=0x97F2300 'cdntask %_ current size: %_ > 0, noneed ' -> func rva=0x65B0D40 'FUN_1865b0d40'
+  STR rva=0x97F2639 'invalid offset or checksum error. me:%_.' -> func rva=0x65BE3E0 'FUN_1865be3e0'
+  STR rva=0x97F3992 'seq2send_.find(seq2recv.first) != seq2se' -> func rva=0x65D94B0 'FUN_1865d94b0'
+  STR rva=0x97F39F6 'seq2send_.find(first_seq) != seq2send_.e' -> func rva=0x65D98A0 'FUN_1865d98a0'
+  STR rva=0x97F3A23 'seq not found in seq2send_:%_' -> func rva=0x65D98A0 'FUN_1865d98a0'
+  STR rva=0x97F3B39 'conn %_ sendbuffer
+%_' -> func rva=0x65DBF60 'FUN_1865dbf60'
+  STR rva=0x97F3BBF 'total_recvbytes_:%_, total_sentbytes_:%_' -> func rva=0x65DB790 'FUN_1865db790'
+  STR rva=0x97F68FC 'send length:%_, ret: %_, error code: %_ ' -> func rva=0x66132C0 'FUN_1866132c0'
+  STR rva=0x97F6925 'buffer send failed , ret %_, error code:' -> func rva=0x66132C0 'FUN_1866132c0'
+  STR rva=0x97FB89C 'mars::sdt::SendHttpQuery' -> func rva=0x6669930 'FUN_186669930'
+  STR rva=0x97FB89C 'mars::sdt::SendHttpQuery' -> func rva=0x6669930 'FUN_186669930'
+  STR rva=0x97FB89C 'mars::sdt::SendHttpQuery' -> func rva=0x6669930 'FUN_186669930'
+  STR rva=0x97FB89C 'mars::sdt::SendHttpQuery' -> func rva=0x6669930 'FUN_186669930'
+  STR rva=0x97FB89C 'mars::sdt::SendHttpQuery' -> func rva=0x6669930 'FUN_186669930'
+  STR rva=0x97FB89C 'mars::sdt::SendHttpQuery' -> func rva=0x6669930 'FUN_186669930'
+  STR rva=0x97FB89C 'mars::sdt::SendHttpQuery' -> func rva=0x6669930 'FUN_186669930'
+  STR rva=0x97FB89C 'mars::sdt::SendHttpQuery' -> func rva=0x6669930 'FUN_186669930'
+  STR rva=0x97FB89C 'mars::sdt::SendHttpQuery' -> func rva=0x6669930 'FUN_186669930'
+  STR rva=0x97FB89C 'mars::sdt::SendHttpQuery' -> func rva=0x6669930 'FUN_186669930'
+  STR rva=0x97FB89C 'mars::sdt::SendHttpQuery' -> func rva=0x6669930 'FUN_186669930'
+  STR rva=0x97FB89C 'mars::sdt::SendHttpQuery' -> func rva=0x6669930 'FUN_186669930'
+  STR rva=0x97FB89C 'mars::sdt::SendHttpQuery' -> func rva=0x6669930 'FUN_186669930'
+  STR rva=0x97FB89C 'mars::sdt::SendHttpQuery' -> func rva=0x6669930 'FUN_186669930'
+  STR rva=0x97FB89C 'mars::sdt::SendHttpQuery' -> func rva=0x6669930 'FUN_186669930'
+  STR rva=0x97FB89C 'mars::sdt::SendHttpQuery' -> func rva=0x6669930 'FUN_186669930'
+  STR rva=0x97FB89C 'mars::sdt::SendHttpQuery' -> func rva=0x6669930 'FUN_186669930'
+  STR rva=0x97FB89C 'mars::sdt::SendHttpQuery' -> func rva=0x6669930 'FUN_186669930'
+  STR rva=0x97FB89C 'mars::sdt::SendHttpQuery' -> func rva=0x6669930 'FUN_186669930'
+  STR rva=0x97FB89C 'mars::sdt::SendHttpQuery' -> func rva=0x6669930 'FUN_186669930'
+  STR rva=0x97FB89C 'mars::sdt::SendHttpQuery' -> func rva=0x6669930 'FUN_186669930'
+  STR rva=0x97FB89C 'mars::sdt::SendHttpQuery' -> func rva=0x6669930 'FUN_186669930'
+  STR rva=0x97FB89C 'mars::sdt::SendHttpQuery' -> func rva=0x6669930 'FUN_186669930'
+  STR rva=0x97FB89C 'mars::sdt::SendHttpQuery' -> func rva=0x6669930 'FUN_186669930'
+  STR rva=0x97FB89C 'mars::sdt::SendHttpQuery' -> func rva=0x6669930 'FUN_186669930'
+  STR rva=0x97FB89C 'mars::sdt::SendHttpQuery' -> func rva=0x6669930 'FUN_186669930'
+  STR rva=0x97FB89C 'mars::sdt::SendHttpQuery' -> func rva=0x6669930 'FUN_186669930'
+  STR rva=0x97FB89C 'mars::sdt::SendHttpQuery' -> func rva=0x6669930 'FUN_186669930'
+  STR rva=0x97FB9BC 'tcp send data error, ret: %0' -> func rva=0x6669930 'FUN_186669930'
+  STR rva=0x97FB9D9 'send http data error.' -> func rva=0x6669930 'FUN_186669930'
+  STR rva=0x97FB9D9 'send http data error.' -> func rva=0x6669930 'FUN_186669930'
+  STR rva=0x97FBF14 'sendWithNonBlock ::send return:%0' -> func rva=0x666F0A0 'FUN_18666f0a0'
+  STR rva=0x97FBF36 'sendWithNonBlock send <= 0, errno:%0' -> func rva=0x666F0A0 'FUN_18666f0a0'
+  STR rva=0x980A0A0 'isSender' -> func rva=0x6703640 'FUN_186703640'
+  STR rva=0x980A0B0 'sendUserName' -> func rva=0x6703640 'FUN_186703640'
+  STR rva=0x980A108 'sendNick' -> func rva=0x6703E00 'FUN_186703e00'
+  STR rva=0x980A108 'sendNick' -> func rva=0x6704EC0 'FUN_186704ec0'
+  STR rva=0x980A118 'sendHeadImg' -> func rva=0x6703E00 'FUN_186703e00'
+  STR rva=0x980A118 'sendHeadImg' -> func rva=0x6704EC0 'FUN_186704ec0'
+  STR rva=0x981B6F0 'xeditor::XEditorSDKImpl::HandleSendPBMsg' -> func rva=0x67A6290 'FUN_1867a6290'
+  STR rva=0x981BAC0 'MockXEditorSendPBMsgToClient' -> func rva=0x6CD3DC0 'FUN_186cd3dc0'
+  STR rva=0x981BAC0 'MockXEditorSendPBMsgToClient' -> func rva=0x6CD3DC0 'FUN_186cd3dc0'
+  STR rva=0x981BAE0 'xeditor::XEditorPBMsgUtils::MockXEditorS' -> func rva=0x6CD3DC0 'FUN_186cd3dc0'
+  STR rva=0x98809A0 'gSendFavoriteSplitterPositionKey' -> func rva=0x6A5A620 'FUN_186a5a620'
+  STR rva=0x98809A0 'gSendFavoriteSplitterPositionKey' -> func rva=0x6A5A770 'FUN_186a5a770'
+  STR rva=0x98B5F18 'send sources invalid when start send' -> func rva=0x6BB5AE0 'FUN_186bb5ae0'
+  STR rva=0x98B5F18 'send sources invalid when start send' -> func rva=0x6BB5AE0 'FUN_186bb5ae0'
+  STR rva=0x98DCF40 'SendTaskResponsePBMsgToXEditor' -> func rva=0x6CDF2D0 'FUN_186cdf2d0'
+  STR rva=0x98DCF40 'SendTaskResponsePBMsgToXEditor' -> func rva=0x6CDF2D0 'FUN_186cdf2d0'
+  STR rva=0x98DCF60 'xeditor::XEditorPBMsgUtils::SendTaskResp' -> func rva=0x6CDF2D0 'FUN_186cdf2d0'
+  STR rva=0x98F56D6 'writen send <= 0, errno:%0, nwrite:%1' -> func rva=0x6D9D990 'FUN_186d9d990'
+  STR rva=0x98F57EC 'NetCheckTrafficMonitor::sendLimitCheck' -> func rva=0x6D9ECB0 'FUN_186d9ecb0'
+  STR rva=0x98F57EC 'NetCheckTrafficMonitor::sendLimitCheck' -> func rva=0x6D9ECB0 'FUN_186d9ecb0'
+  STR rva=0x98F5813 'sendLimitCheck!!!wifi_data_threshold_=%0' -> func rva=0x6D9ECB0 'FUN_186d9ecb0'
+  STR rva=0x98F58C9 'recvLimitCheck!!!wifi_data_threshold_=%0' -> func rva=0x6D9F330 'FUN_186d9f330'
+  STR rva=0x98F6A20 'Send Request Error, ret:%_, errno:%_, nr' -> func rva=0x6DA9850 'FUN_186da9850'
+  STR rva=0x98F6A5A 'user interrupt detect when tcp send;
+' -> func rva=0x6DA9850 'FUN_186da9850'
+  STR rva=0x98F6A5A 'user interrupt detect when tcp send;
+' -> func rva=0x6DA9850 'FUN_186da9850'
+  STR rva=0x98F6A80 'send_ret == (int)req_buffer.Length()' -> func rva=0x6DA9850 'FUN_186da9850'
+  STR rva=0x98F6AA5 '@%_ HTTPDetect timeout, http_send_req_co' -> func rva=0x6DA9850 'FUN_186da9850'
+  STR rva=0x98F6AE6 'HTTPDetect total timeout after send req.' -> func rva=0x6DA9850 'FUN_186da9850'
+  STR rva=0x98FCEBD 'cost detail us: poll:%_, write:%_, read:' -> func rva=0x6DEAE00 'FUN_186deae00'
+  STR rva=0x98FFB30 'netlayer %_ send msg fail!!!, ret:%_' -> func rva=0x6E076D0 'FUN_186e076d0'
+  STR rva=0x9970544 'fd %_ blocksend %_ failed ret %_ error %' -> func rva=0x706A430 'FUN_18706a430'
+  STR rva=0x9993DBD 'send http request to url=' -> func rva=0x7102290 'FUN_187102290'
+  STR rva=0x9996B30 'Failed to add the send filter to the gra' -> func rva=0x711F9D0 'FUN_18711f9d0'
+  STR rva=0x9996B60 'Failed to get input send pin' -> func rva=0x711F9D0 'FUN_18711f9d0'
+  STR rva=0x9996E60 'Failed to connect capture device to the ' -> func rva=0x7120500 'FUN_187120500'
+
+============================================================
+PHASE 3: Functions with 'Send' in name
+============================================================
+  FUNC rva=0x7332460 name=SendMMMojoWriteInfo
+  FUNC rva=0x7332A60 name=Cronet_Metrics_sending_start_get
+  FUNC rva=0x7332A70 name=Cronet_Metrics_sending_end_get
+  FUNC rva=0x7333016 name=DelayLoad_SendMMMojoWriteInfo
+  FUNC rva=0x733395B name=DelayLoad_SendInput
+  FUNC rva=0x7333967 name=DelayLoad_SendMessageTimeoutW
+  FUNC rva=0x7333973 name=DelayLoad_SendMessageW
+  FUNC rva=0x7334C03 name=DelayLoad_gquic_block_send
+  FUNC rva=0x7334CFF name=DelayLoad_gquic_send
+  FUNC rva=0x7336301 name=DelayLoad_Cronet_Metrics_sending_end_get
+  FUNC rva=0x733630D name=DelayLoad_Cronet_Metrics_sending_start_get
+  FUNC rva=0x733669D name=DelayLoad_quic_block_send
+  FUNC rva=0x73367A5 name=DelayLoad_quic_send
+
+============================================================
+PHASE 4: All 'Co' prefixed strings (message manager)
+============================================================
+  Co @ rva=0x780376A: Comoraanse frank
+  Co @ rva=0x7821A6C: Colombian Peso
+  Co @ rva=0x7821A8A: Colombian peso
+  Co @ rva=0x7821CEE: Colombian pesos
+  Co @ rva=0x782BAB4: Colombia peeso
+  Co @ rva=0x782C0EC: Colombia peesot
+  Co @ rva=0x782C68A: Costa Rica koloon
+  Co @ rva=0x782CBB2: Costa Rica kolooni
+  Co @ rva=0x7835C3C: Convertible na piso ng Cuba
+  Co @ rva=0x7835C74: Convertible na Piso ng Cuba
+  Co @ rva=0x7840814: Costa Rican colon
+  Co @ rva=0x7840884: Costa Rican colons
+  Co @ rva=0x784444E: Costa Rica-i colon
+  Co @ rva=0x784566E: Colon El Savador
+  Co @ rva=0x7845690: Colon Kosta Rika
+  Co @ rva=0x7845782: Cordoba Nikaragua
+  Co @ rva=0x785F2F4: Colon Costa Rica
+  Co @ rva=0x785F338: Cordoba Nicaragua
+  Co @ rva=0x786011A: Comorese frank
+  Co @ rva=0x78602C8: Congolese frank
+  Co @ rva=0x7860C32: Costa Ricaanse colon
+  Co @ rva=0x786DF8E: Comorian Franc
+  Co @ rva=0x786DFAC: Comorian franc
+  Co @ rva=0x786F6FE: Comorian francs
+  Co @ rva=0x786F71E: Congolese Franc
+  Co @ rva=0x786F73E: Congolese franc
+  Co @ rva=0x787106A: Congolese francs
+  Co @ rva=0x78728BE: Colombiaanse peso
+  Co @ rva=0x7876FFC: Coroa sueca
+  Co @ rva=0x787711C: Coroa tcheca
+  Co @ rva=0x787742E: Coroas suecas
+  Co @ rva=0x787772A: Coroas tchecas
+  Co @ rva=0x78778B0: Coroa islandesa
+  Co @ rva=0x7877EF2: Coroa norueguesa
+  Co @ rva=0x78784E6: Coroas islandesas
+  Co @ rva=0x78788B2: Coroa dinamarquesa
+  Co @ rva=0x7878A54: Colom salvadorenho
+  Co @ rva=0x7878A7A: Coroas norueguesas
+  Co @ rva=0x78791B4: Colon de El Salvador
+  Co @ rva=0x78791DE: Coroas dinamarquesas
+  Co @ rva=0x78793B0: Colons de El Salvador
+  Co @ rva=0x78A9850: Colon ya Kostarika
+  Co @ rva=0x78AA406: Cordoba ya Nikaragwa
+  Co @ rva=0x78AB532: Convertible Mark ya Bosnia na Hezegovina
+  Co @ rva=0x79B4DD0: Common
+  Co @ rva=0x79B4FAE: Corsican
+  Co @ rva=0x79B537A: Coptic Calendar
+  Co @ rva=0x79B6808: Coptic calendar
+  Co @ rva=0x79C14FA: Corsican
+  Co @ rva=0x79DDEA8: Corsica
+  Co @ rva=0x79DF8BA: Corsicaans
+  Co @ rva=0x79E8312: Congo Swahili
+  Co @ rva=0x7A2BDCD: Colombia
+  Co @ rva=0x7A2E236: Colombia
+  Co @ rva=0x7A9D0BC: Cookeilande
+  Co @ rva=0x7AA5CCE: Cookovy ostrovy
+  Co @ rva=0x7AA6948: Comorerne
+  Co @ rva=0x7AA7724: Cookinseln
+  Co @ rva=0x7AAA6DC: Congo (Republic)
+  Co @ rva=0x7AAD03A: Comoras
+  Co @ rva=0x7AAD434: Corea del Sur
+  Co @ rva=0x7AAD570: Corea del Norte
+  Co @ rva=0x7AAF27C: Cooki saared
+  Co @ rva=0x7AB2344: Cookinsaaret
+  Co @ rva=0x7AB3124: Congo (Republika)
+  Co @ rva=0x7AB3A9A: Colombie
+  Co @ rva=0x7ABA554: Cookovi otoci
+  Co @ rva=0x7ABB73E: Cook-szigetek
+  Co @ rva=0x7ABB8D8: Comore-szigetek
+  Co @ rva=0x7ABDB0E: Congo (Repubblica)
+  Co @ rva=0x7AC94A8: Congo (Republik)
+  Co @ rva=0x7AC9DF2: Comoren
+  Co @ rva=0x7ACA18E: Cookeilanden
+  Co @ rva=0x7ACA1C2: Cocoseilanden
+  Co @ rva=0x7ACA382: Congo (Republiek)
+  Co @ rva=0x7ACD298: Countries%short
+  Co @ rva=0x7ACD2A8: Countries%variant
+  Co @ rva=0x7ACD2BA: Countries%chagos
+  Co @ rva=0x7ACD2E3: Countries%biot
+  Co @ rva=0x7ACDACE: Comore
+  Co @ rva=0x7ACDF74: Comoros
+  Co @ rva=0x7ACE134: Comores
+  Co @ rva=0x7ACE422: Colombia
+  Co @ rva=0x7ACF086: Costa Rica
+  Co @ rva=0x7ACF8E4: Congo (RDC)
+  Co @ rva=0x7ACFCEE: Cook Islands
+  Co @ rva=0x7AD0092: Corea del Sud
+  Co @ rva=0x7AD02E0: Congo-Kinshasa
+  Co @ rva=0x7AD0484: Corea del Nord
+  Co @ rva=0x7AD07A2: Costa de Marfil
+  Co @ rva=0x7AD0822: Costa do Marfim
+  Co @ rva=0x7AD0B66: Congo - Kinshasa
+  Co @ rva=0x7AD0FF2: Congo-Brazzaville
+  Co @ rva=0x7AD15FE: Congo - Brazzaville
+  Co @ rva=0x7AD1DF6: Cocos (Keeling) Islands
+  Co @ rva=0x7AD2DD8: Coreia do Sul
+  Co @ rva=0x7AD2FAC: Coreia do Norte
+  Co @ rva=0x7AD503C: Columbia
+  Co @ rva=0x7AD5246: Coreea de Sud
+  Co @ rva=0x7AD52F2: Coreea de Nord
+  Co @ rva=0x7AD55A8: Congo (Republica)
+  Co @ rva=0x7AD8156: Cookove ostrovy
+  Co @ rva=0x7AD8F32: Cookovi otoki
+  Co @ rva=0x7C21A84: Cookeilande-tyd
+  Co @ rva=0x7C21EF8: Colombia-somertyd
+  Co @ rva=0x7C23160: Cookeilande-halfsomertyd
+  Co @ rva=0x7C23192: Cookeilande-standaardtyd
+  Co @ rva=0x7C3D080: Colombiansk tid
+  Co @ rva=0x7C3E6B0: Colombiansk normaltid
+  Co @ rva=0x7C3E6DC: Colombiansk sommertid
+  Co @ rva=0x7C4077E: Cookinseln-Zeit
+  Co @ rva=0x7C41B40: Cookinseln-Normalzeit
+  Co @ rva=0x7C41B6C: Cookinseln-Sommerzeit
+  Co @ rva=0x7C4897A: Cook Islands Time
+  Co @ rva=0x7C48BA4: Cocos Islands Time
+  Co @ rva=0x7C49D62: Cook Islands Standard Time
+  Co @ rva=0x7C49F92: Cook Islands Half Summer Time
+  Co @ rva=0x7C4B244: Cook Island Time
+  Co @ rva=0x7C4B3F4: Cook Island Summer Time
+  Co @ rva=0x7C4B424: Cook Island Standard Time
+  Co @ rva=0x7C54BEA: Colombia aeg
+  Co @ rva=0x7C5545E: Colombia suveaeg
+  Co @ rva=0x7C55480: Cooki saarte aeg
+  Co @ rva=0x7C561B6: Colombia standardaeg
+  Co @ rva=0x7C56C82: Cooki saarte standardaeg
+  Co @ rva=0x7C57316: Cooki saarte osaline suveaeg
+  Co @ rva=0x7C5C8F4: Cookinsaarten aika
+  Co @ rva=0x7C5E2FC: Cookinsaarten normaaliaika
+  Co @ rva=0x7C77BE8: Cookovi otoci, polusatni pomak, ljetno vrijeme
+  Co @ rva=0x7CA0C86: Cookeilandse tijd
+  Co @ rva=0x7CA0E3E: Cocoseilandse tijd
+  Co @ rva=0x7CA2386: Cookeilandse standaardtijd
+  Co @ rva=0x7CA2576: Cookeilandse halve zomertijd
+  Co @ rva=0x7CAD23A: Colombia Time
+  Co @ rva=0x7CAF2EA: Colombia Summer Time
+  Co @ rva=0x7CAFAE6: Colombia Standard Time
+  Co @ rva=0x7CB1166: Coordinated Universal Time
+  Co @ rva=0x8AD2A18: ConfSdk.dll
+  Co @ rva=0x8B12A50: Consolas
+  Co @ rva=0x8B18740: CommandLineToArgvW
+  Co @ rva=0x8B22F50: Could not load the Qt platform plugin "
+  Co @ rva=0x8B22FA0: Could not find the Qt platform plugin "
+  Co @ rva=0x8B24C58: ContactHeadSourceType
+  Co @ rva=0x8B3ED5F: Corsican
+  Co @ rva=0x8B3F12B: Cornish
+  Co @ rva=0x8B3F2CF: Colognian
+  Co @ rva=0x8B3F452: Congo Swahili
+  Co @ rva=0x8B3F52A: Coptic
+  Co @ rva=0x8B3FDDE: Cocos Islands
+  Co @ rva=0x8B3FDEC: Colombia
+  Co @ rva=0x8B3FDF5: Comoros
+  Co @ rva=0x8B3FDFD: Congo Kinshasa
+  Co @ rva=0x8B3FE0C: Congo Brazzaville
+  Co @ rva=0x8B3FE1E: Cook Islands
+  Co @ rva=0x8B3FE2B: Costa Rica
+  Co @ rva=0x8B40AC2: Coptic
+  Co @ rva=0x8B7B6E0: CombiningDiacriticalMarks
+  Co @ rva=0x8B7B710: CombiningDiacriticalMarksSupplement
+  Co @ rva=0x8B7B740: CombiningHalfMarks
+  Co @ rva=0x8B7B770: CombiningMarksforSymbols
+  Co @ rva=0x8B7B7A0: ControlPictures
+  Co @ rva=0x8B7B7D0: Coptic
+  Co @ rva=0x8B88BE0: ConnectorMsgType
+  Co @ rva=0x8B8D4B8: Content
+  Co @ rva=0x8B8D4F0: Countdown
+  Co @ rva=0x8BA2310: ColorSpace
+  Co @ rva=0x8BB2208: CompanyName
+  Co @ rva=0x8BB2220: CompanyShortName
+  Co @ rva=0x8BB8A80: Could not delete directory.
+  Co @ rva=0x8BC5DB8: Could not allocate memory
+  Co @ rva=0x8BC5DF0: Could not determine tag type
+  Co @ rva=0x8BC7068: Corrupt
+  Co @ rva=0x8BF3708: Command(
+  Co @ rva=0x8BFAAF0: Configuration
+  Co @ rva=0x8C041C0: Comparators already registered for type %s
+  Co @ rva=0x8C31910: Could not derive key sequence
+  Co @ rva=0x8C6FF98: CourgettePatch
+  Co @ rva=0x8C9F5C0: Copyright (C) 1991-2024 The libjpeg-turbo Project and many others
+  Co @ rva=0x8C9FCE8: Corrupt JPEG data: %u extraneous bytes before marker 0x%02x
+  Co @ rva=0x8C9FD28: Corrupt JPEG data: premature end of data segment
+  Co @ rva=0x8C9FD60: Corrupt JPEG data: bad Huffman code
+  Co @ rva=0x8C9FDD8: Corrupt JPEG data: found marker 0x%02x instead of RST%d
+  Co @ rva=0x8C9FEB0: Corrupt JPEG data: bad arithmetic code
+  Co @ rva=0x8C9FED8: Corrupt JPEG data: bad ICC marker
+  Co @ rva=0x8C9FF00: Component index %d: mismatching sampling ratio %d:%d, %d:%d, %c
+  Co @ rva=0x8CB1428: ConicalGradientPattern
+  Co @ rva=0x8D21368: ContactManager
+  Co @ rva=0x8D21468: ContactFtsManager
+  Co @ rva=0x8D214D8: ContactLabelManager
+  Co @ rva=0x8D21798: ConfigServiceService
+  Co @ rva=0x8D217D0: ContactService
+  Co @ rva=0x8D2CC7C: Config
+  Co @ rva=0x8D46938: ComputeDh
+  Co @ rva=0x8D4C708: CoGetContactListByCgi
+  Co @ rva=0x8D4C740: CoGetContactListByCgi usr_list:
+  Co @ rva=0x8D4C800: ContactCreateTime
+  Co @ rva=0x8D4C900: ConferenceContactExpireTime
+  Co @ rva=0x8D89470: Could not create pixmap from %s
+  Co @ rva=0x8D894E8: Could not parse application stylesheet
+  Co @ rva=0x8D89520: Could not parse stylesheet of object
+  Co @ rva=0x8D8D028: ContainerFakeParent
+  Co @ rva=0x8D8EF64: Community
+  Co @ rva=0x8D8FCC4: Context1
+  Co @ rva=0x8D8FCE4: Context2
+  Co @ rva=0x8D8FD04: Context3
+  Co @ rva=0x8D8FD24: Context4
+  Co @ rva=0x8D90044: Code input
+  Co @ rva=0x8DAF558: Compressing can't be run in transaction.
+  Co @ rva=0x8DB1D48: Compress
+  Co @ rva=0x8DB1E38: CompressingHandleStatement
+  Co @ rva=0x8DB1E58: CompressingHandle
+  Co @ rva=0x8DB23A8: Compress bound fail: %s
+  Co @ rva=0x8DB23C0: Compress fail due to no memory
+  Co @ rva=0x8DB2428: Compress fail: %s
+  Co @ rva=0x8DBAFF0: Concat of 
+  Co @ rva=0x8DBB988: Compiler::Copy called!
+  Co @ rva=0x8DBC9F8: Corruption detected in shared-memory segment.
+  Co @ rva=0x8DCDCA8: Constraint
+  Co @ rva=0x8DD2F88: Container name %s, len=%d, index=%d, flags=%d
+
+  Co @ rva=0x8DE4E50: Code Signing
+  Co @ rva=0x8E66170: CoAddGroupMessageListToDb
+  Co @ rva=0x8E661A0: CoAddMessageListToDB session:
+  Co @ rva=0x8E66638: CoPrepareShowMessage
+  Co @ rva=0x8F245B8: CommonRate
+  Co @ rva=0x8F65C1D: Comment
+  Co @ rva=0x8F67210: CompositeValueElementNode *__cdecl mmui::ElementParser::ParseCompositeValueEleme
+  Co @ rva=0x9012BD8: Column
+  Co @ rva=0x9052420: CotaiStrip
+  Co @ rva=0x907C9B8: Could not decode alpha data.
+  Co @ rva=0x9082D20: Cowardly refusing to send clipboard message to hung application...
+  Co @ rva=0x90844D0: Courier
+  Co @ rva=0x908A2C0: Control Panel\Cursors
+  Co @ rva=0x9090CF0: Copy &Link Location
+  Co @ rva=0x90D7A50: Contact
+  Co @ rva=0x90E4DD8: Contact.rowid
+  Co @ rva=0x90E4E40: ContactHeadImgUrl
+  Co @ rva=0x90E5548: CommentId
+  Co @ rva=0x90E5558: CommentId64
+  Co @ rva=0x90E55A0: CommentCommentId
+  Co @ rva=0x90E55D8: CommentFeedId
+  Co @ rva=0x90E5608: CommentV20
+  Co @ rva=0x91007B6: Content:
+  Co @ rva=0x910D215: ConvertV4toNat64V6() ret=%_, ipstack=%_
+  Co @ rva=0x9178868: CoDoSync
+  Co @ rva=0x91B9AF8: ConfigStorageCompression
+  Co @ rva=0x91B9B18: ConfigStorageCompression for:
+  Co @ rva=0x91ED860: Collections of histograms for %s
+
+  Co @ rva=0x91ED888: Collections of all histograms
+
+  Co @ rva=0x9224300: ColorDodge
+  Co @ rva=0x9224310: ColorBurn
+  Co @ rva=0x9225CE8: CopyBaseMipMapToView
+  Co @ rva=0x922E5B0: ColorSpaceXformColorFilter
+  Co @ rva=0x922E990: Color transform intrinsics are not permitted in custom mesh shaders
+  Co @ rva=0x9231288: CompressContent
+  Co @ rva=0x9232320: CompressFileBuffer
+  Co @ rva=0x9247A58: Compressing column %s with index index %u out of range
+  Co @ rva=0x9247A90: Compressing type column %s with index index %u out of range
+  Co @ rva=0x9247AD0: Compressing match column %s with index index %u out of range
+  Co @ rva=0x9247B10: Compression performance
+  Co @ rva=0x9247B28: CompressTime
+  Co @ rva=0x9247B38: CompressedCount
+  Co @ rva=0x9247B70: CompressedSize
+  Co @ rva=0x9253290: CoalesceWalker::ShortVisit called
+  Co @ rva=0x92557D0: Common
+  Co @ rva=0x9255BE0: Coptic
+  Co @ rva=0x9265AA0: Context should be init first
+  Co @ rva=0x9294E50: ConfAppInfo serialize fail
+  Co @ rva=0x929F0B0: CoBatchUpdateMessagesWithBitSetToDB
+  Co @ rva=0x929F0E8: CoBatchUpdateMessagesWithBitSetToDB tag:
+  Co @ rva=0x929F118: CoBatchUpdateMessagesWithTypeToDB
+  Co @ rva=0x929F140: CoBatchUpdateMessagesWithTypeToDB tag:
+  Co @ rva=0x929F168: CoQueryMessageBySvrIdList
+  Co @ rva=0x929F1A8: CoQueryMessageBySvrIdList by svrid list on min index:
+  Co @ rva=0x929F208: CoQueryMessageBySvrIdList by svrid list on tag:
+  Co @ rva=0x929F238: CoQueryMessageBySvrIdList work
+  Co @ rva=0x929F268: CoQueryMessageBySvrIdList work for index:
+  Co @ rva=0x929F2B8: CoQueryMessageBySvrIdList total index:
+  Co @ rva=0x929F2F0: CoQueryMessageByEnterpriseClientId
+  Co @ rva=0x929F348: CoQueryMessageByEnterpriseClientId session:
+  Co @ rva=0x929F378: CoQueryMessageBySvrId
+  Co @ rva=0x929F390: CoQueryMessageBySvrId session:
+  Co @ rva=0x929F3B0: CoGetOrAddMessageGroupTime
+  Co @ rva=0x929F3F0: CoGetOrAddMessageGroupTime chatname:
+  Co @ rva=0x929F418: CoGetAllMonthTimeExistsMessage end for:
+  Co @ rva=0x929F440: CoGetInitialYearMonthTimeWithMessage
+  Co @ rva=0x929F480: CoGetInitialYearMonthTimeWithAllMessage
+  Co @ rva=0x929F4A8: CoGetInitialYearMonthTimeWithAllMessage end for index:
+  Co @ rva=0x929F4E0: CoGetDayTimeExistsMessageWithMonthTime
+  Co @ rva=0x929F508: CoGetDayTimeExistsMessageWithMonthTime end for:
+  Co @ rva=0x929F538: CoGetInitialMessageListInTimeInterval
+  Co @ rva=0x929F580: CoGetInitialMessageListInTimeInterval time:
+  Co @ rva=0x929F5B0: CoGetPagedMessageListInTimeInterval
+  Co @ rva=0x929F5E0: CoGetPagedMessageListInTimeInterval time:
+  Co @ rva=0x929F610: CoGetInitialMessageList
+  Co @ rva=0x929F628: CoGetInitialMessageList session:
+  Co @ rva=0x929F650: CoGetPagedMessageListWithSortInterval
+  Co @ rva=0x929F678: CoGetPagedMessageListWithSortInterval session:
+  Co @ rva=0x929F6A8: CoGetPagedMessageListWithAnchor
+  Co @ rva=0x929F6D8: CoGetPagedMessageListWithAnchor session:
+  Co @ rva=0x929F708: CoGetInitialBrandNotifyMessageList
+  Co @ rva=0x929F730: CoGetInitialBrandNotifyMessageList scenes:
+  Co @ rva=0x929F760: CoGetPagedBrandNotifyMessageList
+  Co @ rva=0x929F788: CoGetPagedBrandNotifyMessageList scene:
+  Co @ rva=0x929F7B0: CoGetAllMessageSessionList
+  Co @ rva=0x929F7E8: CoGetAllMessageSessionList min:
+  Co @ rva=0x929F808: CoGetAllSessionMaxLocalIdMap
+  Co @ rva=0x929F840: CoGetAllSessionMaxLocalIdMap min:
+  Co @ rva=0x929F868: CoGetSessionMessageListWithPageFromDB
+  Co @ rva=0x929F8A0: CoGetSessionMessageListWithPageFromDB index:
+  Co @ rva=0x929F8E8: CoGetSessionListMessageListWithTimeRangeCountFromDB
+  Co @ rva=0x929F920: CoGetSessionListMessageListWithTimeRangeCountFromDB session_list:
+  Co @ rva=0x929F968: CoAddMessageVoiceInfoToDB batch
+  Co @ rva=0x929F988: CoAddMessageVoiceInfoToDB batch, tag:
+  Co @ rva=0x936E170: Control
+  Co @ rva=0x93822F8: CommentTextView
+  Co @ rva=0x9398348: ContactManagementWindow
+  Co @ rva=0x9398360: ContactsManagerWindow
+  Co @ rva=0x93B2048: ContentObject
+  Co @ rva=0x93B4040: Comment
+  Co @ rva=0x93F50F8: ConfigMsgTypeUpdateSubscriptionSession
+  Co @ rva=0x93F7968: ContentUrl
+  Co @ rva=0x93F7978: CoverImgUrl
+  Co @ rva=0x93F7988: CoverImgUrl_1_1
+  Co @ rva=0x93F7998: CoverImgUrl_235_1
+  Co @ rva=0x93F79B0: CoverImgUrl_16_9
+  Co @ rva=0x941EAA8: ContactsCellMangerBtnView
+  Co @ rva=0x941EAC8: ContactsCellGroupView
+  Co @ rva=0x941EAE0: ContactsCellClassifyView
+  Co @ rva=0x941EB00: ContactsCellNewFriendView
+  Co @ rva=0x941EB20: ContactsCellItemView
+  Co @ rva=0x9452E58: ContainerVM msg_type=
+  Co @ rva=0x9452EB8: Complete
+  Co @ rva=0x94912F8: Could not allocate backing texture for atlas
+
+  Co @ rva=0x9491470: Could not allocate vertices
+
+  Co @ rva=0x9496DE0: ColorXform
+  Co @ rva=0x9496E00: ColorSpaceXform
+  Co @ rva=0x9499138: ColorMatrix
+  Co @ rva=0x94999F0: Compose
+  Co @ rva=0x94C2933: Comp_Ex
+  Co @ rva=0x94C301A: Common_Separator
+  Co @ rva=0x94C3290: Combining_Diacritical_Marks
+  Co @ rva=0x94C35A3: Combining_Diacritical_Marks_For_Symbols
+  Co @ rva=0x94C35CB: Combining_Marks_For_Symbols
+  Co @ rva=0x94C3688: Control_Pictures
+  Co @ rva=0x94C3699: Control_Pictures
+  Co @ rva=0x94C3870: Compat_Jamo
+  Co @ rva=0x94C3AEC: Combining_Half_Marks
+  Co @ rva=0x94C4164: Combining_Diacritical_Marks_Supplement
+  Co @ rva=0x94C418C: Coptic
+  Co @ rva=0x94C4193: Coptic
+  Co @ rva=0x94C4400: Counting_Rod
+  Co @ rva=0x94C440D: Counting_Rod_Numerals
+  Co @ rva=0x94C462A: Common_Indic_Number_Forms
+  Co @ rva=0x94C4BBD: Coptic_Epact_Numbers
+  Co @ rva=0x94C4BD2: Coptic_Epact_Numbers
+  Co @ rva=0x94C4BF9: Combining_Diacritical_Marks_Extended
+  Co @ rva=0x94C58AA: Compat
+  Co @ rva=0x94C5B42: Control
+  Co @ rva=0x94C5BBD: Connector_Punctuation
+  Co @ rva=0x94C667B: Contingent_Break
+  Co @ rva=0x94C66A6: Combining_Mark
+  Co @ rva=0x94C67A2: Complex_Context
+  Co @ rva=0x94C6843: Conditional_Japanese_Starter
+  Co @ rva=0x94C692F: Common
+  Co @ rva=0x94C6999: Coptic
+  Co @ rva=0x94C75D0: Control
+  Co @ rva=0x94C7A30: Consonant
+  Co @ rva=0x94C7A3A: Consonant
+  Co @ rva=0x94C7A45: Consonant_Dead
+  Co @ rva=0x94C7A54: Consonant_Dead
+  Co @ rva=0x94C7A64: Consonant_Final
+  Co @ rva=0x94C7A74: Consonant_Final
+  Co @ rva=0x94C7A85: Consonant_Head_Letter
+  Co @ rva=0x94C7A9B: Consonant_Head_Letter
+  Co @ rva=0x94C7AB2: Consonant_Initial_Postfixed
+  Co @ rva=0x94C7ACE: Consonant_Initial_Postfixed
+  Co @ rva=0x94C7AEB: Consonant_Killer
+  Co @ rva=0x94C7AFC: Consonant_Killer
+  Co @ rva=0x94C7B0E: Consonant_Medial
+  Co @ rva=0x94C7B1F: Consonant_Medial
+  Co @ rva=0x94C7B31: Consonant_Placeholder
+  Co @ rva=0x94C7B47: Consonant_Placeholder
+  Co @ rva=0x94C7B5E: Consonant_Preceding_Repha
+  Co @ rva=0x94C7B78: Consonant_Preceding_Repha
+  Co @ rva=0x94C7B93: Consonant_Prefixed
+  Co @ rva=0x94C7BA6: Consonant_Prefixed
+  Co @ rva=0x94C7BBA: Consonant_Subjoined
+  Co @ rva=0x94C7BCE: Consonant_Subjoined
+  Co @ rva=0x94C7BE3: Consonant_Succeeding_Repha
+  Co @ rva=0x94C7BFE: Consonant_Succeeding_Repha
+  Co @ rva=0x94C7C1A: Consonant_With_Stacker
+  Co @ rva=0x94C7C31: Consonant_With_Stacker
+  Co @ rva=0x94C7EB8: Combining_Mark
+  Co @ rva=0x94E90A0: CoCreateInstance failed
+  Co @ rva=0x94F8260: CommentType
+  Co @ rva=0x94F8270: CommentFlag
+  Co @ rva=0x9508211: Connection
+  Co @ rva=0x9508241: Content-Type
+  Co @ rva=0x950824E: Content-Length
+  Co @ rva=0x950826F: Content-Encoding
+  Co @ rva=0x9508290: Content-Range
+  Co @ rva=0x951893E: ConvertInt2LogLevel
+  Co @ rva=0x9518997: ConvertInt2LogMode
+  Co @ rva=0x95221A0: Contains(absr)
+  Co @ rva=0x952822B: ConnectionConfigMgr::GetRedirectConnectionConfig
+  Co @ rva=0x9532244: ConvertV4toNat64V6
+  Co @ rva=0x9560310: CoGetMessageResourceListForScan
+  Co @ rva=0x9560358: CoGetMessageResourceListForScan ret:
+  Co @ rva=0x957C870: CoAcceptPayTransfer cgi failed
+  Co @ rva=0x957C8B8: CoRefusePayTransfer failed in cgi request
+  Co @ rva=0x95ABC68: Contact not found
+  Co @ rva=0x95B0890: Contact does not exist
+  Co @ rva=0x95C4050: CoCreateInstance fails with CO_E_NOTINITIALIZED
+  Co @ rva=0x962FA58: Could not remove our own lock file
+  Co @ rva=0x96412E8: CopyFile
+  Co @ rva=0x96E1EC8: ContactsManagerProfileUniquePopTag
+  Co @ rva=0x96E29F0: ContactsManagerQRCodeDialog
+  Co @ rva=0x96F95C8: Consolas
+  Co @ rva=0x96FA240: Could not open input redirection for reading
+  Co @ rva=0x96FA270: Could not open output redirection for writing
+  Co @ rva=0x97649C0: CopyMoveMeidaErrCnt:
+  Co @ rva=0x9799EA8: Could not get quad index buffer.
+  Co @ rva=0x979C4A0: Could not allocate indices
+
+  Co @ rva=0x979C8D0: Couldn't create a GrGeometryProcessor
+
+  Co @ rva=0x97A1790: Couldn't create GrGeometryProcessor
+
+  Co @ rva=0x97A21B0: Could not allocate vertices.
+
+  Co @ rva=0x97A21D0: Could not allocate indices.
+
+  Co @ rva=0x97A3058: ConvexPoly
+  Co @ rva=0x97A46A8: ColorTableEffect
+  Co @ rva=0x97DA27E: CommFrequencyLimit::CommFrequencyLimit
+  Co @ rva=0x97DA2D7: CommFrequencyLimit::Check
+  Co @ rva=0x97E89AE: ConnectionFactoryDefault::__CheckCDNVerifyResponse
+  Co @ rva=0x97E8A05: ConnectionFactoryDefault::__CheckSNSImageVerifyResponse
+  Co @ rva=0x97E8D04: ConnectionFactoryDefault::_GetOrCreateTCPConnection
+  Co @ rva=0x97E8DD5: ConnectionFactoryDefault::_GetOrCreateTLSConnection
+  Co @ rva=0x97E8E41: ConnectionFactoryDefault::_GetOrCreateQUICConnection
+  Co @ rva=0x97E8E76: ConnectionFactoryDefault::_GetOrCreateCronetConnection
+  Co @ rva=0x97E8F2A: ConnectionFactoryDefault::__HandleProxyConfig
+  Co @ rva=0x97E8F79: ConnectionFactoryDefault::__HandleTCPIPv6ConnectFailed
+  Co @ rva=0x97E8FFC: ConnectionFactoryDefault::__HandleTCPConnectiveCheckLogic
+  Co @ rva=0x97E904E: ConnectionFactoryDefault::__HandleTCPBanIPLogic
+  Co @ rva=0x97E90AC: ConnectionFactoryDefault::__AttemptTCPConnect
+  Co @ rva=0x97E9104: ConnectionFactoryDefault::_MakeConnectedTCPSocket
+  Co @ rva=0x97E915A: ConnectionFactoryDefault::_MakeConnectedQUICSocket
+  Co @ rva=0x97E9278: ConnectionFactoryDefault::_WrapGenerateAddressUsingRule
+  Co @ rva=0x97E92EF: ConnectionFactoryDefault::__ReorderIPv6Address
+  Co @ rva=0x97E934C: ConnectionFactoryDefault::__GetTCPConnectiveCheckProtocol
+  Co @ rva=0x97E93BA: ConnectionFactoryDefault::_GenerateAddressUsingRule
+  Co @ rva=0x97E942E: ConnectionFactoryDefault::_GenerateAddressUsingHost
+  Co @ rva=0x97E95FA: ConnectionFactoryDefault::_TlsConnectionFromSock
+  Co @ rva=0x97E9648: ConnectionFactoryDefault::_WrapNetlayer
+  Co @ rva=0x97E97DD: ConnectionFactoryDefault::__ReorderIPv6Address(const std::shared_ptr<TaskBase> &
+  Co @ rva=0x97EB9CA: CompressDataBig
+  Co @ rva=0x97EBA4F: CompressBusy
+  Co @ rva=0x97EC1BD: ContextStatus
+  Co @ rva=0x97EC439: CompleteWithGap
+  Co @ rva=0x97F2F1D: ConnectionConfigMgr::ChangeDefaultConnectionConfigUseHost
+  Co @ rva=0x97F2F84: ConnectionConfigMgr::ChangeDefaultConnectionLowlevelProtocol
+  Co @ rva=0x97F3045: ConnectionConfigMgr::AddRedirectConnectionConfig
+  Co @ rva=0x97F3192: ConnectionConfigMgr::InitDefaultConnectionConfig
+  Co @ rva=0x97F3222: ConnectionConfigMgr::UpdateSNIConfig
+  Co @ rva=0x97F3A92: ConnectionEx::get_cdninfo
+  Co @ rva=0x97F3AD6: ConnectionEx::consume_recv_buffer
+  Co @ rva=0x97F3B17: ConnectionEx::write_buffered_data
+  Co @ rva=0x97F3B4F: ConnectionEx::read_available_data
+  Co @ rva=0x97F3B9E: ConnectionEx::calc_instant_speed
+  Co @ rva=0x97F3C18: ConnectionEx::get_recv_timeout_ms
+  Co @ rva=0x9827B20: Content-Type: application/ocsp-request
+Content-Length: %d
+
+
+  Co @ rva=0x982B140: Communications
+  Co @ rva=0x982C328: ConstantToneRemoval
+  Co @ rva=0x9844AC8: CollSeq
+  Co @ rva=0x9844B28: Compare
+  Co @ rva=0x9844BA0: Column
+  Co @ rva=0x9844CE0: Concat
+  Co @ rva=0x9844EA0: ColumnsUsed
+  Co @ rva=0x98499E0: CoreMessaging.dll
+  Co @ rva=0x98591B0: Could not resize input buffer: truncating input
+  Co @ rva=0x9859238: Could not resize input buffer: not packing
+  Co @ rva=0x9895E28: ComboBox
+  Co @ rva=0x98E98C0: Coverage
+  Co @ rva=0x98EAD98: Could not create GrGeometryProcessor
+
+  Co @ rva=0x98EB188: ConicCoeffs
+  Co @ rva=0x98EBA90: Coverage Set Op
+  Co @ rva=0x98EDCF0: Countries
+  Co @ rva=0x98FC3F2: ConnectionPool::PutBack
+  Co @ rva=0x98FC441: ConnectionPool::__UpdateNextExpireTimestamp
+  Co @ rva=0x98FC48F: ConnectionPool::TakeAway(const socket_address &, const LowlevelTransportProtocol
+  Co @ rva=0x98FC544: ConnectionPool::ReleaseExpired()::(anonymous class)::operator()
+  Co @ rva=0x98FC584: ConnectionPool::ReleaseExpired()::(anonymous class)::operator()()::(anonymous cl
+  Co @ rva=0x9901020: ConvertTemp
+  Co @ rva=0x990DBC8: Cofactor: 
+  Co @ rva=0x9918AF0: Count of references reaches zero, DxgiDuplicatorController will be unloaded.
+  Co @ rva=0x9949E30: Collection
+  Co @ rva=0x9949E78: Comparable
+  Co @ rva=0x99674E8: Countries
+  Co @ rva=0x9974468: Couldn't allocate memory in AlignedMalloc
+  Co @ rva=0x9993500: Compression
+  Co @ rva=0x99A4418: CorExitProcess
+  Co @ rva=0x99ACB08: CompareStringEx
+  Co @ rva=0x99C2214: ConfSdk.dll
+  Co @ rva=0x99C5AA2: CompareStringEx
+  Co @ rva=0x99C5AB4: CompareStringW
+  Co @ rva=0x99C5AC6: ConnectNamedPipe
+  Co @ rva=0x99C5ADA: ConvertFiberToThread
+  Co @ rva=0x99C5AF2: ConvertThreadToFiber
+  Co @ rva=0x99C5B0A: CopyFileW
+  Co @ rva=0xAD429CC: Comments
+  Co @ rva=0xAD42A6E: Contain %1 image(s)
+  Co @ rva=0xAD42AE7: Contact Card
+  Co @ rva=0xAD42DF4: Content expired. Unable to add to favorites.
+  Co @ rva=0xAD42F9A: Content not downloaded. Unable to add to favorites.
+  Co @ rva=0xAD43243: Continue
+  Co @ rva=0xAD432FF: Confirm Summary
+  Co @ rva=0xAD4358F: Continue
+  Co @ rva=0xAD43D8F: Confirm on phone to start backup
+  Co @ rva=0xAD43E42: Continue
+  Co @ rva=0xAD43E4B: Continue
+  Co @ rva=0xAD43F28: Connection error. Connect phone and computer to the same network and try again.
+  Co @ rva=0xAD44057: Confirm on phone to start restoring
+  Co @ rva=0xAD443FD: Continue backing up chat history to this computer
+  Co @ rva=0xAD4466F: Confirm on your phone to add a new backup
+  Co @ rva=0xAD44B5E: Connect Devices via Cable
+  Co @ rva=0xAD451CD: Connecting
+  Co @ rva=0xAD454A3: Continue to Forward
+  Co @ rva=0xAD4565A: Content expired. Unable to add to Favorites. Click to try again.
+  Co @ rva=0xAD46793: Copy image
+  Co @ rva=0xAD46877: Continue to Open
+  Co @ rva=0xAD4766F: Collapse
+  Co @ rva=0xAD4767E: Continue
+  Co @ rva=0xAD47687: Copied
+  Co @ rva=0xAD476CC: Continue
+  Co @ rva=0xAD47871: Confirm (%d)
+  Co @ rva=0xAD47AE7: Contacts
+  Co @ rva=0xAD47BEC: Contacts
+  Co @ rva=0xAD47C32: Content expired. Unable to view details after adding to Favorites.
+  Co @ rva=0xAD47C75: Continue Changing
+  Co @ rva=0xAD47C9E: Continue Forwarding
+  Co @ rva=0xAD47CB2: Continue
+  Co @ rva=0xAD47CC2: Continue sending
+  Co @ rva=0xAD47CD3: Continue
+  Co @ rva=0xAD47CDC: Copy URL
+  Co @ rva=0xAD48070: Copy version update log
+  Co @ rva=0xAD48B0D: Contains the files necessary to run Weixin, data of other Weixin accounts, etc.
+  Co @ rva=0xAD48B5D: Contains the files necessary to run WeChat, data of other WeChat accounts, etc.
+  Co @ rva=0xAD49454: Combine Stickers
+  Co @ rva=0xAD49B27: Content added to Favorites cannot be recovered after deletion.
+  Co @ rva=0xAD49E04: Compressed Files
+  Co @ rva=0xAD4A115: Conflicting edit
+  Co @ rva=0xAD4A818: Computer
+  Co @ rva=0xAD4B1B1: Compressing
+  Co @ rva=0xAD4BE1B: Content you're viewing or starred on your phone will be displayed here.
+  Co @ rva=0xAD4CACF: Common request message: "%s"
+  Co @ rva=0xAD4D4F1: Continue Importing
+  Co @ rva=0xAD4D671: Confirm on Phone
+  Co @ rva=0xAD4D803: Continue
+  Co @ rva=0xAD4DAB5: Completing soon
+  Co @ rva=0xAD4DBA7: Continue
+  Co @ rva=0xAD4DBB0: Continue
+  Co @ rva=0xAD4DBB9: Continue
+  Co @ rva=0xAD4DBE2: Copy the chat history on your phone to another device. When the migration is com
+  Co @ rva=0xAD4DC80: Copy the chat history on WeChat on your phone to another device. When the migrat
+  Co @ rva=0xAD4DF75: Copy Weixin chat history on your PC to your phone. View merged chat history of t
+  Co @ rva=0xAD4DFE1: Copy WeChat chat history on your PC to your phone. View merged chat history of t
+  Co @ rva=0xAD4E2E1: Connect phone and PC to the same network
+  Co @ rva=0xAD4F3FE: Contacts
+  Co @ rva=0xAD4F4E0: Contacts
+  Co @ rva=0xAD4FAB9: Copy Weixin chat history on your phone to this computer. View merged chat histor
+  Co @ rva=0xAD4FEBB: Content includes images, videos, and files.
+  Co @ rva=0xAD5015C: Continue
+  Co @ rva=0xAD502FC: Collection
+  Co @ rva=0xAD504F3: Confirm
+  Co @ rva=0xAD505CD: Combine and Forward
+  Co @ rva=0xAD505FF: Content does not exist.
+  Co @ rva=0xAD50628: Continue saving
+  Co @ rva=0xAD521F8: Confirm receipt
+  Co @ rva=0xAD52BD1: Confirm Friend Request
+  Co @ rva=0xAD52DB4: Contact card
+  Co @ rva=0xAD52F1A: Contact QR code expired
+  Co @ rva=0xAD53815: Continue
+  Co @ rva=0xAD53D91: Collapse
+  Co @ rva=0xAD53EB5: Contains unsupported message types
+  Co @ rva=0xAD54340: Comment
+  Co @ rva=0xAD54819: Contact
+  Co @ rva=0xAD54CAF: Color value copied
+  Co @ rva=0xAD55649: Confirming on phone is not required when you log in to Weixin on this device.
+  Co @ rva=0xAD55697: Confirming on phone is not required when you log in to WeChat on this device.
+  Co @ rva=0xAD55AB2: Confirm in Weixin on your phone
+  Co @ rva=0xAD55D83: Connect OpenClaw to Weixin
+  Co @ rva=0xAD56474: Contact cards cannot be forwarded to groups
+  Co @ rva=0xAD569F9: Comment not sent
+  Co @ rva=0xAD56A0A: Comment not sent. Click to edit again.
+  Co @ rva=0xAD56A92: Comment deleted
+  Co @ rva=0xAD56AA2: Content deleted
+  Co @ rva=0xAD570BA: Contacts
+  Co @ rva=0xAD577A0: Continue repair
+  Co @ rva=0xAD5A0B7: Convert to text
+  Co @ rva=0xAD5CCCB: Compressing to send
+  Co @ rva=0xAD5CDFC: Compose Email
+  Co @ rva=0xAD5CE8B: Company
+  Co @ rva=0xAD5D1E1: Completed, but some files failed. View in Favorites.
+  Co @ rva=0xAD5D244: Continue
+  Co @ rva=0xAD5D38B: Conflict when synchronizing note. Modified version has been saved to Favorites.
+  Co @ rva=0xADA8930: ContactHeadView
+  Co @ rva=0xADB8DBC: Corsican
+  Co @ rva=0xADB918C: Cornish
+  Co @ rva=0xADB9329: Colognian
+  Co @ rva=0xADB94A4: CongoSwahili
+  Co @ rva=0xADB9577: Coptic
+  Co @ rva=0xADB9C61: CopticScript
+  Co @ rva=0xADBA256: Country
+  Co @ rva=0xADBA430: CocosIslands
+  Co @ rva=0xADBA43D: Colombia
+  Co @ rva=0xADBA446: Comoros
+  Co @ rva=0xADBA44E: CongoKinshasa
+  Co @ rva=0xADBA45C: CongoBrazzaville
+  Co @ rva=0xADBA46D: CookIslands
+  Co @ rva=0xADBA479: CostaRica
+  Co @ rva=0xADC2B4F: ControlModifier
+  Co @ rva=0xADC3152: CoverWindow
+  Co @ rva=0xADC4246: ColorMode_Mask
+  Co @ rva=0xADC425F: ColorOnly
+  Co @ rva=0xADC5C55: ConicalGradientPattern
+  Co @ rva=0xADC6151: Corner
+  Co @ rva=0xADC61C9: ConnectionType
+  Co @ rva=0xADC6314: ContainsItemShape
+  Co @ rva=0xADC633A: ContainsItemBoundingRect
+  Co @ rva=0xADC64A5: ContextMenuPolicy
+  Co @ rva=0xADC6958: CopyAction
+  Co @ rva=0xADC704B: CoarseTimer
+  Co @ rva=0xADEB823: CoreProfile
+  Co @ rva=0xADEB82F: CompatibilityProfile
+  Co @ rva=0xADEB844: ColorSpace
+  Co @ rva=0xAE28182: ContextMenu
+  Co @ rva=0xAE28637: ContentsRectChange
+  Co @ rva=0xAE28E99: ColorGroup
+  Co @ rva=0xAE28EDD: ColorRole
+  Co @ rva=0xAE298A0: Courier
+  Co @ rva=0xAE29AD5: Condensed
+  Co @ rva=0xAE2AEEC: ConfigLocation
+  Co @ rva=0xAE2CDE9: ContextMenu
+  Co @ rva=0xAE30F6C: CoverFrontClicked
+  Co @ rva=0xAE35C65: CoverImageLoaded
+  Co @ rva=0xAE3609C: ContactHeadView
+  Co @ rva=0xAE3618A: ContactHeadSourceType
+  Co @ rva=0xAE362E3: ContactHeadSourceType
+  Co @ rva=0xAE38CE4: ControlItemSwitch
+  Co @ rva=0xAE39072: ContextMenuShow
+  Co @ rva=0xAE3A2BE: ConfirmResult
+  Co @ rva=0xAE3A37B: ConfirmBtnClicked
+  Co @ rva=0xAE40360: CommonRate
+  Co @ rva=0xAE4085B: CommonRate
+  Co @ rva=0xAE43F95: CompressFinished
+  Co @ rva=0xAE44133: ConfirmBtnClicked
+  Co @ rva=0xAE441D2: ConfirmCreateNewChat
+  Co @ rva=0xAE453E2: ConfirmClicked
+  Co @ rva=0xAE4AB5F: ContactHeadSourceType
+  Co @ rva=0xAE4E525: ColseOnClick
+  Co @ rva=0xAE4F53F: ContentPosChanged
+  Co @ rva=0xAE4F816: ContentHeightChanged
+  Co @ rva=0xAE4F836: ContentWidthChanged
+  Co @ rva=0xAE4F854: CodeBlockCopied
+  Co @ rva=0xAE4FF31: ContentScrolledBy
+  Co @ rva=0xAE536CB: ContentSizeChanged
+  Co @ rva=0xAE54249: Collapsible
+  Co @ rva=0xAE54AFE: ContentsMargins
+  Co @ rva=0xAE559B8: ContentsMargins
+  Co @ rva=0xAE56DE5: CompositeTypeExtension
+  Co @ rva=0xAE56F05: CompositeTypeExtension
+  Co @ rva=0xAE5707B: CompositeTypeExtension
+  Co @ rva=0xAE57219: CompositeTypeExtension
+  Co @ rva=0xAE57387: CompositeTypeExtension
+  Co @ rva=0xAE574D5: CompositeTypeExtension
+  Co @ rva=0xAE57655: CompositeTypeExtension
+  Co @ rva=0xAE577E3: CompositeTypeExtension
+  Co @ rva=0xAE57945: CompositeTypeExtension
+  Co @ rva=0xAE57AA3: CompositeTypeExtension
+  Co @ rva=0xAE57C87: CompositeTypeExtension
+  Co @ rva=0xAE57EC7: CompositeTypeExtension
+  Co @ rva=0xAE58057: CompositeTypeExtension
+  Co @ rva=0xAE5819F: CompositeTypeExtension
+  Co @ rva=0xAE582F7: CompositeTypeExtension
+  Co @ rva=0xAE58449: CompositeTypeExtension
+  Co @ rva=0xAE585C5: CompositeTypeExtension
+  Co @ rva=0xAE58767: CompositeTypeExtension
+  Co @ rva=0xAE588D5: CompositeTypeExtension
+  Co @ rva=0xAE58A37: CompositeTypeExtension
+  Co @ rva=0xAE8C972: ContiguousSelection
+  Co @ rva=0xAE8F3E5: ConicalGradient
+  Co @ rva=0xAE8F42C: CoordinateMode
+  Co @ rva=0xAE8F796: ColdEvening
+  Co @ rva=0xAE8F7A2: CochitiLake
+  Co @ rva=0xAE8F8F8: ConfidentCloud
+  Co @ rva=0xAE8F9B6: ColorfulPeach
+  Co @ rva=0xAE93C6E: ControlElement
+  Co @ rva=0xAE944F7: ComplexControl
+  Co @ rva=0xAE95164: ContentsType
+  Co @ rva=0xAEEDF24: ColorDialogOptions
+  Co @ rva=0xAEEDF37: ColorDialogOption
+  Co @ rva=0xAEF2D89: Columns
+  Co @ rva=0xAEF32D7: CompletionMode
+  Co @ rva=0xAEF5C1A: CosineCurve
+  Co @ rva=0xAEF679F: ColorDialogOptions
+  Co @ rva=0xAEF67B2: ColorDialogOption
+  Co @ rva=0xAFBEBB4: ContextHelpStart
+  Co @ rva=0xAFBEBC5: ContextHelpEnd
+  Co @ rva=0xAFBF0BF: ColumnHeader
+  Co @ rva=0xAFBF0D6: Column
+  Co @ rva=0xAFBF183: ComboBox
+  Co @ rva=0xAFBF269: ColorChooser
+  Co @ rva=0xAFBF28F: ComplementaryContent
+  Co @ rva=0xB006596: ControlTypes
+  Co @ rva=0xB0065A3: ControlType
+  Co @ rva=0xB0065CE: ComboBox
+  Co @ rva=0xB099338: Courier New
+  Co @ rva=0xB0994E0: Courier New
+  Co @ rva=0xB099510: Courier New
+  Co @ rva=0xB099540: Comic Sans MS
+  Co @ rva=0xB099A60: Courier New
+  Co @ rva=0xB09AE63: CorrectionMode
+  Co @ rva=0xB09AEC7: CorrectToPreviousValue
+  Co @ rva=0xB09AEDE: CorrectToNearestValue
+  Co @ rva=0xB1F2B4E: CopyRole
+  Co @ rva=0xB321109: Context
+  Co @ rva=0xBC71AB6: CompanyName
+  Co @ rva=0xBC71B70: Copyright (C) 1998-2026 Tencent All Rights Reserved
+
+Total Co-prefixed strings: 725
+
+=== SCRIPT COMPLETE ===
+INFO  REPORT: Save succeeded for processed file: /Weixin.dll (HeadlessAnalyzer)  
