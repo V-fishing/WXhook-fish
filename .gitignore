@@ -35,13 +35,33 @@ m3/ctors.json
 *.dmp
 *.xlog
 
+# 旧逆向会话内存快照
+m3/coro_dump/
+m3/factory_obj_dump.bin
+m3esume_decompiled.txt
+
+# 仓库只保留自主发送成功链路的关键文件, 以下为本地研究资料:
+m2/
+phase1-tools/
+tests/
+thirdparty/
+poll_coro2.py
+*.bat
+m3/*.py
+!m3/m3_native_client.py
+docs/*
+!docs/M4状态-自主发送攻坚.md
+m1/src/dummy_target.c
+m1/src/host_load.c
+m1/src/inject_lib.c
+m1/src/wx_probe.c
+
 # IDE / 系统杂物
 .vs/
 .vscode/
 *.user
 Thumbs.db
 desktop.ini
-
-# 旧逆向会话内存快照
-m3/coro_dump/
-m3/factory_obj_dump.bin
+m3/*.txt
+m3/*.json
+m3/*.c
