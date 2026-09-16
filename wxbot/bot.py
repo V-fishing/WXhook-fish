@@ -43,6 +43,13 @@ def screenshot_and_send():
     kernel32.GlobalLock.argtypes = [wt.HGLOBAL]
     kernel32.GlobalLock.restype = ctypes.c_void_p
     kernel32.GlobalUnlock.argtypes = [wt.HGLOBAL]
+    user32.IsIconic.argtypes = [wt.HWND]
+    user32.ShowWindow.argtypes = [wt.HWND, wt.INT]
+    user32.keybd_event.argtypes = [wt.BYTE, wt.BYTE, wt.DWORD, ctypes.c_void_p]
+    user32.GetForegroundWindow.restype = wt.HWND
+    user32.GetWindowThreadProcessId.argtypes = [wt.HWND, ctypes.POINTER(wt.DWORD)]
+    user32.AttachThreadInput.argtypes = [wt.DWORD, wt.DWORD, wt.BOOL]
+    kernel32.GetCurrentThreadId.restype = wt.DWORD
     hwnd = find_wechat_hwnd()
     if not hwnd:
         print('[IMG] WeChat window not found')
@@ -75,16 +82,29 @@ def screenshot_and_send():
         return False
     # 强制前置 + 验证 (最多 3 次); 遮挡没关系, 最小化才不行
     prev_fg = user32.GetForegroundWindow()
-    if user32.IsIconic(hwnd):                       # 最小化: 先还原 (否则前置必败)
-        user32.ShowWindow(hwnd, 9)                  # SW_RESTORE
-        time.sleep(0.4)
+    # 前台锁绕过: ALT 脉冲 -> SetForegroundWindow; 失败再 AttachThreadInput
     fg_ok = False
-    for _ in range(3):
+    for attempt in range(3):
+        if user32.IsIconic(hwnd):
+            user32.ShowWindow(hwnd, 9)              # SW_RESTORE
+            time.sleep(0.4)
+        user32.keybd_event(0x12, 0, 0, 0)           # ALT down: 解除前台锁
+        user32.keybd_event(0x12, 0, 2, 0)           # ALT up
         user32.SetForegroundWindow(hwnd)
         time.sleep(0.35)
         if user32.GetForegroundWindow() == hwnd:
-            fg_ok = True
-            break
+            fg_ok = True; break
+        fg = user32.GetForegroundWindow()
+        if fg:
+            fg_tid = user32.GetWindowThreadProcessId(fg, None)
+            my_tid = kernel32.GetCurrentThreadId()
+            user32.AttachThreadInput(my_tid, fg_tid, True)
+            user32.SetForegroundWindow(hwnd)
+            user32.AttachThreadInput(my_tid, fg_tid, False)
+            time.sleep(0.3)
+            if user32.GetForegroundWindow() == hwnd:
+                fg_ok = True; break
+        time.sleep(0.5)
     if not fg_ok:
         print('[IMG] cannot focus WeChat')
         return False
@@ -170,6 +190,19 @@ def read_new_msgs():
     return out
 
 def main():
+    import sys
+    lock = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'bot.pid')
+    try:
+        old = open(lock).read().strip()
+        if old and int(old) != os.getpid():
+            import subprocess
+            r = subprocess.run(['powershell', '-NoProfile', '-Command',
+                                f'(Get-Process -Id {old} -ErrorAction SilentlyContinue | Measure-Object).Count'],
+                               capture_output=True, text=True)
+            if r.stdout.strip() != '0':
+                print('already running (pid ' + old + '), exit'); sys.exit(1)
+    except Exception: pass
+    open(lock, 'w').write(str(os.getpid()))
     print('wxbot started ' + datetime.now().strftime('%H:%M:%S'))
     print('target:' + TARGET + ' poll:' + str(POLL) + 's')
     last_sent = ''

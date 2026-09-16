@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# v98 接收捕获: 扫描微信堆中的 AddMsg protobuf (filehelper), 追加写入 received_text.txt
+# v99 接收捕获: 扫描微信堆中的 AddMsg protobuf (filehelper), 追加写入 received_text.txt
 # 协议: 每行 "ts|target|content"; 触发 = 出现沿 (本轮堆里出现、上一轮没有)
-# 限制: 同内容消息若旧缓冲区仍驻留内存, 视为同一条 (不重复触发)
+# 去重键 = (content, msg_timestamp): 同文重发 ts 不同会触发; 同一消息的多内存副本 ts 相同只触发一次
 import ctypes, ctypes.wintypes as wt, subprocess, time, os, re, sys
 
 OUT = r'E:\weixin-hook-4.1.8\wxbot\received_text.txt'
@@ -47,6 +47,48 @@ def read_regions(h):
         addr = nxt
     return chunks
 
+def _varint(d, p):
+    v = 0; shift = 0
+    for k in range(10):
+        if p + k >= len(d): return None, p
+        b = d[p+k]
+        v |= (b & 0x7F) << shift
+        if not (b & 0x80):
+            return v, p + k + 1
+        shift += 7
+    return None, p
+
+def parse_content_ts(d, i):
+    """'filehelper' 起点解析 field5(content) + field9(timestamp)。返回 (content, ts)"""
+    p = i + 10
+    end = min(len(d), p + 96)
+    content = None; ts = 0
+    while p < end:
+        tag = d[p]
+        if tag == 0x2a:
+            ln = d[p+1] if p+1 < len(d) else 0
+            if p + 2 + ln > len(d): break
+            seg = d[p+2:p+2+ln]
+            if len(seg) >= 2 and seg[0] == 0x0a:
+                cl = seg[1]
+                if 2 + cl <= len(seg):
+                    try: content = seg[2:2+cl].decode('utf-8', errors='replace')
+                    except Exception: content = None
+            p = p + 2 + ln
+        elif tag in (0x20, 0x30, 0x38, 0x48, 0x50):
+            v, p2 = _varint(d, p+1)
+            if v is None: break
+            if tag == 0x48: ts = v
+            p = p2
+        elif tag == 0x42:
+            ln = d[p+1] if p+1 < len(d) else 0
+            p = p + 2 + ln
+        else:
+            break
+        if content is not None and ts:
+            break
+    return (content, ts)
+
 def parse_content(d, i):
     """'filehelper' 命中点向后: 跳过 20 xx, 解 2a <len> 0a <clen> <content>"""
     p = i + 10
@@ -69,16 +111,30 @@ def parse_content(d, i):
     return None
 
 def scan_current(h):
-    """返回本轮堆内全部 filehelper 内容集合"""
+    """返回本轮堆内 filehelper 消息集合: {(content, ts)}"""
+    cur = set()
     cur = set()
     for chunk in read_regions(h):
         for m in re.finditer(rb'\x1a\x0c\x0a\x0afilehelper', chunk):
-            c = parse_content(chunk, m.start() + 4)
+            c, t = parse_content_ts(chunk, m.start() + 4)
             if c and c.strip():
-                cur.add(c)
+                cur.add((c, t))
     return cur
 
 def main():
+    import sys
+    lock = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'rx_scan2.pid')
+    try:
+        old = open(lock).read().strip()
+        if old and int(old) != os.getpid():
+            import subprocess
+            r = subprocess.run(['powershell', '-NoProfile', '-Command',
+                                f'(Get-Process -Id {old} -ErrorAction SilentlyContinue | Measure-Object).Count'],
+                               capture_output=True, text=True)
+            if r.stdout.strip() != '0':
+                print('already running (pid ' + old + '), exit'); sys.exit(1)
+    except Exception: pass
+    open(lock, 'w').write(str(os.getpid()))
     pid = get_main_pid()
     if not pid: print('no weixin'); return
     h = kernel32.OpenProcess(0x0010 | 0x0400, False, pid)
@@ -105,12 +161,12 @@ def main():
             # 进程重启后基线重建, 不触发
         new = cur - prev
         if new:
-            ts = int(time.time())
+            now = int(time.time())
             with open(OUT, 'a', encoding='utf-8') as f:
-                for c in sorted(new):
-                    f.write(f'{ts}|filehelper|{c}\n')
-            for c in sorted(new):
-                print('[RX]', c[:80], flush=True)
+                for c, t in sorted(new):
+                    f.write(f'{now}|filehelper|{c}\n')
+            for c, t in sorted(new):
+                print(f'[RX] ({t})', c[:80], flush=True)
         prev = cur
 
 if __name__ == '__main__':
