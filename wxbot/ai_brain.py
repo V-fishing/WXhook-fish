@@ -46,7 +46,7 @@ def _save_model(m):
     with open(MODEL_FILE, 'w', encoding='utf-8') as f:
         f.write(m)
 
-def _post(body, timeout=60):
+def _post(body, timeout=90):
     req = urllib.request.Request(BASE + '/chat/completions',
         data=json.dumps(body).encode('utf-8'),
         headers={'Authorization': 'Bearer ' + _key(), 'Content-Type': 'application/json'})
@@ -70,6 +70,8 @@ def _call(messages, use_tools=True):
     if use_tools:
         body['tools'] = TOOLS
     code, text = _post(body)
+    if code == 0:                       # 传输失败/超时: 重试一次
+        code, text = _post(body)
     if code != 200:
         return ('AI 调用失败 HTTP %s: %s' % (code, text[:180]), None, text)
     d = json.loads(text)
@@ -78,7 +80,7 @@ def _call(messages, use_tools=True):
 
 def chat(user_text, history, dispatcher):
     """入口: 用户消息 + 历史 -> AI 回复文本。工具循环最多 3 轮。"""
-    msgs = [{'role': 'system', 'content': SYSTEM}] + history[-20:] + [
+    msgs = [{'role': 'system', 'content': SYSTEM}] + history[-12:] + [
         {'role': 'user', 'content': user_text}]
     for _ in range(5):
         content, calls, err = _call(msgs)
