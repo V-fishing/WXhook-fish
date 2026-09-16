@@ -99,4 +99,4 @@ def chat(user_text, history, dispatcher):
             except Exception as e:
                 result = '工具执行异常: ' + str(e)[:120]
             msgs.append({'role': 'tool', 'tool_call_id': c.get('id', ''), 'content': str(result)})
-    return '(工具循环超限)'
+    return '这个问题的工具调用次数到上限了，没能完成。可以换个说法再问一次，或者把问题拆小一点。'
