@@ -2,6 +2,7 @@
 # AI 工具集: schema 定义 + 实现 + 注册表
 # 安全等级: 绿灯(只读/启动) —— AI 可自主调用; 黄灯(写操作)后续加确认机制
 import os, subprocess, ctypes, ctypes.wintypes as wt, shutil, json, time
+import winvision
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
@@ -173,6 +174,9 @@ _REGISTRY = {
     'system_info': system_info,
     'open_app': open_app,
     'take_screenshot': take_screenshot_stub,   # bot 启动时覆盖注册
+    'list_windows': winvision.list_windows,
+    'read_window_text': winvision.read_window_text,
+    'window_ocr': winvision.window_ocr,
 }
 
 def register(name, fn):
@@ -222,6 +226,22 @@ SCHEMAS = [
         'name': 'take_screenshot',
         'description': '截取电脑当前屏幕画面并自动发送到用户的微信。当用户想看屏幕、桌面、验证操作结果时调用。',
         'parameters': {'type': 'object', 'properties': {}, 'required': []}}},
+    {'type': 'function', 'function': {
+        'name': 'list_windows',
+        'description': '列出用户电脑当前所有可见窗口的标题 (含被遮挡的), 标注是否最小化。用户提到"某个窗口/程序/应用"时先调用这个。',
+        'parameters': {'type': 'object', 'properties': {}, 'required': []}}},
+    {'type': 'function', 'function': {
+        'name': 'read_window_text',
+        'description': '提取某窗口内的文本内容 (UIA 接口, 被遮挡也能读)。window 参数 = 窗口标题关键词或 list_windows 里的 #编号。记事本/浏览器/Office 等效果好。',
+        'parameters': {'type': 'object', 'properties': {
+            'window': {'type': 'string', 'description': '窗口标题关键词或 #编号'}},
+            'required': ['window']}}},
+    {'type': 'function', 'function': {
+        'name': 'window_ocr',
+        'description': '截取某窗口画面并 OCR 识别其中的文字 (被遮挡也能截, 最小化不行)。适合 UIA 提取不到文本的窗口。',
+        'parameters': {'type': 'object', 'properties': {
+            'window': {'type': 'string', 'description': '窗口标题关键词或 #编号'}},
+            'required': ['window']}}},
 ]
 
 def execute(name, args_json):
