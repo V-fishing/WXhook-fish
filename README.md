@@ -10,7 +10,7 @@
 - [x] M2 偏移发现：发送管线测绘（UI → UP2 → UP1 → CORE → CGI）
 - [x] M3 原生发送原语：三段式调用 + flag 参数（0=本地入队，1=CGI 入网）
 - [x] M4 **纯自主发送**：登录瞬间全自动武装 + 队列空闲自主派发，PC/移动端双达
-- [x] M4.5 **接收捕获 + bot**：AddMsg protobuf 外部轮询（无密钥/无侵入）+ 指令 bot（/ping /cmd /screenshot），手机 /ping → 自动回复 pong 实测
+- [x] M4.5 **接收捕获 + bot**：AddMsg protobuf 外部轮询（无密钥/无侵入）+ 指令 bot **全指令端到端实测**（/ping /cmd /screenshot）
 - [x] M4.8 **热重载架构 (m4/)**：boot/payload 分离，RELOAD 换代零重启；预检器 + VEH 取证 + SafeRead（崩溃→报错）
 - [ ] M5 图片发送：UP2+暂存覆盖已通，continuation 重放待解（见 docs M4 §40）
 - [ ] M6 AI 接入：自然语言指令 → 工具执行 → 回传

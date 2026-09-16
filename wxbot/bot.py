@@ -24,40 +24,59 @@ def send_text(target, msg):
 
 def find_wechat_hwnd():
     user32 = ctypes.windll.user32
+    user32.FindWindowW.argtypes = [wt.LPCWSTR, wt.LPCWSTR]
+    user32.FindWindowW.restype = wt.HWND
     return user32.FindWindowW(None, '微信')
 
 def screenshot_and_send():
     import pyautogui
-    from PIL import Image
     import io as _io
     user32 = ctypes.windll.user32
     kernel32 = ctypes.windll.kernel32
+    # 64 位原型 (缺失会导致句柄截断 -> AV)
+    user32.SetForegroundWindow.argtypes = [wt.HWND]
+    user32.OpenClipboard.argtypes = [wt.HWND]
+    user32.SetClipboardData.argtypes = [wt.UINT, wt.HANDLE]
+    user32.SetClipboardData.restype = wt.HANDLE
+    kernel32.GlobalAlloc.argtypes = [wt.UINT, ctypes.c_size_t]
+    kernel32.GlobalAlloc.restype = wt.HGLOBAL
+    kernel32.GlobalLock.argtypes = [wt.HGLOBAL]
+    kernel32.GlobalLock.restype = ctypes.c_void_p
+    kernel32.GlobalUnlock.argtypes = [wt.HGLOBAL]
     hwnd = find_wechat_hwnd()
     if not hwnd:
         print('[IMG] WeChat window not found')
         return False
-    # 截图
     img = pyautogui.screenshot()
-    # 复制到剪贴板 (CF_DIB)
-    CF_DIB = 8; GMEM_MOVEABLE = 2
+    CF_DIB = 8; GMEM_MOVEABLE = 0x0002
     buf = _io.BytesIO()
     img.save(buf, 'BMP')
     dib = buf.getvalue()[14:]
-    if not user32.OpenClipboard(0): return False
-    user32.EmptyClipboard()
-    hMem = kernel32.GlobalAlloc(GMEM_MOVEABLE, len(dib))
-    p = kernel32.GlobalLock(hMem)
-    ctypes.memmove(p, dib, len(dib))
-    kernel32.GlobalUnlock(hMem)
-    user32.SetClipboardData(CF_DIB, hMem)
-    user32.CloseClipboard()
-    # 聚焦微信
+    if not user32.OpenClipboard(None):
+        print('[IMG] clipboard open fail')
+        return False
+    ok = False
+    try:
+        user32.EmptyClipboard()
+        hMem = kernel32.GlobalAlloc(GMEM_MOVEABLE, len(dib))
+        if hMem:
+            p = kernel32.GlobalLock(hMem)
+            if p:
+                try:
+                    ctypes.memmove(p, dib, len(dib))
+                finally:
+                    kernel32.GlobalUnlock(hMem)
+                if user32.SetClipboardData(CF_DIB, hMem):
+                    ok = True
+    finally:
+        user32.CloseClipboard()
+    if not ok:
+        print('[IMG] clipboard write fail')
+        return False
     user32.SetForegroundWindow(hwnd)
-    time.sleep(0.5)
-    # 粘贴
+    time.sleep(0.6)
     pyautogui.hotkey('ctrl', 'v')
-    time.sleep(1)
-    # 发送
+    time.sleep(1.2)
     pyautogui.press('enter')
     time.sleep(0.5)
     return True
