@@ -175,7 +175,6 @@ _REGISTRY = {
     'open_app': open_app,
     'take_screenshot': take_screenshot_stub,   # bot 启动时覆盖注册
     'list_windows': winvision.list_windows,
-    'read_window_text': winvision.read_window_text,
     'window_ocr': winvision.window_ocr,
 }
 
@@ -228,19 +227,13 @@ SCHEMAS = [
         'parameters': {'type': 'object', 'properties': {}, 'required': []}}},
     {'type': 'function', 'function': {
         'name': 'list_windows',
-        'description': '列出用户电脑当前所有可见窗口的标题 (含被遮挡的), 标注是否最小化。用户提到"某个窗口/程序/应用"时先调用这个。',
+        'description': '列出用户电脑当前所有可见窗口的标题、pid 和最小化状态 (含被遮挡的)。用户提到"某个窗口/程序/应用"时先调用这个; 程序 pid 也可用于 window_ocr。',
         'parameters': {'type': 'object', 'properties': {}, 'required': []}}},
     {'type': 'function', 'function': {
-        'name': 'read_window_text',
-        'description': '提取某窗口内的文本内容 (UIA 接口, 被遮挡也能读)。window 参数 = 窗口标题关键词或 list_windows 里的 #编号。记事本/浏览器/Office 等效果好。',
-        'parameters': {'type': 'object', 'properties': {
-            'window': {'type': 'string', 'description': '窗口标题关键词或 #编号'}},
-            'required': ['window']}}},
-    {'type': 'function', 'function': {
         'name': 'window_ocr',
-        'description': '截取某窗口画面并 OCR 识别其中的文字 (被遮挡也能截, 最小化不行)。适合 UIA 提取不到文本的窗口。',
+        'description': '把某窗口置顶后截屏并 OCR 识别文字 (被遮挡也能用, 会短暂置顶窗口)。window 参数 = 窗口标题关键词、list_windows 里的 #编号 或 pid=进程号。',
         'parameters': {'type': 'object', 'properties': {
-            'window': {'type': 'string', 'description': '窗口标题关键词或 #编号'}},
+            'window': {'type': 'string', 'description': '窗口标题关键词 / #编号 / pid=进程号'}},
             'required': ['window']}}},
 ]
 
