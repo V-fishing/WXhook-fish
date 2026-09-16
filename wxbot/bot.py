@@ -197,9 +197,9 @@ def main():
         if old and int(old) != os.getpid():
             import subprocess
             r = subprocess.run(['powershell', '-NoProfile', '-Command',
-                                f'(Get-Process -Id {old} -ErrorAction SilentlyContinue | Measure-Object).Count'],
+                                f'(Get-Process -Id {old} -ErrorAction SilentlyContinue).ProcessName'],
                                capture_output=True, text=True)
-            if r.stdout.strip() != '0':
+            if r.stdout.strip() == 'python':
                 print('already running (pid ' + old + '), exit'); sys.exit(1)
     except Exception: pass
     open(lock, 'w').write(str(os.getpid()))

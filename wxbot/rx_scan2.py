@@ -129,9 +129,9 @@ def main():
         if old and int(old) != os.getpid():
             import subprocess
             r = subprocess.run(['powershell', '-NoProfile', '-Command',
-                                f'(Get-Process -Id {old} -ErrorAction SilentlyContinue | Measure-Object).Count'],
+                                f'(Get-Process -Id {old} -ErrorAction SilentlyContinue).ProcessName'],
                                capture_output=True, text=True)
-            if r.stdout.strip() != '0':
+            if r.stdout.strip() == 'python':
                 print('already running (pid ' + old + '), exit'); sys.exit(1)
     except Exception: pass
     open(lock, 'w').write(str(os.getpid()))
@@ -146,6 +146,21 @@ def main():
 
     while True:
         time.sleep(0.7)
+        # 微信退出检测: 进程句柄已终止 -> 自动重挂新进程 (重基线, 不触发)
+        if kernel32.WaitForSingleObject(h, 0) == 0:
+            print('[WATCH] wechat exited, waiting for new process...', flush=True)
+            kernel32.CloseHandle(h)
+            prev = set()
+            while True:
+                time.sleep(1.5)
+                npid = get_main_pid()
+                if npid:
+                    h = kernel32.OpenProcess(0x0010 | 0x0400, False, npid)
+                    if h:
+                        prev = scan_current(h)
+                        print(f'[WATCH] re-attached pid {npid}, baseline {len(prev)}', flush=True)
+                        break
+            continue
         try:
             cur = scan_current(h)
         except Exception as e:
