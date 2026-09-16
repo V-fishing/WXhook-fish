@@ -215,6 +215,92 @@ tools.register('send_file', send_file_to_wechat)
 _ai_history = []   # [{'role','content'}]
 AI_ON = True
 
+# ---- 定时提醒 + 白名单发送 ----
+WL_FILE = os.path.join(WXBOT, 'send_whitelist.json')
+REM_FILE = os.path.join(WXBOT, 'reminders.json')
+_reminders = []   # [{'due': epoch, 'text': str}]
+
+def _load_whitelist():
+    try:
+        with open(WL_FILE, encoding='utf-8') as f:
+            wl = json.load(f)
+        if isinstance(wl, dict):
+            wl.setdefault('文件传输助手', 'filehelper')
+            return wl
+    except Exception:
+        pass
+    return {'文件传输助手': 'filehelper'}
+
+def _load_reminders():
+    try:
+        with open(REM_FILE, encoding='utf-8') as f:
+            return [r for r in json.load(f) if isinstance(r, dict) and 'due' in r]
+    except Exception:
+        return []
+
+def send_to_contact(contact, message):
+    wl = _load_whitelist()
+    wxid = None
+    alias = None
+    for k, v in wl.items():
+        if contact.lower() == k.lower() or contact == v:
+            wxid = v; alias = k; break
+    if not wxid:
+        return '联系人不在白名单: ' + contact + ' (可用: ' + ', '.join(wl.keys()) + ')'
+    b64 = base64.b64encode(message.encode('utf-8')).decode()
+    try:
+        f = open(PIPE, 'r+b', buffering=0)
+        f.write(('AUTO|' + wxid + '|' + b64 + '\n').encode())
+        resp = f.read(200).decode(errors='replace').strip()
+        f.close()
+    except Exception as e:
+        return '发送失败 (管道不可用): ' + str(e)[:80]
+    if resp.startswith('OK'):
+        return '已发送给 ' + alias
+    return '发送失败: ' + resp
+
+def _save_reminders():
+    try:
+        with open(REM_FILE, 'w', encoding='utf-8') as f:
+            json.dump(_reminders, f, ensure_ascii=False)
+    except Exception:
+        pass
+
+def set_reminder_impl(delay_minutes, text):
+    try:
+        m = float(delay_minutes)
+    except Exception:
+        return '参数错误: delay_minutes 需为数字'
+    m = max(0.05, min(m, 1440))
+    due = time.time() + m * 60
+    items = _load_reminders()
+    items.append({'due': due, 'text': text})
+    with open(REM_FILE, 'w', encoding='utf-8') as f:
+        json.dump(items, f, ensure_ascii=False)
+    return f'已设置提醒: {time.strftime("%H:%M:%S", time.localtime(due))} -> {text}'
+
+def _reminder_loop():
+    """每轮读 reminders.json (跨进程队列): 到期的触发并移除"""
+    while True:
+        try:
+            items = _load_reminders()
+            now = time.time()
+            due_list = [r for r in items if r['due'] <= now]
+            if due_list:
+                keep = [r for r in items if r['due'] > now]
+                with open(REM_FILE, 'w', encoding='utf-8') as f:
+                    json.dump(keep, f, ensure_ascii=False)
+                for r in due_list:
+                    reply = '⏰ 提醒: ' + r['text']
+                    send_text(TARGET, reply)
+                    print('[REMIND]', reply[:60], flush=True)
+        except Exception as e:
+            print('[REMIND] err', e, flush=True)
+        time.sleep(2)
+
+tools.register('set_reminder', set_reminder_impl)
+tools.register('send_to', send_to_contact)
+
 def ai_reply(text):
     """非指令消息交给 AI; 返回回复文本"""
     import ai_brain
@@ -268,6 +354,9 @@ def read_new_msgs():
 
 def main():
     import sys
+    import threading
+    threading.Thread(target=_reminder_loop, daemon=True).start()
+
     lock = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'bot.pid')
     try:
         old = open(lock).read().strip()

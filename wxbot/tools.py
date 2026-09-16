@@ -174,6 +174,8 @@ _REGISTRY = {
     'system_info': system_info,
     'open_app': open_app,
     'take_screenshot': take_screenshot_stub,   # bot 启动时覆盖注册
+    'set_reminder': lambda **kw: '(未注册)',    # bot 启动时覆盖注册
+    'send_to': lambda **kw: '(未注册)',         # bot 启动时覆盖注册
     'list_windows': winvision.list_windows,
     'window_ocr': winvision.window_ocr,
 }
@@ -227,6 +229,20 @@ SCHEMAS = [
         'parameters': {'type': 'object', 'properties': {
             'path': {'type': 'string', 'description': '文件的完整路径'}},
             'required': ['path']}}},
+    {'type': 'function', 'function': {
+        'name': 'set_reminder',
+        'description': '设置一个定时提醒, 到时间后会通过微信主动发消息给用户。用户说"xx分钟后提醒我xx"时使用。delay_minutes 为分钟数。',
+        'parameters': {'type': 'object', 'properties': {
+            'delay_minutes': {'type': 'number', 'description': '多少分钟后提醒 (最小 1)'},
+            'text': {'type': 'string', 'description': '提醒内容'}},
+            'required': ['delay_minutes', 'text']}}},
+    {'type': 'function', 'function': {
+        'name': 'send_to',
+        'description': '把一条文本消息发送给白名单里的微信联系人。contact 必须是白名单里的别名。白名单外的联系人无法发送。',
+        'parameters': {'type': 'object', 'properties': {
+            'contact': {'type': 'string', 'description': '白名单里的联系人别名'},
+            'message': {'type': 'string', 'description': '要发送的文本消息'}},
+            'required': ['contact', 'message']}}},
     {'type': 'function', 'function': {
         'name': 'take_screenshot',
         'description': '截取电脑当前屏幕画面并自动发送到用户的微信。当用户想看屏幕、桌面、验证操作结果时调用。',
