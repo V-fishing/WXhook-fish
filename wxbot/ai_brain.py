@@ -9,19 +9,15 @@ KEY_FILE = os.path.join(HERE, 'ai_key.txt')
 MODEL_FILE = os.path.join(HERE, 'ai_model.txt')
 BASE = 'https://ark.cn-beijing.volces.com/api/coding/v3'
 
-TOOLS = [
-    {'type': 'function', 'function': {
-        'name': 'take_screenshot',
-        'description': '截取电脑当前屏幕画面并自动发送到用户的微信。当用户想看屏幕、桌面、验证某操作结果时调用。',
-        'parameters': {'type': 'object', 'properties': {}, 'required': []},
-    }},
-]
+import tools as _tools
+TOOLS = _tools.SCHEMAS
 
 SYSTEM = (
     '你是一个运行在用户 Windows 电脑上的 PC 助手, 通过微信与用户对话。'
     '用户在手机上发消息给你, 你在电脑端执行并回复。'
     '你可以调用 take_screenshot 截取屏幕并自动发给用户。'
     '回答用简体中文, 简洁口语化, 不要使用 markdown 标记。'
+    '用户桌面路径: ' + os.path.expanduser('~/Desktop') + ' , 列目录/搜文件优先用绝对路径。'
 )
 
 def _key():
@@ -74,11 +70,11 @@ def _call(messages, use_tools=True):
     msg = d['choices'][0]['message']
     return (msg.get('content') or '', msg.get('tool_calls'), None)
 
-def chat(user_text, history, screenshot_fn):
+def chat(user_text, history, dispatcher):
     """入口: 用户消息 + 历史 -> AI 回复文本。工具循环最多 3 轮。"""
     msgs = [{'role': 'system', 'content': SYSTEM}] + history[-20:] + [
         {'role': 'user', 'content': user_text}]
-    for _ in range(3):
+    for _ in range(5):
         content, calls, err = _call(msgs)
         if err:
             return content or ('AI 异常: ' + err)
@@ -88,14 +84,11 @@ def chat(user_text, history, screenshot_fn):
         for c in calls:
             fn = c.get('function', {})
             name = fn.get('name', '')
-            if name == 'take_screenshot':
-                try:
-                    ok = screenshot_fn()
-                except Exception as e:
-                    ok = False
-                    print('[AI] screenshot err:', e)
-                result = '截图已成功截取并通过微信发送给用户' if ok else '截图失败(剪贴板或窗口问题)'
-            else:
-                result = '未知工具: ' + name
-            msgs.append({'role': 'tool', 'tool_call_id': c.get('id', ''), 'content': result})
+            args_json = fn.get('arguments', '{}')
+            print('[AI] tool:', name, str(args_json)[:80], flush=True)
+            try:
+                result = dispatcher(name, args_json)
+            except Exception as e:
+                result = '工具执行异常: ' + str(e)[:120]
+            msgs.append({'role': 'tool', 'tool_call_id': c.get('id', ''), 'content': str(result)})
     return '(工具循环超限)'

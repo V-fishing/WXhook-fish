@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # wxbot bot: phone sends /command -> PC executes -> replies
 import ctypes, ctypes.wintypes as wt, os, sys, time, json, subprocess, base64
+import tools
 from datetime import datetime
 
 WXBOT = os.path.dirname(os.path.abspath(__file__))
@@ -135,6 +136,7 @@ def handle(text):
     return 'unknown: ' + t + ' (/help for cmds)'
 
 # ---- AI 会话 (非 / 消息) ----
+tools.register('take_screenshot', screenshot_and_send)
 _ai_history = []   # [{'role','content'}]
 AI_ON = True
 
@@ -143,7 +145,7 @@ def ai_reply(text):
     import ai_brain
     global _ai_history
     try:
-        r = ai_brain.chat(text, _ai_history, screenshot_and_send)
+        r = ai_brain.chat(text, _ai_history, tools.execute)
         _ai_history.append({'role': 'user', 'content': text})
         _ai_history.append({'role': 'assistant', 'content': r})
         if len(_ai_history) > 40:
