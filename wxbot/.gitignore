@@ -1,0 +1,36 @@
+# 运行时产物 (DLL/脚本生成)
+last_text.txt
+received_text.txt
+bot_log.txt
+pid.txt
+staged_path.txt
+up2_out.bin
+key_cands.json
+magic.txt
+magic_hits.json
+
+# 大体积数据
+memdump/
+memdump2/
+racedump/
+decrypted/
+decoded_images/
+wechat_files/
+*.db
+
+# 密钥 (不入库)
+all_keys.json
+
+# Python
+__pycache__/
+*.pyc
+
+# IDE
+.idea/
+
+# 归档诊断脚本 (逆向过程存档, 不维护)
+tools_archive/
+keycands*.txt
+ai_key.txt
+*.pid
+keycands*.txt
