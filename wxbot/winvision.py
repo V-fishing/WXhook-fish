@@ -24,10 +24,15 @@ def _proto():
     u.SetWindowPos.argtypes = [wt.HWND, wt.HWND, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, wt.UINT]
     u.GetWindowRect.argtypes = [wt.HWND, ctypes.c_void_p]
     u.GetWindowThreadProcessId.argtypes = [wt.HWND, ctypes.POINTER(wt.DWORD)]
+    u.GetWindowLongW.argtypes = [wt.HWND, ctypes.c_int]
     g = _gdi32
     return u, g
 
 HWND_TOP = 0
+HWND_NOTOPMOST = -2
+HWND_TOPMOST = -1
+GWL_EXSTYLE = -20
+WS_EX_TOPMOST = 0x8
 SWP_NOMOVE = 0x2
 SWP_NOSIZE = 0x1
 SW_RESTORE = 9
@@ -96,6 +101,33 @@ def _find_hwnd(target):
     u.EnumWindows(cb, 0)
     return best[0], best[1]
 
+def _clear_topmost_overlaps(target_hwnd, rect):
+    """临时清除与目标相交的其他置顶窗口的 topmost (否则它们会盖住置顶后的目标), 返回恢复函数"""
+    L, T, R, B = rect
+    cleared = []
+    @ctypes.WINFUNCTYPE(wt.BOOL, wt.HWND, wt.LPARAM)
+    def cb(hwnd, lp):
+        try:
+            if hwnd == target_hwnd or not _user32.IsWindowVisible(hwnd):
+                return True
+            ex = _user32.GetWindowLongW(hwnd, GWL_EXSTYLE)
+            if not (ex & WS_EX_TOPMOST):
+                return True
+            r = wt.RECT()
+            if not _user32.GetWindowRect(hwnd, ctypes.byref(r)):
+                return True
+            if r.left < R and r.right > L and r.top < B and r.bottom > T:
+                _user32.SetWindowPos(hwnd, HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE)
+                cleared.append(hwnd)
+        except Exception:
+            pass
+        return True
+    _user32.EnumWindows(cb, 0)
+    def restore():
+        for h in cleared:
+            _user32.SetWindowPos(h, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE)
+    return restore
+
 def window_ocr(window=""):
     """找窗口 -> 置顶(可遮挡场景) -> 全屏截图裁剪 -> OCR -> 恢复原窗口 Z 序"""
     u, g = _proto()
@@ -107,11 +139,17 @@ def window_ocr(window=""):
     class RECT2(ctypes.Structure):
         _fields_ = [('L', ctypes.c_long), ('T', ctypes.c_long), ('R', ctypes.c_long), ('B', ctypes.c_long)]
     prev_fg = u.GetForegroundWindow()
-    u.SetWindowPos(hwnd, HWND_TOP, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE)   # 置顶 (非抢前台)
-    time.sleep(0.45)                                                      # 等 DWM 重绘
+    # 关键: 用 TOPMOST 带 (高于前台带) —— HWND_TOP 只到普通带顶部, 压不过前台窗口
+    u.SetWindowPos(hwnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE)
+    time.sleep(0.2)
+    rc = RECT2()
+    u.GetWindowRect(hwnd, ctypes.byref(rc))
+    restore_topmost = _clear_topmost_overlaps(hwnd, (rc.L, rc.T, rc.R, rc.B))
+    time.sleep(0.25)                                                      # 等 DWM 重绘
     import pyautogui
     img = pyautogui.screenshot()
-    rc = RECT2()
+    restore_topmost()
+    u.SetWindowPos(hwnd, HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE)   # 退出 topmost 带
     u.GetWindowRect(hwnd, ctypes.byref(rc))
     # 还原 Z 序: 把之前的前台窗口提回顶部
     if prev_fg and prev_fg != hwnd:
