@@ -93,3 +93,4 @@ python bot.py
 | 收消息 hook | ✔ | ✔ 外部 protobuf 轮询 (无侵入) |
 | 发图片 | ✔ | UP2+暂存覆盖已通, continuation 重放待解 |
 | 指令 bot | ✘ | ✔ |
+ai_key.txt

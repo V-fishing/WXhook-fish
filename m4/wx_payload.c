@@ -25,6 +25,9 @@ static void LogL(const char* s) { g_api->Log(s); }
 static void LogHex(const char* s, u64 v) { g_api->LogHex(s, v); }
 static void LogBytes(const char* s, const unsigned char* b, int n) { g_api->LogBytes(s, b, n); }
 
+static void FactoryFlushInner(Cmd* a);
+static void ImageFlushInner(Cmd* a);
+
 // ---- 工具 (自包含) ----
 static int WrFresh(unsigned char* obj, u64 off, const char* data, int len) {
     unsigned char* p = obj + off;
@@ -86,6 +89,10 @@ typedef void (*SchedFn)(SP* sp, u64 val);
 // payload 本地状态 (reload 丢失可重捕)
 static unsigned char g_compBuf[0x1800];
 static volatile LONG g_compArmed = 0;
+static CRITICAL_SECTION g_sendCs;   // v99b: 发送串行化 (防 UP1/UP2 并发重叠)
+static BOOL g_sendCsInit = FALSE;
+static void SendLock(void) { if (!g_sendCsInit) { InitializeCriticalSection(&g_sendCs); g_sendCsInit = TRUE; } EnterCriticalSection(&g_sendCs); }
+static void SendUnlock(void) { LeaveCriticalSection(&g_sendCs); }
 // 配置 (wx_payload.conf: key=value; 缺省=当前账号实测值)
 static char g_stagedDir[600] = "D:/xwechat_files/wxid_yahr9o9txwt722_1cda/temp/RWTemp/2026-09/9e20f478899dc29eb19741386f9343c8";
 static char g_stagedMonth[300] = "2026-09";
@@ -139,7 +146,13 @@ static BOOL CloneSanity(unsigned char* clone, u64 vtExpect, const char* tag) {
 }
 
 // ==== 图片自主发送 ====
+static void ImageFlush(Cmd* a);static void ImageFlushInner(Cmd* a);
 static void ImageFlush(Cmd* a) {
+    SendLock();
+    ImageFlushInner(a);
+    SendUnlock();
+}
+static void ImageFlushInner(Cmd* a) {
     if (!g_mgr2) { LogL("[IMG] not armed"); return; }
     char name[48];
     for (int i = 0; i < 44; i++) name[i] = (char)g_imgTemplate[0x9A0 + i];
@@ -207,6 +220,11 @@ static void ImageFlush(Cmd* a) {
 
 // ==== 自主发送 ====
 static void FactoryFlush(Cmd* a) {
+    SendLock();
+    FactoryFlushInner(a);
+    SendUnlock();
+}
+static void FactoryFlushInner(Cmd* a) {
     unsigned char* clone = (unsigned char*)HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, 0x798);
     if (!clone) { LogL("[CLONE] alloc fail"); return; }
     if (!g_templateObj) { HeapFree(GetProcessHeap(), 0, clone); return; }
@@ -234,6 +252,7 @@ static void __fastcall FlushBodyForCo(void* arg) {
     LogL("[CORO] clone flush done");
 }
 
+static void FactoryFlushInner(Cmd* a);
 static void SpawnAutoFlush(void) {
     CoCreateFn cocreate = (CoCreateFn)(g_base + COCREATE_RVA);
     SchedFn sched = (SchedFn)(g_base + SCHED_RVA);
@@ -434,7 +453,7 @@ static void POnIdle(WxApi* api, u64 retaddr) {
         if (InterlockedExchangeAdd((volatile LONG*)&n, 1) < 5) LogHex("[IDLE] site retaddr=", retaddr);
         return;
     }
-    if (GetTickCount64() - g_up1Tick < 10000) return;
+    if (GetTickCount64() - g_up1Tick < 3000) return;   // v99b: 1.5s 与管线重叠 -> 3s + 发送串行化
     if (InterlockedExchange(g_api->pBusy2, 1)) return;
     LogL("[IDLE] autonomous flush begin");
     SpawnAutoFlush();

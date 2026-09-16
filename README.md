@@ -13,7 +13,7 @@
 - [x] M4.5 **接收捕获 + bot**：AddMsg protobuf 外部轮询（无密钥/无侵入）+ 指令 bot **全指令端到端实测**（/ping /cmd /screenshot）
 - [x] M4.8 **热重载架构 (m4/)**：boot/payload 分离，RELOAD 换代零重启；预检器 + VEH 取证 + SafeRead（崩溃→报错）
 - [ ] M5 图片发送：UP2+暂存覆盖已通，continuation 重放待解（见 docs M4 §40）
-- [ ] M6 AI 接入：自然语言指令 → 工具执行 → 回传
+- [x] M6 **AI 接入**：火山方舟 glm-5.3-flash, 自然语言 → 工具执行(截图) → 回传, 微信对话实测
 
 ## 一期架构（v71b 单体, 已归档至 m3/LEGACY）
 

@@ -7,7 +7,7 @@ WXBOT = os.path.dirname(os.path.abspath(__file__))
 VENV_PY = r'E:\Desktop_fish\ProgramStudy\wechat-decrypt-main\wechat-decrypt-main\.venv\Scripts\python.exe'
 READ_MSG = os.path.join(WXBOT, 'read_msg.py')
 TARGET = 'filehelper'
-POLL = 3
+POLL = 1
 BS = chr(92)
 PIPE = BS*2 + '.' + BS + 'pipe' + BS + 'wxsend'
 
@@ -73,19 +73,38 @@ def screenshot_and_send():
     if not ok:
         print('[IMG] clipboard write fail')
         return False
-    user32.SetForegroundWindow(hwnd)
-    time.sleep(0.6)
+    # 强制前置 + 验证 (最多 3 次); 遮挡没关系, 最小化才不行
+    prev_fg = user32.GetForegroundWindow()
+    if user32.IsIconic(hwnd):                       # 最小化: 先还原 (否则前置必败)
+        user32.ShowWindow(hwnd, 9)                  # SW_RESTORE
+        time.sleep(0.4)
+    fg_ok = False
+    for _ in range(3):
+        user32.SetForegroundWindow(hwnd)
+        time.sleep(0.35)
+        if user32.GetForegroundWindow() == hwnd:
+            fg_ok = True
+            break
+    if not fg_ok:
+        print('[IMG] cannot focus WeChat')
+        return False
     pyautogui.hotkey('ctrl', 'v')
     time.sleep(1.2)
     pyautogui.press('enter')
     time.sleep(0.5)
+    # 清空剪贴板 (防截图残留误贴到其他窗口) + 还原焦点
+    if user32.OpenClipboard(None):
+        user32.EmptyClipboard()
+        user32.CloseClipboard()
+    if prev_fg and prev_fg != hwnd:
+        user32.SetForegroundWindow(prev_fg)
     return True
 
 def handle(text):
     if not text.startswith('/'): return None
     t = text.strip()
     if t == '/ping': return 'pong'
-    if t == '/help': return 'cmds: /screenshot | /cmd <cmd> | /ping | /help'
+    if t == '/help': return 'cmds: /screenshot | /cmd <cmd> | /ping | /help | 其他文字 -> AI'
     if t in ('/screenshot', '/截图'): return '__SCREENSHOT__'
     if t.startswith('/cmd '):
         c = t[5:].strip()
@@ -95,8 +114,33 @@ def handle(text):
         except Exception as e: return 'err:' + str(e)
     return 'unknown: ' + t + ' (/help for cmds)'
 
+# ---- AI 会话 (非 / 消息) ----
+_ai_history = []   # [{'role','content'}]
+AI_ON = True
+
+def ai_reply(text):
+    """非指令消息交给 AI; 返回回复文本"""
+    import ai_brain
+    global _ai_history
+    try:
+        r = ai_brain.chat(text, _ai_history, screenshot_and_send)
+        _ai_history.append({'role': 'user', 'content': text})
+        _ai_history.append({'role': 'assistant', 'content': r})
+        if len(_ai_history) > 40:
+            _ai_history = _ai_history[-20:]
+        return r
+    except Exception as e:
+        return 'AI 异常: ' + str(e)[:200]
+
 RX_FILE = os.path.join(WXBOT, 'received_text.txt')
-_rx_off = 0          # 已消费偏移 (追加协议: 每行 ts|target|content)
+_rx_off = -1         # 已消费偏移; -1 = 启动时跳到文件尾 (不重放积压)
+
+def _rx_init():
+    global _rx_off
+    try:
+        _rx_off = os.path.getsize(RX_FILE)
+    except OSError:
+        _rx_off = 0
 
 def read_new_msgs():
     """读自上次消费以来的新消息 (文件被截断则自动复位)"""
@@ -104,6 +148,9 @@ def read_new_msgs():
     out = []
     try:
         size = os.path.getsize(RX_FILE)
+        if _rx_off < 0:
+            _rx_init()
+            return out
         if size < _rx_off:
             _rx_off = 0
         if size == _rx_off:
@@ -132,6 +179,12 @@ def main():
                 if summary == last_sent:
                     continue  # 回声抑制: bot 自己的回复
                 if not summary.startswith('/'):
+                    if AI_ON:
+                        print('[AI] <- ' + summary[:60])
+                        reply = ai_reply(summary)
+                        last_sent = reply
+                        send_text(TARGET, reply)
+                        print('[AI] -> ' + reply[:60])
                     continue
                 print('\n[CMD] ' + summary[:60])
                 result = handle(summary)
