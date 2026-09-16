@@ -222,6 +222,12 @@ SCHEMAS = [
             'name': {'type': 'string', 'description': '应用名'}},
             'required': ['name']}}},
     {'type': 'function', 'function': {
+        'name': 'send_file',
+        'description': '把用户电脑上的一个文件以微信文件消息发送到用户手机 (原始字节, 支持任意格式)。用户说"把xx发给我/传给我/发到手机"时使用。文件会发到当前微信打开的会话 (请提醒用户保持文件传输助手打开)。',
+        'parameters': {'type': 'object', 'properties': {
+            'path': {'type': 'string', 'description': '文件的完整路径'}},
+            'required': ['path']}}},
+    {'type': 'function', 'function': {
         'name': 'take_screenshot',
         'description': '截取电脑当前屏幕画面并自动发送到用户的微信。当用户想看屏幕、桌面、验证操作结果时调用。',
         'parameters': {'type': 'object', 'properties': {}, 'required': []}}},

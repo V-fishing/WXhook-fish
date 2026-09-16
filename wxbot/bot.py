@@ -29,16 +29,16 @@ def find_wechat_hwnd():
     user32.FindWindowW.restype = wt.HWND
     return user32.FindWindowW(None, '微信')
 
-def screenshot_and_send():
-    import pyautogui
-    import io as _io
+def _win_protos():
+    """64 位原型 (缺失会导致句柄截断 -> AV)"""
     user32 = ctypes.windll.user32
     kernel32 = ctypes.windll.kernel32
-    # 64 位原型 (缺失会导致句柄截断 -> AV)
     user32.SetForegroundWindow.argtypes = [wt.HWND]
     user32.OpenClipboard.argtypes = [wt.HWND]
     user32.SetClipboardData.argtypes = [wt.UINT, wt.HANDLE]
     user32.SetClipboardData.restype = wt.HANDLE
+    user32.GetClipboardData.argtypes = [wt.UINT]
+    user32.GetClipboardData.restype = wt.HANDLE
     kernel32.GlobalAlloc.argtypes = [wt.UINT, ctypes.c_size_t]
     kernel32.GlobalAlloc.restype = wt.HGLOBAL
     kernel32.GlobalLock.argtypes = [wt.HGLOBAL]
@@ -51,6 +51,105 @@ def screenshot_and_send():
     user32.GetWindowThreadProcessId.argtypes = [wt.HWND, ctypes.POINTER(wt.DWORD)]
     user32.AttachThreadInput.argtypes = [wt.DWORD, wt.DWORD, wt.BOOL]
     kernel32.GetCurrentThreadId.restype = wt.DWORD
+
+def _focus_wechat(hwnd):
+    """强制前置 + 验证 (ALT 脉冲 + AttachThreadInput 降级, 3 次重试)"""
+    user32 = ctypes.windll.user32
+    kernel32 = ctypes.windll.kernel32
+    for attempt in range(3):
+        if user32.IsIconic(hwnd):
+            user32.ShowWindow(hwnd, 9)              # SW_RESTORE
+            time.sleep(0.4)
+        user32.keybd_event(0x12, 0, 0, 0)           # ALT down: 解除前台锁
+        user32.keybd_event(0x12, 0, 2, 0)           # ALT up
+        user32.SetForegroundWindow(hwnd)
+        time.sleep(0.35)
+        if user32.GetForegroundWindow() == hwnd:
+            return True
+        fg = user32.GetForegroundWindow()
+        if fg:
+            fg_tid = user32.GetWindowThreadProcessId(fg, None)
+            my_tid = kernel32.GetCurrentThreadId()
+            user32.AttachThreadInput(my_tid, fg_tid, True)
+            user32.SetForegroundWindow(hwnd)
+            user32.AttachThreadInput(my_tid, fg_tid, False)
+            time.sleep(0.3)
+            if user32.GetForegroundWindow() == hwnd:
+                return True
+        time.sleep(0.5)
+    return False
+
+def _clipboard_clear():
+    user32 = ctypes.windll.user32
+    if user32.OpenClipboard(None):
+        user32.EmptyClipboard()
+        user32.CloseClipboard()
+
+def send_file_to_wechat(path):
+    """CF_HDROP 剪贴板 + 粘贴: 把电脑上的文件以文件消息发到微信当前会话 (原始字节)"""
+    _win_protos()
+    user32 = ctypes.windll.user32
+    kernel32 = ctypes.windll.kernel32
+    p = os.path.abspath(os.path.expandvars(os.path.expanduser(path.strip())))
+    if not os.path.isfile(p):
+        print('[FILE] not found:', p)
+        return '文件不存在: ' + p
+    sz = os.path.getsize(p)
+    if sz > 400 * 1024 * 1024:
+        return '文件过大 (>400MB)'
+    hwnd = find_wechat_hwnd()
+    if not hwnd:
+        print('[FILE] WeChat window not found')
+        return '找不到微信窗口'
+    # CF_HDROP: DROPFILES 头 (20B) + 宽字符路径 + 双零结尾
+    class DROPFILES(ctypes.Structure):
+        _fields_ = [('pFiles', wt.DWORD), ('pt', wt.POINT), ('fNC', wt.BOOL), ('fWide', wt.BOOL)]
+    df = DROPFILES(); df.pFiles = 20; df.fWide = True
+    wide = p.encode('utf-16-le') + b'\x00\x00'
+    payload = bytes(df) + wide + b'\x00\x00'
+    CF_HDROP = 15; GMEM_MOVEABLE = 0x0002
+    if not user32.OpenClipboard(None):
+        print('[FILE] clipboard open fail')
+        return '剪贴板被占用'
+    ok = False
+    try:
+        user32.EmptyClipboard()
+        hMem = kernel32.GlobalAlloc(GMEM_MOVEABLE, len(payload))
+        if hMem:
+            ptr = kernel32.GlobalLock(hMem)
+            if ptr:
+                try:
+                    ctypes.memmove(ptr, payload, len(payload))
+                finally:
+                    kernel32.GlobalUnlock(hMem)
+                if user32.SetClipboardData(CF_HDROP, hMem):
+                    ok = True
+    finally:
+        user32.CloseClipboard()
+    if not ok:
+        print('[FILE] clipboard write fail')
+        return '剪贴板写入失败'
+    if not _focus_wechat(hwnd):
+        print('[FILE] cannot focus WeChat')
+        return '无法聚焦微信窗口 (是否最小化?)'
+    import pyautogui
+    pyautogui.hotkey('ctrl', 'v')
+    time.sleep(2.0)      # 文件粘贴后微信显示文件卡片, 稍长等待
+    pyautogui.press('enter')
+    time.sleep(0.5)
+    _clipboard_clear()
+    prev_fg = user32.GetForegroundWindow()
+    if prev_fg and prev_fg != hwnd:
+        pass
+    print('[FILE] sent:', p)
+    return 'OK: ' + os.path.basename(p) + f' ({sz//1024}KB)'
+
+def screenshot_and_send():
+    import pyautogui
+    import io as _io
+    _win_protos()
+    user32 = ctypes.windll.user32
+    kernel32 = ctypes.windll.kernel32
     hwnd = find_wechat_hwnd()
     if not hwnd:
         print('[IMG] WeChat window not found')
@@ -81,32 +180,8 @@ def screenshot_and_send():
     if not ok:
         print('[IMG] clipboard write fail')
         return False
-    # 强制前置 + 验证 (最多 3 次); 遮挡没关系, 最小化才不行
-    prev_fg = user32.GetForegroundWindow()
-    # 前台锁绕过: ALT 脉冲 -> SetForegroundWindow; 失败再 AttachThreadInput
-    fg_ok = False
-    for attempt in range(3):
-        if user32.IsIconic(hwnd):
-            user32.ShowWindow(hwnd, 9)              # SW_RESTORE
-            time.sleep(0.4)
-        user32.keybd_event(0x12, 0, 0, 0)           # ALT down: 解除前台锁
-        user32.keybd_event(0x12, 0, 2, 0)           # ALT up
-        user32.SetForegroundWindow(hwnd)
-        time.sleep(0.35)
-        if user32.GetForegroundWindow() == hwnd:
-            fg_ok = True; break
-        fg = user32.GetForegroundWindow()
-        if fg:
-            fg_tid = user32.GetWindowThreadProcessId(fg, None)
-            my_tid = kernel32.GetCurrentThreadId()
-            user32.AttachThreadInput(my_tid, fg_tid, True)
-            user32.SetForegroundWindow(hwnd)
-            user32.AttachThreadInput(my_tid, fg_tid, False)
-            time.sleep(0.3)
-            if user32.GetForegroundWindow() == hwnd:
-                fg_ok = True; break
-        time.sleep(0.5)
-    if not fg_ok:
+    # 强制前置 + 验证; 遮挡没关系, 最小化才不行
+    if not _focus_wechat(hwnd):
         print('[IMG] cannot focus WeChat')
         return False
     pyautogui.hotkey('ctrl', 'v')
@@ -114,9 +189,8 @@ def screenshot_and_send():
     pyautogui.press('enter')
     time.sleep(0.5)
     # 清空剪贴板 (防截图残留误贴到其他窗口) + 还原焦点
-    if user32.OpenClipboard(None):
-        user32.EmptyClipboard()
-        user32.CloseClipboard()
+    _clipboard_clear()
+    prev_fg = user32.GetForegroundWindow()
     if prev_fg and prev_fg != hwnd:
         user32.SetForegroundWindow(prev_fg)
     return True
@@ -137,6 +211,7 @@ def handle(text):
 
 # ---- AI 会话 (非 / 消息) ----
 tools.register('take_screenshot', screenshot_and_send)
+tools.register('send_file', send_file_to_wechat)
 _ai_history = []   # [{'role','content'}]
 AI_ON = True
 
