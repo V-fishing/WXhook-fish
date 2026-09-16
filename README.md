@@ -4,14 +4,18 @@
 >
 > ⚠️ 仅供个人自动化与协议研究学习使用，请遵守当地法律法规与微信使用条款，勿用于骚扰、批量营销或任何违法用途。
 
-## 里程碑（全部完成）
+## 里程碑
 
 - [x] M1 注入验证：LoadLibrary / 反射注入主进程，微信无感知
 - [x] M2 偏移发现：发送管线测绘（UI → UP2 → UP1 → CORE → CGI）
 - [x] M3 原生发送原语：三段式调用 + flag 参数（0=本地入队，1=CGI 入网）
 - [x] M4 **纯自主发送**：登录瞬间全自动武装 + 队列空闲自主派发，PC/移动端双达
+- [x] M4.5 **接收捕获 + bot**：AddMsg protobuf 外部轮询（无密钥/无侵入）+ 指令 bot（/ping /cmd /screenshot），手机 /ping → 自动回复 pong 实测
+- [x] M4.8 **热重载架构 (m4/)**：boot/payload 分离，RELOAD 换代零重启；预检器 + VEH 取证 + SafeRead（崩溃→报错）
+- [ ] M5 图片发送：UP2+暂存覆盖已通，continuation 重放待解（见 docs M4 §40）
+- [ ] M6 AI 接入：自然语言指令 → 工具执行 → 回传
 
-## 最终架构（v71b）
+## 一期架构（v71b 单体, 已归档至 m3/LEGACY）
 
 ```
 [启动] Weixin.exe → 0.3s 内极速注入 wx_send_v65.dll（抢在自动登录 ~8s 前）
@@ -34,7 +38,19 @@
 钩子清单：UP1（发送捕获/文本改写）、MGRCTOR×2（被动武装）、WAITHOOK（空闲触发）、PUMPHOOK（队列泵观测）、LOGOFF2。
 注意：**CoCreate 页保持零接触**——保护者会对补丁页去执行化（详见 M4 文档 §34）。
 
-## 本仓库文件（自主发送成功链路的最小集）
+## 当前架构（v98, m4/ + wxbot/）
+
+```
+wx_boot.dll   常驻层: 钩子/状态/队列/管道服务 (含 RELOAD 热重载)
+wx_payload.dll 业务层: 消息克隆/预检/冲刷 (可热换代, 状态经 WxApi 读写)
+rx_scan2.py   外部接收: AddMsg protobuf 轮询 (无密钥, 无侵入)
+bot.py        指令 bot: 偏移量消费收件 → /ping /cmd /screenshot → 回复
+driver.py     自动化验证: 注入→武装→发送→三重校验 (5/5 PASS)
+```
+
+迭代循环: 改 payload → 编译 → cp → wx_payload_incoming.dll → reload.py → driver.py （约 30 秒, 零重启）
+
+## 一期仓库文件（自主发送成功链路的最小集）
 
 ```
 hook-wx/
