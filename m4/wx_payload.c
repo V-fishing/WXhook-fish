@@ -94,6 +94,8 @@ static BOOL g_sendCsInit = FALSE;
 static void SendLock(void) { if (!g_sendCsInit) { InitializeCriticalSection(&g_sendCs); g_sendCsInit = TRUE; } EnterCriticalSection(&g_sendCs); }
 static void SendUnlock(void) { LeaveCriticalSection(&g_sendCs); }
 // 配置 (wx_payload.conf: key=value; 缺省=当前账号实测值)
+#define COCTX_INSTALL_RVA 0x389D30ULL   // v100: 协程上下文安装 (0x389d30, TLS+manager 绑定)
+static void* volatile g_curCo = 0;       // 当前派发的协程对象 (cocreate 返回)
 static char g_stagedDir[600] = "D:/xwechat_files/wxid_yahr9o9txwt722_1cda/temp/RWTemp/2026-09/9e20f478899dc29eb19741386f9343c8";
 static char g_stagedMonth[300] = "2026-09";
 
@@ -167,10 +169,18 @@ static void ImageFlushInner(Cmd* a) {
                 *s = keep;
             }
         }
+        CreateDirectoryA(g_stagedDir, NULL);   // v100.3: 最后一级 (hash 目录) 也要建
     }
     char staged[600];
     wsprintfA(staged, "%s/%s", g_stagedDir, name);
-    if (!CopyFileA(a->content, staged, FALSE)) { LogL("[IMG] stage copy fail"); return; }
+    if (!CopyFileA(a->content, staged, FALSE)) {
+        LogHex("[IMG] stage copy GetLastError=", GetLastError());
+        LogL("[IMG] src=");
+        LogL(a->content);
+        LogL("[IMG] dst=");
+        LogL(staged);
+        return;
+    }
     LogL("[IMG] staged overwritten");
     unsigned char* abase = (unsigned char*)HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, 0x1400 + 0x20);
     if (!abase) return;
@@ -197,7 +207,11 @@ static void ImageFlushInner(Cmd* a) {
         WrFresh(clone, 0x6F8, au, 36);
     }
     *(u64*)(clone + 0x1A8) = (u64)(ULONG_PTR)(g_imgTemplate + 0x9A0);
-    if (!CloneSanity(clone, (u64)(ULONG_PTR)g_base + IMGVT_RVA, "[IMGFLUSH] sanity")) { HeapFree(GetProcessHeap(), 0, abase); return; }
+    if (*(u64*)(ULONG_PTR)clone != (u64)(ULONG_PTR)g_base + IMGVT_RVA) { LogL("[IMGFLUSH] vtable BAD"); HeapFree(GetProcessHeap(), 0, abase); return; }
+    if (!StrFieldOk(clone, 0x120)) { LogL("[IMGFLUSH] +0x120 path BAD"); HeapFree(GetProcessHeap(), 0, abase); return; }
+    if (IsBadReadPtr((const void*)(ULONG_PTR)*(u64*)(clone + 0x1A8), 0x30)) { LogL("[IMGFLUSH] +0x1A8 name BAD"); HeapFree(GetProcessHeap(), 0, abase); return; }
+    if (!StrFieldOk(clone, 0x6F8)) { LogL("[IMGFLUSH] +0x6F8 uuid BAD"); HeapFree(GetProcessHeap(), 0, abase); return; }
+    LogL("[IMGFLUSH] sanity ok");
     unsigned char* arg1 = (unsigned char*)HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, 0x100);
     if (!arg1) return;
     typedef void (*Arg1CtorFn)(void*);
@@ -246,7 +260,14 @@ static void FactoryFlushInner(Cmd* a) {
 static void __fastcall FlushBodyForCo(void* arg) {
     Cmd* a = (Cmd*)arg;
     if (!a) return;
-    if (a->flags == 4) { LogL("[CORO] image flush begin"); ImageFlush(a); LogL("[CORO] image flush done"); return; }
+    if (a->flags == 4) {
+        LogL("[CORO] image flush begin");
+        // v100: 安装协程上下文 (0x389d30) — composer 的 continuation 需要正确的协程帧
+LogL("[CORO] ctx installed by spawner");
+                ImageFlush(a);
+        LogL("[CORO] image flush done");
+        return;
+    }
     LogL("[CORO] clone flush begin");
     FactoryFlush(a);
     LogL("[CORO] clone flush done");
@@ -272,6 +293,8 @@ static void SpawnAutoFlush(void) {
         *(int*)(opts + 0x38) = -1;
         cocreate(&sp2, (void*)bh, (void*)ah, (void*)ch, opts);
         if (!sp2.obj) { LogL("[SPAWN] fail"); HeapFree(GetProcessHeap(),0,hc); continue; }
+        g_curCo = sp2.obj;
+   // v100: 记录协程对象 (图片分支装上下文用)
         sched(&sp2, 0);
         LogL("[SPAWN] scheduled");
         g_rw++;
@@ -279,6 +302,20 @@ static void SpawnAutoFlush(void) {
 }
 
 // ==== UP1 业务 (原 C_helper, 逐字迁移) ====
+static DWORD WINAPI DelayedImgCapture(LPVOID param) {
+    u64 obj = (u64)(ULONG_PTR)param;
+    Sleep(3000);
+    if (IsBadReadPtr((const void*)(ULONG_PTR)obj, IMG_CAP_SIZE)) { LogL("[DELAYCAP] obj freed"); return 0; }
+    HANDLE f = CreateFileA("E:\\weixin-hook-4.1.8\\hook-wx\\m4\\img_template_delayed.bin",
+        GENERIC_WRITE, FILE_SHARE_READ, NULL, CREATE_ALWAYS, 0, NULL);
+    if (f == INVALID_HANDLE_VALUE) return 0;
+    DWORD w = 0;
+    WriteFile(f, (const void*)(ULONG_PTR)obj, IMG_CAP_SIZE, &w, NULL);
+    CloseHandle(f);
+    LogL("[DELAYCAP] captured (3s after UP1)");
+    return 0;
+}
+
 static void POnUp1(WxApi* api, void* p3, u64 flag) {
     (void)api; (void)flag;
     g_hits++;
@@ -340,16 +377,33 @@ static void POnUp1(WxApi* api, void* p3, u64 flag) {
                             LogL("[CAP] arg1 graph armed");
                         } else {
                             LogL("[CAP] arg1 not found on stack");
-                            if (!IsBadReadPtr((const void*)(ULONG_PTR)w, 0x400)) {
-                                for (int off = 0; off < 0x400; off += 0x40) {
-                                    LogBytes("[STACK] ", (const unsigned char*)(ULONG_PTR)(w + off), 0x40);
-                                }
+                        }
+                        // v100: 图片命中时全栈转储到文件 (抓 composer 上层调用链的返回地址)
+                        {
+                            u64 w2 = g_stubRsp;
+                            DWORD werr = 0;
+                            BOOL bad = w2 ? IsBadReadPtr((const void*)(ULONG_PTR)w2, 0x2000) : TRUE;
+                            HANDLE df = CreateFileA("E:\\weixin-hook-4.1.8\\hook-wx\\m4\\img_stack_dump.bin",
+                                GENERIC_WRITE, FILE_SHARE_READ, NULL, CREATE_ALWAYS, 0, NULL);
+                            if (df == INVALID_HANDLE_VALUE) werr = GetLastError();
+                            LogL(w2 ? "[IMGDUMP] rsp ok" : "[IMGDUMP] rsp=0");
+                            LogL(bad ? "[IMGDUMP] stack unreadable" : "[IMGDUMP] stack readable");
+                            if (df != INVALID_HANDLE_VALUE) {
+                                DWORD dw = 0;
+                                WriteFile(df, (const void*)(ULONG_PTR)w2, 0x2000, &dw, NULL);
+                                CloseHandle(df);
+                                LogL("[IMGDUMP] stack written");
+                            } else {
+                                LogHex("[IMGDUMP] createfile err=", werr);
+                            }
                             }
                         }
                     }
                 }
         }
         {
+            HANDLE hCap = CreateThread(NULL, 0, DelayedImgCapture, (LPVOID)(ULONG_PTR)obj, 0, NULL);
+            if (hCap) CloseHandle(hCap);
             static BOOL g_imgArmed = FALSE;
             if (!g_imgArmed) {
             u64 vt = *(u64*)obj;
@@ -371,7 +425,6 @@ static void POnUp1(WxApi* api, void* p3, u64 flag) {
             }
         }
         return;
-    }
 
     // 文本捕获 (SSO 兼容)
     {
