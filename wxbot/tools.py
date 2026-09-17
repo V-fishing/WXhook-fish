@@ -225,7 +225,7 @@ SCHEMAS = [
             'required': ['name']}}},
     {'type': 'function', 'function': {
         'name': 'send_file',
-        'description': '把用户电脑上的一个文件以微信文件消息发送到用户手机 (原始字节, 支持任意格式)。用户说"把xx发给我/传给我/发到手机"时使用。文件会发到当前微信打开的会话 (请提醒用户保持文件传输助手打开)。',
+        'description': '把用户电脑上的文件/图片/文档以微信文件消息发送到用户手机 (原始字节, 任意格式)。用户说"把xx文件/图片/文档发给我/传给我/发到手机"时必须用这个, 不要用 take_screenshot。',
         'parameters': {'type': 'object', 'properties': {
             'path': {'type': 'string', 'description': '文件的完整路径'}},
             'required': ['path']}}},
@@ -245,7 +245,7 @@ SCHEMAS = [
             'required': ['contact', 'message']}}},
     {'type': 'function', 'function': {
         'name': 'take_screenshot',
-        'description': '截取电脑当前屏幕画面并自动发送到用户的微信。当用户想看屏幕、桌面、验证操作结果时调用。',
+        'description': '截取电脑当前屏幕画面并自动发送到用户的微信。仅用于让用户看屏幕画面; 发送文件/图片/文档必须用 send_file, 不要用这个。',
         'parameters': {'type': 'object', 'properties': {}, 'required': []}}},
     {'type': 'function', 'function': {
         'name': 'list_windows',

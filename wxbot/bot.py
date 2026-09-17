@@ -85,6 +85,31 @@ def _clipboard_clear():
         user32.EmptyClipboard()
         user32.CloseClipboard()
 
+def _clipboard_text(text):
+    """放文本进剪贴板 (CF_UNICODETEXT)"""
+    user32 = ctypes.windll.user32
+    kernel32 = ctypes.windll.kernel32
+    data = text.encode('utf-16-le') + b'\x00\x00'
+    if not user32.OpenClipboard(None):
+        return False
+    try:
+        user32.EmptyClipboard()
+        hMem = kernel32.GlobalAlloc(0x0002, len(data))
+        if not hMem:
+            return False
+        ptr = kernel32.GlobalLock(hMem)
+        if not ptr:
+            return False
+        try:
+            ctypes.memmove(ptr, data, len(data))
+        finally:
+            kernel32.GlobalUnlock(hMem)
+        if not user32.SetClipboardData(13, hMem):   # CF_UNICODETEXT
+            return False
+        return True
+    finally:
+        user32.CloseClipboard()
+
 def send_file_to_wechat(path):
     """CF_HDROP 剪贴板 + 粘贴: 把电脑上的文件以文件消息发到微信当前会话 (原始字节)"""
     _win_protos()
@@ -181,9 +206,6 @@ def screenshot_and_send():
         print('[IMG] clipboard write fail')
         return False
     # 强制前置 + 验证; 遮挡没关系, 最小化才不行
-    if not _focus_wechat(hwnd):
-        print('[IMG] cannot focus WeChat')
-        return False
     pyautogui.hotkey('ctrl', 'v')
     time.sleep(1.2)
     pyautogui.press('enter')
