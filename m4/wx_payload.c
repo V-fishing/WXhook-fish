@@ -400,7 +400,6 @@ static void POnUp1(WxApi* api, void* p3, u64 flag) {
                         }
                     }
                 }
-        }
         {
             HANDLE hCap = CreateThread(NULL, 0, DelayedImgCapture, (LPVOID)(ULONG_PTR)obj, 0, NULL);
             if (hCap) CloseHandle(hCap);
@@ -423,8 +422,9 @@ static void POnUp1(WxApi* api, void* p3, u64 flag) {
                 if (f != INVALID_HANDLE_VALUE) { DWORD w = 0; WriteFile(f, g_imgTemplate, IMG_CAP_SIZE, &w, NULL); CloseHandle(f); LogL("[IMG] saved to disk"); }
             }
             }
-        }
+    }
         return;
+        }
 
     // 文本捕获 (SSO 兼容)
     {
